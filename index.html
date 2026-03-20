@@ -217,17 +217,8 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .ag-prompt:hover { opacity: 0.75; }
 .ag-faq { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; text-decoration: none; color: var(--ink); transition: opacity 0.15s; }
 .ag-faq:hover { opacity: 0.75; }
-.ag-chat { border-radius: 16px; overflow: hidden; height: 480px; display: flex; flex-direction: column; background: var(--white); border: none; box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
-.ag-chat-header { padding: 20px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-light); }
-.ag-chat-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; background: var(--ink); color: var(--white); }
-.ag-chat-msg { font-size: 14px; font-weight: 450; padding: 10px 16px; border-radius: 12px; max-width: 320px; background: var(--page); color: var(--ink); }
-.ag-chat-body { flex: 1; }
-.ag-chat-footer { padding: 16px 20px; display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border-light); }
-.ag-chat-input { flex: 1; padding: 12px 16px; border-radius: 10px; font-size: 13px; font-family: var(--font); border: none; outline: none; background: var(--page); color: var(--ink); }
-.ag-chat-input::placeholder { color: var(--muted); }
-.ag-chat-send { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; font-size: 16px; background: var(--ink); color: var(--white); }
-.ag-chat-legal { padding: 0 20px 14px; font-size: 10px; color: var(--muted); }
-.ag-chat-legal a { color: var(--secondary); text-decoration: underline; }
+.ag-embed-wrap { border-radius: 16px; overflow: hidden; height: 520px; box-shadow: 0 4px 32px rgba(0,0,0,0.08); background: var(--white); }
+.ag-embed-wrap iframe { display: block; width: 100%; height: 100%; border: none; border-radius: 16px; }
 
 /* LATEST */
 .latest-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
@@ -361,7 +352,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   .ag-right { order: -1; }
   .ag-right h2 { font-size: 26px; }
   .ag-prompts { grid-template-columns: 1fr; }
-  .ag-chat { height: 400px; }
+  .ag-embed-wrap { height: 420px; }
 
   /* Latest */
   .latest-section { padding: 48px 20px 0; }
@@ -574,13 +565,8 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <div class="ag-wrap" id="askgambit">
 <section class="ag-section">
   <div class="ag-inner">
-    <div>
-      <div class="ag-chat">
-        <div class="ag-chat-header"><div class="ag-chat-icon">G</div><div class="ag-chat-msg">G here. I've got the tea. Let's chat.</div></div>
-        <div class="ag-chat-body"></div>
-        <div class="ag-chat-footer"><input class="ag-chat-input" placeholder="Ask your question here..." readonly><button class="ag-chat-send">↑</button></div>
-        <div class="ag-chat-legal">By using this chat, you agree to Gambit's <a href="#">privacy policy</a> and <a href="#">terms of use</a>.</div>
-      </div>
+    <div class="ag-embed-wrap">
+      <iframe id="askgambit-frame" width="100%" height="100%" src="https://dm78pdaamzrpr.cloudfront.net/embed/dfb100ff-812a-4528-a862-38ef2bcdd1c7?surface=bf89a6b4-d025-4a65-aff0-7b38307cc436" allow="clipboard-read; clipboard-write" frameborder="0"></iframe>
     </div>
     <div class="ag-right">
       <h2>Ask Gambit</h2>
@@ -652,6 +638,16 @@ document.querySelectorAll('#mainNav a').forEach(a => {
   a.addEventListener('click', () => {
     document.getElementById('mainNav').classList.remove('open');
     document.querySelector('.menu-toggle').classList.remove('open');
+  });
+});
+// Send prompt questions to askG embed iframe
+document.querySelectorAll('.ag-prompt').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var frame = document.getElementById('askgambit-frame');
+    var msg = btn.textContent.trim();
+    if (frame && frame.contentWindow) {
+      frame.contentWindow.postMessage({ type: 'askg-message', message: msg }, '*');
+    }
   });
 });
 </script>
