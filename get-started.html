@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- PRIMARY SEO -->
+<title>Get Started with GambitCo | Build Your AI Worker</title>
+<meta name="description" content="Tell us what you are trying to build. Gambit builds custom AI workers deployed in weeks, not months. Contact us to get started.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Gambit Technology Inc.">
+<link rel="canonical" href="https://gambitco.io/get-started">
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GambitCo">
+<meta property="og:title" content="Get Started with GambitCo">
+<meta property="og:description" content="Tell us what's not working. We'll show you what can.">
+<meta property="og:url" content="https://gambitco.io/get-started">
+<meta property="og:image" content="https://gambitco.io/og-contact.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Get Started with GambitCo">
+<meta name="twitter:description" content="Tell us what's not working. We'll show you what can.">
+<meta name="twitter:image" content="https://gambitco.io/og-contact.png">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0a0a0a; --ink: #141414; --secondary: #52525b;
+  --muted: #a1a1aa; --border: #e4e4e7; --border-light: #f0f0f2;
+  --page: #fafafa; --white: #ffffff; --working: #16a34a;
+  --font: 'General Sans', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html { font-family: var(--font); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* HEADER */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: var(--white); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
+.logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
+.logo:hover { transform: translateX(6px); }
+.logo img { height: 18px; width: auto; display: block; }
+.footer-logo-img { height: 16px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
+nav { display: flex; align-items: center; gap: 4px; }
+nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: 1px solid var(--border); color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-outline-h:hover { opacity: 0.75; }
+.btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-solid-h:hover { opacity: 0.75; }
+
+/* FORM PAGE */
+.form-page { max-width: 1280px; margin: 0 auto; padding: 120px 32px 80px; flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+.form-intro {}
+.form-intro h1 { font-size: 44px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 16px; }
+.form-intro p { font-size: 17px; color: var(--secondary); line-height: 1.55; max-width: 440px; margin-bottom: 32px; }
+.form-intro-detail { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.form-intro-detail a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+
+/* FORM */
+.form-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px; }
+
+.form-row { margin-bottom: 20px; }
+.form-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+
+.form-label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--ink); }
+.form-label .req { color: var(--muted); font-weight: 400; }
+
+.form-input {
+  width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px;
+  font-size: 14px; font-family: var(--font); color: var(--ink); background: var(--page);
+  transition: border-color 0.15s; outline: none;
+}
+.form-input:focus { border-color: var(--muted); }
+.form-input::placeholder { color: #c4c4c8; }
+
+textarea.form-input { min-height: 120px; resize: vertical; }
+
+.form-submit {
+  display: inline-flex; align-items: center;
+  padding: 12px 28px; border-radius: 100px;
+  background: var(--ink); color: var(--white);
+  font-size: 14px; font-weight: 500; font-family: var(--font);
+  border: none; cursor: pointer; transition: opacity 0.15s;
+  margin-top: 4px;
+}
+.form-submit:hover { opacity: 0.75; }
+
+/* Honeypot */
+.form-hp { display: none; }
+
+/* FOOTER */
+.site-footer { background: var(--black); padding: 40px 32px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.2); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+.footer-legal { display: flex; align-items: center; gap: 8px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.4); }
+.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
+/* ═══ RESPONSIVE ═══ */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
+
+@media (max-width: 1024px) {
+  .header-inner { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 99; }
+  nav.open { display: flex; }
+  nav a { padding: 12px 0; font-size: 16px; }
+  .header-actions { gap: 8px; }
+  .btn-outline-h { display: none; }
+  .header-inner { padding: 0 20px; }
+  .site-footer { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+  .footer-left { flex-direction: column; gap: 6px; }
+  .footer-center { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-right { flex-direction: column; gap: 12px; align-items: center; }
+  .footer-socials { justify-content: center; }
+  .cta-section { padding: 60px 20px; margin-top: 48px; }
+  .cta-inner h2 { font-size: 28px; }
+  .cta-buttons { flex-direction: column; gap: 8px; }
+  .cta-primary, .cta-outline { text-align: center; justify-content: center; }
+}
+@media (max-width: 768px) {
+  .form-page { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 32px; }
+  .form-intro h1 { font-size: 32px; }
+  .form-row-split { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .form-intro h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header><div class="header-inner"><a href="/" class="logo"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+
+<!-- GET STARTED -->
+<main class="form-page">
+  <div class="form-intro">
+    <h1>Get started</h1>
+    <p>Tell us what you're trying to build. We'll figure out what the worker needs to do and get back to you within a day.</p>
+    <div class="form-intro-detail">
+      <p>Or if you'd prefer, just <a href="/#askgambit">ask Gambit</a> directly. our AI worker can answer most questions about what we do and how we work.</p>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <!-- ═══ FORMSPREE: Replace YOUR_FORM_ID with your actual Formspree form ID ═══ -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+      <div class="form-row-split">
+        <div>
+          <label class="form-label">First name <span class="req">*</span></label>
+          <input type="text" name="first_name" class="form-input" placeholder="First name" required>
+        </div>
+        <div>
+          <label class="form-label">Last name <span class="req">*</span></label>
+          <input type="text" name="last_name" class="form-input" placeholder="Last name" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Company <span class="req">*</span></label>
+        <input type="text" name="company" class="form-input" placeholder="Your company" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Email <span class="req">*</span></label>
+        <input type="email" name="email" class="form-input" placeholder="you@company.com" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Project details <span class="req">*</span></label>
+        <textarea name="message" class="form-input" placeholder="What are you looking to build? The more detail, the better." required></textarea>
+      </div>
+
+      <!-- Honeypot spam protection -->
+      <div class="form-hp">
+        <input type="text" name="_gotcha">
+      </div>
+
+      <button type="submit" class="form-submit">Send it →</button>
+
+    </form>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-links"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
+    <div class="footer-legal"><a href="/terms-of-service">Terms of Service</a><span>·</span><a href="/privacy-policy">Privacy Policy</a></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll("#mainNav a").forEach(a=>{a.addEventListener("click",()=>{document.getElementById("mainNav").classList.remove("open");document.querySelector(".menu-toggle").classList.remove("open")})});
+</script>
+</body>
+</html>

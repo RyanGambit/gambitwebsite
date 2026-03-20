@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gambit. Ask Dr. Fleshner – BPH</title>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0a0a0a; --ink: #141414; --secondary: #52525b;
+  --muted: #a1a1aa; --border: #e4e4e7; --border-light: #f0f0f2;
+  --page: #fafafa; --white: #ffffff;
+  --hero-dark: #1e293b;
+  --font: 'General Sans', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html { font-family: var(--font); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* HEADER */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: transparent; border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
+.logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
+.logo:hover { transform: translateX(6px); }
+.logo img { height: 18px; width: auto; display: block; }
+.footer-logo-img { height: 16px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
+nav { display: flex; align-items: center; gap: 4px; }
+nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: none; color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-outline-h:hover { opacity: 0.75; }
+.btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-solid-h:hover { opacity: 0.75; }
+
+/* HERO BANNER */
+.worker-hero {
+  margin-top: 60px;
+  background: var(--hero-dark);
+  padding: 80px 32px 180px;
+  text-align: center;
+}
+.worker-hero h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #fafafa;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* EMBED AREA */
+.worker-embed {
+  flex: 1;
+  max-width: 1080px;
+  margin: -140px auto 0;
+  padding: 0 32px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.embed-container {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  
+}
+
+/* When using an actual iframe */
+.embed-container iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+/* ═══ MOCK CHAT (remove when using real embed) ═══ */
+.mock-chat { display: flex; flex-direction: column; flex: 1; }
+
+.mock-chat-body {
+  flex: 1; padding: 24px; min-height: 460px;
+}
+
+.mock-msg {
+  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;
+}
+
+.mock-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #e2e8f0; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; color: var(--secondary);
+  overflow: hidden;
+}
+
+.mock-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.mock-bubble {
+  background: var(--white); border-radius: 12px;
+  padding: 12px 16px; font-size: 14px; color: var(--ink);
+  line-height: 1.5; max-width: 540px;
+}
+
+.mock-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-light);
+  display: flex; align-items: center; gap: 10px;
+}
+
+.mock-btn {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--ink); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 14px;
+  transition: opacity 0.15s;
+}
+.mock-btn:hover { opacity: 0.75; }
+
+.mock-input {
+  flex: 1; padding: 10px 14px; border-radius: 8px;
+  border: none; font-size: 13px;
+  font-family: var(--font); outline: none; background: transparent;
+  color: var(--ink);
+}
+.mock-input::placeholder { color: var(--muted); }
+
+.mock-send {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--ink); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 14px;
+  transition: opacity 0.15s;
+}
+.mock-send:hover { opacity: 0.75; }
+
+.mock-legal {
+  padding: 8px 20px 14px;
+  font-size: 10px; color: var(--muted);
+  border-top: 1px solid var(--border-light);
+}
+.mock-legal a { color: var(--secondary); text-decoration: underline; }
+
+/* Bottom spacing */
+.worker-spacer { height: 80px; }
+
+/* FOOTER */
+.site-footer { background: var(--black); padding: 40px 32px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.2); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+.footer-legal { display: flex; align-items: center; gap: 8px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.4); }
+.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
+
+/* ═══ USAGE INSTRUCTIONS (hidden comment) ═══
+  
+  TO USE THIS TEMPLATE:
+  
+  1. Change the <title> tag
+  2. Change the h1 text in .worker-hero
+  3. Delete everything inside .embed-container (the mock-chat div)
+  4. Paste your iframe or embed code inside .embed-container
+  
+  Example:
+  <div class="embed-container">
+    <iframe src="https://your-embed-url.com" style="width:100%;height:600px;border:none;"></iframe>
+  </div>
+
+═══ */
+/* ═══ RESPONSIVE ═══ */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
+
+@media (max-width: 1024px) {
+  .header-inner { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 99; }
+  nav.open { display: flex; }
+  nav a { padding: 12px 0; font-size: 16px; }
+  .header-actions { gap: 8px; }
+  .btn-outline-h { display: none; }
+  .header-inner { padding: 0 20px; }
+  .site-footer { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+  .footer-left { flex-direction: column; gap: 6px; }
+  .footer-center { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-right { flex-direction: column; gap: 12px; align-items: center; }
+  .footer-socials { justify-content: center; }
+  .cta-section { padding: 60px 20px; margin-top: 48px; }
+  .cta-inner h2 { font-size: 28px; }
+  .cta-buttons { flex-direction: column; gap: 8px; }
+  .cta-primary, .cta-outline { text-align: center; justify-content: center; }
+}
+@media (max-width: 768px) {
+  .worker-hero { padding: 60px 20px 140px; }
+  .worker-hero h1 { font-size: 28px; }
+  .worker-embed { margin: -100px auto 0; padding: 0 20px; }
+}
+@media (max-width: 480px) {
+  .worker-hero h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header><div class="header-inner"><a href="/" class="logo"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/#latest">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+
+<!-- HERO BANNER. Change the title here -->
+<div class="worker-hero">
+  <h1>Ask Dr. Fleshner – BPH</h1>
+</div>
+
+<!-- EMBED AREA. Replace mock chat with your embed -->
+<div class="worker-embed">
+  <div class="embed-container">
+
+    <!-- ═══ EMBED ═══ -->
+    <iframe
+      src="https://chat.gambitco.io/embed/901018f0-e6ef-4cd4-9bc6-2c0c8d2c150b?surface=60ed261d-5573-4e30-b337-1b99fe323599"
+      width="100%"
+      style="height: 600px; min-height: 400px; border-radius: 16px;"
+      frameborder="0"
+    ></iframe>
+    <!-- ═══ END EMBED ═══ -->
+
+  </div>
+</div>
+
+<div class="worker-spacer"></div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-links"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/#latest">Insights</a><a href="/get-started">Contact</a></div>
+    <div class="footer-legal"><a href="/terms-of-service">Terms of Service</a><span>·</span><a href="/privacy-policy">Privacy Policy</a></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll("#mainNav a").forEach(a=>{a.addEventListener("click",()=>{document.getElementById("mainNav").classList.remove("open");document.querySelector(".menu-toggle").classList.remove("open")})});
+</script>
+</body>
+</html>

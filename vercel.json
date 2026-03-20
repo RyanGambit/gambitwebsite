@@ -1,0 +1,79 @@
+{
+  "rewrites": [
+    {
+      "source": "/case-study/:slug",
+      "destination": "/case-study-:slug.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/#solutions",
+      "destination": "/#work",
+      "permanent": true
+    },
+    {
+      "source": "/#productions",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/#changemakers",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/askellyn-ai-for-shared-lived-experience",
+      "destination": "/case-study/askellyn",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/askashleigh-ai-for-caregiver-support",
+      "destination": "/case-study/askashleigh",
+      "permanent": true
+    },
+    {
+      "source": "/introducing-askellyn-breast-cancer-support",
+      "destination": "/case-study/askellyn",
+      "permanent": false
+    },
+    {
+      "source": "/introducing-askellyn-worlds-first-ai-companion-for-breast-cancer-support",
+      "destination": "/case-study/askellyn",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/og-(.*).png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "trailingSlash": false,
+  "cleanUrls": true
+}

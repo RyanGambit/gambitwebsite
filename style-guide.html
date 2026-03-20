@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gambit. Style Guide</title>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #0a0a0a;
+    --ink: #141414;
+    --surface: #1a1a1e;
+    --secondary: #52525b;
+    --muted: #a1a1aa;
+    --border: #e4e4e7;
+    --border-light: #f0f0f2;
+    --page: #fafafa;
+    --white: #ffffff;
+    --status-working: #16a34a;
+    --status-processing: #2563eb;
+    --status-escalated: #d97706;
+    --status-exception: #dc2626;
+    --font: 'General Sans', sans-serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html { font-family: var(--font); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  body { max-width: 920px; margin: 0 auto; padding: 60px 32px 120px; }
+  .sl { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .section { margin-bottom: 72px; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; }
+
+  /* Traits */
+  .trait-row { display: flex; gap: 12px; margin-bottom: 12px; }
+  .trait { flex: 1; padding: 16px 20px; border-radius: 10px; background: var(--white); border: 1px solid var(--border); }
+  .trait-w { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .trait-d { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+  /* Voice */
+  .vt { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .vt th { text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .vt td { padding: 14px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; line-height: 1.45; }
+  .vt td:first-child { color: var(--muted); font-size: 13px; width: 90px; white-space: nowrap; }
+  .vt .no { color: #c4c4c8; text-decoration: line-through; }
+  .vt .yes { color: var(--ink); }
+
+  /* Workers */
+  .wk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .wk { border: 1px solid var(--border); border-radius: 12px; background: var(--white); padding: 20px; }
+  .wk-status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--status-working); margin-bottom: 10px; }
+  .wk-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--status-working); }
+  .wk-name { font-size: 17px; font-weight: 500; margin-bottom: 2px; }
+  .wk-title { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+  .wk-desc { font-size: 13px; color: var(--secondary); line-height: 1.45; }
+
+  /* Swatches */
+  .sw-row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .sw { flex: 1; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); background: var(--white); }
+  .sw-fill { height: 60px; }
+  .sw-info { padding: 8px 10px; }
+  .sw-n { font-size: 12px; font-weight: 500; color: var(--ink); }
+  .sw-h { font-size: 10px; color: var(--muted); font-family: 'SF Mono', 'Consolas', monospace; }
+
+  /* Color rules */
+  .cr { display: flex; gap: 16px; align-items: flex-start; padding: 20px 24px; border-radius: 12px; background: var(--white); border: 1px solid var(--border); margin-bottom: 12px; }
+  .cr-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .cr h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .cr p { font-size: 13px; color: var(--secondary); line-height: 1.45; }
+
+  /* Type scale */
+  .tr { display: flex; align-items: baseline; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--border-light); }
+  .tr:last-child { border-bottom: none; }
+  .tl { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); min-width: 72px; }
+  .tm { font-size: 11px; color: var(--muted); min-width: 130px; }
+
+  /* Tokens */
+  .tok-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .tok { border: 1px solid var(--border); border-radius: 10px; background: var(--white); padding: 16px; }
+  .tok-l { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .tok-v { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .tok-d { font-size: 12px; color: var(--muted); }
+  .tok-preview { width: 100%; height: 40px; background: var(--border-light); margin-top: 8px; }
+
+  /* Spacing */
+  .space-item { text-align: center; }
+  .space-block { background: var(--ink); border-radius: 4px; margin: 0 auto 8px; width: 48px; }
+  .space-val { font-size: 14px; font-weight: 500; }
+  .space-name { font-size: 11px; color: var(--muted); }
+
+  /* Icons */
+  .icon-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .icon-cell { border: 1px solid var(--border); border-radius: 10px; background: var(--white); padding: 20px 12px; text-align: center; }
+  .icon-cell svg { margin-bottom: 8px; }
+  .icon-cell .ic-label { font-size: 11px; color: var(--muted); }
+
+  /* Components */
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .comp-card { border: 1px solid var(--border); border-radius: 12px; background: var(--white); overflow: hidden; }
+  .comp-preview { padding: 24px; border-bottom: 1px solid var(--border-light); background: var(--page); display: flex; align-items: center; justify-content: center; min-height: 160px; }
+  .comp-info { padding: 16px 20px; }
+  .comp-info h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .comp-info p { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* Motion demos */
+  .mo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .mo-card { border: 1px solid var(--border); border-radius: 12px; background: var(--white); overflow: hidden; }
+  .mo-demo { padding: 28px 24px; border-bottom: 1px solid var(--border-light); background: var(--page); display: flex; align-items: center; justify-content: center; min-height: 100px; }
+  .mo-info { padding: 16px 20px; }
+  .mo-info h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .mo-info p { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .mo-info code { font-size: 11px; background: var(--border-light); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', monospace; color: var(--secondary); }
+  .mo-box { width: 48px; height: 48px; border-radius: 8px; background: var(--ink); }
+
+  .mo-card:hover .fade-in-up { animation: fadeInUp 0.4s var(--ease) forwards; }
+  .mo-card:hover .scale-in { animation: scaleIn 0.2s var(--ease) forwards; }
+  .mo-card:hover .slide-right { animation: slideRight 0.35s var(--ease) forwards; }
+  .stagger-demo { display: flex; gap: 8px; }
+  .stag-item { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); opacity: 0; transform: translateY(8px); }
+  .mo-card:hover .stag-item { animation: fadeInUp 0.4s var(--ease) forwards; }
+  .mo-card:hover .stag-item:nth-child(1) { animation-delay: 0ms; }
+  .mo-card:hover .stag-item:nth-child(2) { animation-delay: 60ms; }
+  .mo-card:hover .stag-item:nth-child(3) { animation-delay: 120ms; }
+  .mo-card:hover .stag-item:nth-child(4) { animation-delay: 180ms; }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+  @keyframes slideRight { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+
+  /* Buttons — 0.75 hover */
+  .btn-solid {
+    display: inline-flex; align-items: center; padding: 10px 22px;
+    border-radius: 100px; background: var(--ink); color: #fff;
+    font-size: 14px; font-weight: 500; font-family: var(--font);
+    text-decoration: none; border: none; cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+  .btn-solid:hover { opacity: 0.75; }
+  .btn-solid:active { transform: scale(0.97); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; padding: 10px 22px;
+    border-radius: 100px; background: transparent;
+    border: 1px solid var(--border); color: var(--secondary);
+    font-size: 14px; font-weight: 500; font-family: var(--font);
+    text-decoration: none; cursor: pointer;
+    transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  }
+  .btn-outline:hover { opacity: 0.75; border-color: #c8c8cc; }
+  .btn-outline:active { transform: scale(0.97); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; padding: 10px 22px;
+    border-radius: 6px; background: transparent; border: none;
+    color: var(--secondary); font-size: 14px; font-weight: 400;
+    font-family: var(--font); text-decoration: none; cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+  .btn-ghost:hover { opacity: 0.75; }
+
+  /* Dark button variants */
+  .btn-solid-inv {
+    display: inline-flex; align-items: center; padding: 10px 22px;
+    border-radius: 100px; background: #fafafa; color: var(--black);
+    font-size: 14px; font-weight: 500; font-family: var(--font);
+    text-decoration: none; border: none; cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+  .btn-solid-inv:hover { opacity: 0.75; }
+  .btn-solid-inv:active { transform: scale(0.97); }
+
+  .btn-outline-inv {
+    display: inline-flex; align-items: center; padding: 10px 22px;
+    border-radius: 100px; background: transparent;
+    border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6);
+    font-size: 14px; font-weight: 500; font-family: var(--font);
+    text-decoration: none; cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+  .btn-outline-inv:hover { opacity: 0.75; }
+
+  .btn-ghost-inv {
+    display: inline-flex; align-items: center; padding: 10px 22px;
+    border-radius: 6px; background: transparent; border: none;
+    color: rgba(255,255,255,0.45); font-size: 14px; font-weight: 400;
+    font-family: var(--font); text-decoration: none; cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+  .btn-ghost-inv:hover { opacity: 0.75; }
+
+  /* Logo hover. nudge right */
+  .logo-mark {
+    font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 20px;
+    letter-spacing: 0.15em; color: var(--ink); display: inline-block;
+    line-height: 1; user-select: none; text-decoration: none;
+    transition: transform 0.3s var(--ease);
+  }
+  .logo-mark:hover { transform: translateX(6px); }
+
+  .logo-mark-light {
+    font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 20px;
+    letter-spacing: 0.15em; color: #fafafa; display: inline-block;
+    line-height: 1; user-select: none; text-decoration: none;
+    transition: transform 0.3s var(--ease);
+  }
+  .logo-mark-light:hover { transform: translateX(6px); }
+
+  /* Dark section */
+  .dark-preview { background: var(--black); border-radius: 16px; padding: 40px 32px; color: #fafafa; font-family: var(--font); }
+  .dark-preview .dp-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px; }
+  .dark-preview .dp-nav { display: flex; gap: 20px; font-size: 13px; color: rgba(255,255,255,0.45); }
+  .dark-preview .dp-actions { display: flex; gap: 8px; }
+  .dark-preview h2 { font-size: 32px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 12px; }
+  .dark-preview .dp-sub { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.55; max-width: 440px; margin-bottom: 28px; }
+  .dark-preview .dp-workers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .dark-preview .dp-worker { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 16px; }
+  .dark-preview .dp-wk-status { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; color: var(--status-working); margin-bottom: 8px; }
+  .dark-preview .dp-wk-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--status-working); }
+  .dark-preview .dp-wk-name { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .dark-preview .dp-wk-title { font-size: 12px; color: rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+
+  <div style="margin-bottom: 48px;">
+    <a href="#" class="logo-mark" style="margin-bottom: 14px;">GAMBIT</a>
+    <h1 style="font-size: 28px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 6px; margin-top: 14px;">Style guide</h1>
+    <p style="font-size: 15px; color: var(--muted);">General Sans · Monochrome · Status-only color · 0.75 hover · Nudge logo</p>
+  </div>
+
+  <!-- 01 POSITIONING -->
+  <div class="section">
+    <div class="sl">01 — Positioning</div>
+    <div class="card" style="padding: 32px; margin-bottom: 20px;">
+      <p style="font-size: 28px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px;">We build functional AI workers.</p>
+      <p style="font-size: 16px; color: var(--secondary); line-height: 1.6; max-width: 540px; margin-bottom: 20px;">Not agents. Not copilots. Not assistants. Workers. with a job title, a scope, a personality, and accountability to an outcome.</p>
+      <p style="font-size: 14px; color: var(--muted); line-height: 1.55; max-width: 540px;">The complexity isn't the AI. It's the choreography. A single interaction might touch five workers in sequence before a human ever sees it. That orchestration is the product.</p>
+    </div>
+    <div class="wk-grid">
+      <div class="wk"><div class="wk-status">Working</div><div class="wk-name">Chloe</div><div class="wk-title">Municipal Concierge · Town of Vail</div><div class="wk-desc">Handles thousands of visitor questions with a distinct personality and strict geographic judgment.</div></div>
+      <div class="wk"><div class="wk-status">Working</div><div class="wk-name">Harlo</div><div class="wk-title">Freight Coordinator</div><div class="wk-desc">Processes load confirmations, validates cube and temperature, flags exceptions, and routes. no human until something breaks.</div></div>
+      <div class="wk"><div class="wk-status">Working</div><div class="wk-name">Demi</div><div class="wk-title">HR Advisor</div><div class="wk-desc">Drafts documents, coaches managers through conversations, routes to the right specialist based on what the employee actually needs.</div></div>
+    </div>
+  </div>
+
+  <!-- 02 PERSONALITY -->
+  <div class="section">
+    <div class="sl">02 — Brand personality</div>
+    <div class="trait-row">
+      <div class="trait"><div class="trait-w">Operational</div><div class="trait-d">We talk like operators, not marketers. Job titles, not features.</div></div>
+      <div class="trait"><div class="trait-w">Concrete</div><div class="trait-d">Every claim lands with a name, a role, a workflow. Nothing abstract.</div></div>
+      <div class="trait"><div class="trait-w">Understated</div><div class="trait-d">The workers speak for themselves. We don't hype what we can show.</div></div>
+    </div>
+    <div class="trait-row">
+      <div class="trait"><div class="trait-w">Precise</div><div class="trait-d">Scope, escalation, handoff. We name the boundaries, not just the capabilities.</div></div>
+      <div class="trait"><div class="trait-w">Warm</div><div class="trait-d">These workers have personalities. The brand does too. human, not corporate.</div></div>
+      <div class="trait"><div class="trait-w">Earned</div><div class="trait-d">Authority from deployed workers, not pitch decks.</div></div>
+    </div>
+  </div>
+
+  <!-- 03 VOICE -->
+  <div class="section">
+    <div class="sl">03 — Voice</div>
+    <p style="font-size: 14px; color: var(--secondary); line-height: 1.55; margin-bottom: 20px; max-width: 540px;">Short sentences. Concrete nouns. No buzzword padding.</p>
+    <div class="card" style="overflow: hidden;">
+      <table class="vt">
+        <thead><tr><th>Context</th><th>Don't</th><th>Do</th></tr></thead>
+        <tbody>
+          <tr><td>Headline</td><td class="no">AI-powered intelligent automation solutions</td><td class="yes">We put AI to work.</td></tr>
+          <tr><td>What we do</td><td class="no">We leverage AI to transform business processes</td><td class="yes">We build AI workers with job titles, scopes, and accountability.</td></tr>
+          <tr><td>Case study</td><td class="no">Our AI solution improved efficiency by 40%</td><td class="yes">Chloe handles 2,000 calls/week for Vail. No queue. No hold music.</td></tr>
+          <tr><td>Differentiator</td><td class="no">Unlike other platforms, we offer end-to-end automation</td><td class="yes">Not agents. Not copilots. Workers. with a scope and an escalation path.</td></tr>
+          <tr><td>Process</td><td class="no">We implement AI across your technology stack</td><td class="yes">Intake, research, drafting, validation, routing. Five workers before a human sees it.</td></tr>
+          <tr><td>CTA</td><td class="no">Schedule a consultation to learn more</td><td class="yes">Ask Gambit</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 04 COLOR -->
+  <div class="section">
+    <div class="sl">04 — Color palette</div>
+    <p style="font-size: 14px; color: var(--secondary); margin-bottom: 6px; line-height: 1.5; font-weight: 500;">Monochrome is the brand. Color is earned.</p>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 24px; line-height: 1.5;">Black and white carry everything. Color only appears when it communicates system state.</p>
+    <p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">Neutrals</p>
+    <div class="sw-row">
+      <div class="sw"><div class="sw-fill" style="background: #0a0a0a;"></div><div class="sw-info"><div class="sw-n">Black</div><div class="sw-h">#0A0A0A</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #141414;"></div><div class="sw-info"><div class="sw-n">Ink</div><div class="sw-h">#141414</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #1a1a1e;"></div><div class="sw-info"><div class="sw-n">Surface</div><div class="sw-h">#1A1A1E</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #52525b;"></div><div class="sw-info"><div class="sw-n">Secondary</div><div class="sw-h">#52525B</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #a1a1aa;"></div><div class="sw-info"><div class="sw-n">Muted</div><div class="sw-h">#A1A1AA</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #e4e4e7;"></div><div class="sw-info"><div class="sw-n">Border</div><div class="sw-h">#E4E4E7</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #fafafa; border-bottom: 1px solid #e4e4e7;"></div><div class="sw-info"><div class="sw-n">Page</div><div class="sw-h">#FAFAFA</div></div></div>
+    </div>
+    <p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 28px 0 10px;">Status colors. system state only</p>
+    <div class="sw-row">
+      <div class="sw"><div class="sw-fill" style="background: #16a34a;"></div><div class="sw-info"><div class="sw-n">Working</div><div class="sw-h">#16A34A</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #2563eb;"></div><div class="sw-info"><div class="sw-n">Processing</div><div class="sw-h">#2563EB</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #d97706;"></div><div class="sw-info"><div class="sw-n">Escalated</div><div class="sw-h">#D97706</div></div></div>
+      <div class="sw"><div class="sw-fill" style="background: #dc2626;"></div><div class="sw-info"><div class="sw-n">Exception</div><div class="sw-h">#DC2626</div></div></div>
+    </div>
+    <p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 28px 0 12px;">When color appears</p>
+    <div class="cr"><div class="cr-icon" style="background: #ecfdf5;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--status-working); display: block;"></span></div><div><h4>Worker status indicators</h4><p>The green dot on a worker card. The amber flag on an escalation. Color because it communicates live system state.</p></div></div>
+    <div class="cr"><div class="cr-icon" style="background: #eff6ff;"><span style="font-size: 14px; color: var(--status-processing);">↑</span></div><div><h4>Metrics and data visualization</h4><p>Charts, KPIs, before/after comparisons. When a number is moving, color shows the direction.</p></div></div>
+    <div class="cr"><div class="cr-icon" style="background: var(--border-light);"><span style="font-size: 14px; color: var(--muted);">×</span></div><div><h4>Everything else: monochrome</h4><p>Headlines, body text, navigation, buttons, cards, backgrounds, dividers. All black, white, and gray.</p></div></div>
+  </div>
+
+  <!-- 05 TYPOGRAPHY -->
+  <div class="section">
+    <div class="sl">05 — Typography</div>
+    <div class="card" style="padding: 24px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px;">
+        <div><p style="font-size: 20px; font-weight: 500;">General Sans</p><p style="font-size: 13px; color: var(--muted);">Fontshare (free) · Warm geometric, slightly humanist</p></div>
+        <p style="font-size: 12px; color: var(--muted);">Weights: 300 · 400 · 500 · 600</p>
+      </div>
+      <p style="font-size: 42px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 12px;">Aa Bb Cc Dd Ee Ff Gg</p>
+      <p style="font-size: 42px; font-weight: 300; letter-spacing: -0.03em; line-height: 1.05; color: var(--muted);">0123456789 &amp; →</p>
+    </div>
+    <div class="sl" style="margin-top: 32px;">Type scale</div>
+    <div>
+      <div class="tr"><div class="tl">Display</div><div class="tm">48px · 500 · -0.03em</div><div style="font-size: 48px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.05;">We put AI to work.</div></div>
+      <div class="tr"><div class="tl">H1</div><div class="tm">36px · 500 · -0.025em</div><div style="font-size: 36px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1;">Meet your new workforce</div></div>
+      <div class="tr"><div class="tl">H2</div><div class="tm">24px · 500 · -0.02em</div><div style="font-size: 24px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2;">Real jobs. Real workflows.</div></div>
+      <div class="tr"><div class="tl">H3</div><div class="tm">18px · 500 · -0.01em</div><div style="font-size: 18px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.3;">Freight Coordinator · Harlo</div></div>
+      <div class="tr"><div class="tl">Body</div><div class="tm">16px · 400</div><div style="font-size: 16px; font-weight: 400; line-height: 1.55; color: var(--secondary);">A single interaction might touch five workers in sequence. intake, research, drafting, validation, routing. before a human ever sees it.</div></div>
+      <div class="tr"><div class="tl">Small</div><div class="tm">14px · 400</div><div style="font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--muted);">Workers · Work · About · Insights</div></div>
+      <div class="tr"><div class="tl">Caption</div><div class="tm">12px · 500</div><div style="font-size: 12px; font-weight: 500; line-height: 1.4; color: var(--muted); letter-spacing: 0.02em;">TOWN OF VAIL · MUNICIPAL CONCIERGE · CHLOE</div></div>
+    </div>
+  </div>
+
+  <!-- 06 SPACING -->
+  <div class="section">
+    <div class="sl">06 — Spacing system</div>
+    <p style="font-size: 14px; color: var(--secondary); margin-bottom: 6px; font-weight: 500;">Base unit: 4px. Everything scales in multiples.</p>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 28px;">Generous whitespace does the work that color would do elsewhere.</p>
+    <div style="display: flex; align-items: flex-end; gap: 20px; padding: 32px 24px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px;">
+      <div class="space-item"><div class="space-block" style="height: 4px;"></div><div class="space-val">4</div><div class="space-name">4xs</div></div>
+      <div class="space-item"><div class="space-block" style="height: 8px;"></div><div class="space-val">8</div><div class="space-name">3xs</div></div>
+      <div class="space-item"><div class="space-block" style="height: 12px;"></div><div class="space-val">12</div><div class="space-name">2xs</div></div>
+      <div class="space-item"><div class="space-block" style="height: 16px;"></div><div class="space-val">16</div><div class="space-name">xs</div></div>
+      <div class="space-item"><div class="space-block" style="height: 20px;"></div><div class="space-val">20</div><div class="space-name">sm</div></div>
+      <div class="space-item"><div class="space-block" style="height: 24px;"></div><div class="space-val">24</div><div class="space-name">md</div></div>
+      <div class="space-item"><div class="space-block" style="height: 32px;"></div><div class="space-val">32</div><div class="space-name">lg</div></div>
+      <div class="space-item"><div class="space-block" style="height: 48px;"></div><div class="space-val">48</div><div class="space-name">xl</div></div>
+      <div class="space-item"><div class="space-block" style="height: 64px;"></div><div class="space-val">64</div><div class="space-name">2xl</div></div>
+      <div class="space-item"><div class="space-block" style="height: 80px;"></div><div class="space-val">80</div><div class="space-name">3xl</div></div>
+      <div class="space-item"><div class="space-block" style="height: 120px;"></div><div class="space-val">120</div><div class="space-name">4xl</div></div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="card" style="padding: 20px;"><p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;">Micro</p><div style="font-size: 13px; line-height: 2; color: var(--secondary);"><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">4px</span> Icon to label</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">8px</span> Tight inline groups</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">12px</span> Card gaps, button groups</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">16px</span> Card padding (compact)</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">20px</span> Card padding (standard)</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">24px</span> Section internal padding</div></div></div>
+      <div class="card" style="padding: 20px;"><p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;">Macro</p><div style="font-size: 13px; line-height: 2; color: var(--secondary);"><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">32px</span> Page horizontal padding</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">48px</span> Between grouped components</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">64px</span> Between sections</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">80px</span> Section top/bottom</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">120px</span> Hero top padding</div><div><span style="color: var(--muted); display: inline-block; min-width: 50px;">1200px</span> Max content width</div></div></div>
+    </div>
+  </div>
+
+  <!-- 07 ICONS -->
+  <div class="section">
+    <div class="sl">07 — Icon style</div>
+    <p style="font-size: 14px; color: var(--secondary); margin-bottom: 6px; font-weight: 500;">Lucide Icons — 1.5px stroke, round caps, 24px default.</p>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 24px;">Thin line icons matching General Sans 400 weight. Never filled. Always Ink or Muted.</p>
+    <div class="icon-grid">
+      <div class="icon-cell"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg><div class="ic-label">Arrow up</div></div>
+      <div class="icon-cell"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg><div class="ic-label">User add</div></div>
+      <div class="icon-cell"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg><div class="ic-label">Shield</div></div>
+      <div class="icon-cell"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div class="ic-label">Clock</div></div>
+      <div class="icon-cell"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><div class="ic-label">Activity</div></div>
+      <div class="icon-cell"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div class="ic-label">Check</div></div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 16px;">
+      <div class="card" style="padding: 16px;"><p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">Stroke</p><p style="font-size: 14px; font-weight: 500;">1.5px</p></div>
+      <div class="card" style="padding: 16px;"><p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">Size</p><p style="font-size: 14px; font-weight: 500;">24 / 20 / 16px</p></div>
+      <div class="card" style="padding: 16px;"><p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">Color</p><p style="font-size: 14px; font-weight: 500;">Ink or Muted only</p></div>
+    </div>
+  </div>
+
+  <!-- 08 RADIUS -->
+  <div class="section">
+    <div class="sl">08 — Border radius</div>
+    <div class="tok-grid">
+      <div class="tok"><div class="tok-l">sm</div><div class="tok-v">6px</div><div class="tok-d">Nav, tags</div><div class="tok-preview" style="border-radius: 6px;"></div></div>
+      <div class="tok"><div class="tok-l">md</div><div class="tok-v">10px</div><div class="tok-d">Inputs, small cards</div><div class="tok-preview" style="border-radius: 10px;"></div></div>
+      <div class="tok"><div class="tok-l">lg</div><div class="tok-v">16px</div><div class="tok-d">Cards, sections</div><div class="tok-preview" style="border-radius: 16px;"></div></div>
+      <div class="tok"><div class="tok-l">pill</div><div class="tok-v">100px</div><div class="tok-d">Buttons, badges</div><div class="tok-preview" style="border-radius: 100px;"></div></div>
+    </div>
+  </div>
+
+  <!-- 09 BUTTONS -->
+  <div class="section">
+    <div class="sl">09 — Buttons. hover opacity: 0.75</div>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 20px;">All interactive elements drop to 75% opacity on hover. Active state: scale(0.97).</p>
+    <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 28px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px;">
+      <a href="#" class="btn-solid">Ask Gambit</a>
+      <a href="#" class="btn-outline">Contact</a>
+      <a href="#" class="btn-ghost">Meet the workers →</a>
+    </div>
+    <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 28px; background: var(--black); border-radius: 12px;">
+      <a href="#" class="btn-solid-inv">Ask Gambit</a>
+      <a href="#" class="btn-outline-inv">Contact</a>
+      <a href="#" class="btn-ghost-inv">Meet the workers →</a>
+    </div>
+  </div>
+
+  <!-- 10 LOGO HOVER -->
+  <div class="section">
+    <div class="sl">10 — Logo hover. nudge right</div>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 20px;">Logo translates 6px right on hover. 300ms, ease-out. A subtle "go" gesture.</p>
+    <div style="display: flex; gap: 32px; align-items: center;">
+      <div style="padding: 28px 32px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; flex: 1; text-align: center;">
+        <p style="font-size: 11px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Light. hover me</p>
+        <a href="#" class="logo-mark" style="font-size: 24px;">GAMBIT</a>
+      </div>
+      <div style="padding: 28px 32px; background: var(--black); border-radius: 12px; flex: 1; text-align: center;">
+        <p style="font-size: 11px; color: rgba(255,255,255,0.35); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Dark. hover me</p>
+        <a href="#" class="logo-mark-light" style="font-size: 24px;">GAMBIT</a>
+      </div>
+    </div>
+    <div class="card" style="padding: 20px; margin-top: 16px;">
+      <p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">CSS</p>
+      <code style="font-size: 13px; font-family: 'SF Mono', monospace; color: var(--secondary); line-height: 1.8; display: block;">
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);<br>
+        &amp;:hover { transform: translateX(6px); }
+      </code>
+    </div>
+  </div>
+
+  <!-- 11 COMPONENTS -->
+  <div class="section">
+    <div class="sl">11 — Component patterns</div>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 24px;">White bg, 1px border, 12px radius, generous padding. No shadows. No gradients.</p>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-preview"><div style="width: 100%; border: 1px solid var(--border); border-radius: 12px; background: var(--white); padding: 20px;"><div class="wk-status" style="margin-bottom: 8px;">Working</div><div style="font-size: 17px; font-weight: 500; margin-bottom: 2px;">Chloe</div><div style="font-size: 13px; color: var(--muted);">Municipal Concierge</div></div></div>
+        <div class="comp-info"><h4>Worker card</h4><p>Status dot, name, title. Status dot is the only color.</p></div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-preview"><div style="width: 100%;"><label style="font-size: 13px; font-weight: 500; color: var(--secondary); display: block; margin-bottom: 6px;">Company name</label><div style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--white); font-size: 14px; color: var(--muted);">Acme Corp</div></div></div>
+        <div class="comp-info"><h4>Text input</h4><p>1px border, 10px radius. Focus state: border to Ink.</p></div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-preview"><div style="width: 100%; padding: 20px; border-radius: 10px; background: var(--white); border: 1px solid var(--border);"><div style="font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 6px;">Calls handled this week</div><div style="display: flex; align-items: baseline; gap: 8px;"><span style="font-size: 32px; font-weight: 500; letter-spacing: -0.02em;">2,847</span><span style="font-size: 13px; font-weight: 500; color: var(--status-working);">↑ 12%</span></div></div></div>
+        <div class="comp-info"><h4>Metric card</h4><p>Muted label, large number, directional indicator in status green.</p></div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-preview"><div style="display: flex; gap: 8px; flex-wrap: wrap;"><span style="display: inline-flex; padding: 4px 12px; border-radius: 100px; background: var(--border-light); font-size: 12px; font-weight: 500; color: var(--secondary);">Freight</span><span style="display: inline-flex; padding: 4px 12px; border-radius: 100px; background: var(--border-light); font-size: 12px; font-weight: 500; color: var(--secondary);">Municipal</span><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 100px; background: #ecfdf5; font-size: 12px; font-weight: 500; color: var(--status-working);"><span style="width: 5px; height: 5px; border-radius: 50%; background: var(--status-working); display: inline-block;"></span>Live</span></div></div>
+        <div class="comp-info"><h4>Tags &amp; badges</h4><p>Pill shape. Neutral in border-light bg. Status badges earn color.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 MOTION -->
+  <div class="section">
+    <div class="sl">12 — Motion</div>
+    <p style="font-size: 14px; color: var(--secondary); margin-bottom: 6px; font-weight: 500;">Purposeful, not decorative. Motion reveals content, not personality.</p>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 24px;">One easing curve. Short durations. Elements arrive and settle.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+      <div class="card" style="padding: 16px;"><p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">Easing</p><p style="font-size: 13px; font-weight: 500;">cubic-bezier(0.16, 1, 0.3, 1)</p></div>
+      <div class="card" style="padding: 16px;"><p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">Duration</p><p style="font-size: 13px; font-weight: 500;">150ms hover · 300ms enter · 400ms page</p></div>
+      <div class="card" style="padding: 16px;"><p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;">Hover</p><p style="font-size: 13px; font-weight: 500;">opacity: 0.75 · 150ms ease</p></div>
+    </div>
+    <p style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;">Hover to trigger</p>
+    <div class="mo-grid">
+      <div class="mo-card"><div class="mo-demo"><div class="mo-box fade-in-up" style="opacity: 0; transform: translateY(12px);"></div></div><div class="mo-info"><h4>Fade in up</h4><p>Default entrance. 12px travel, 400ms.</p><p style="margin-top: 4px;"><code>translateY(12px) → 0</code></p></div></div>
+      <div class="mo-card"><div class="mo-demo"><div class="mo-box scale-in" style="opacity: 0; transform: scale(0.92);"></div></div><div class="mo-info"><h4>Scale in</h4><p>Modals, tooltips. 200ms.</p><p style="margin-top: 4px;"><code>scale(0.92) → 1</code></p></div></div>
+      <div class="mo-card"><div class="mo-demo"><div class="mo-box slide-right" style="opacity: 0; transform: translateX(-16px);"></div></div><div class="mo-info"><h4>Slide in</h4><p>Panels, drawers. 350ms.</p><p style="margin-top: 4px;"><code>translateX(-16px) → 0</code></p></div></div>
+      <div class="mo-card"><div class="mo-demo"><div class="stagger-demo"><div class="stag-item"></div><div class="stag-item"></div><div class="stag-item"></div><div class="stag-item"></div></div></div><div class="mo-info"><h4>Stagger</h4><p>Worker grids, lists. 60ms between siblings.</p><p style="margin-top: 4px;"><code>delay: n × 60ms</code></p></div></div>
+    </div>
+    <div class="cr" style="margin-top: 20px;"><div class="cr-icon" style="background: var(--border-light);"><span style="font-size: 14px; color: var(--muted);">×</span></div><div><h4>Never</h4><p>No bounce. No elastic. No parallax. No auto-play. No color transitions on hover. No spinning loaders.</p></div></div>
+  </div>
+
+  <!-- 13 DARK SECTION -->
+  <div class="section">
+    <div class="sl">13 — Dark section (rhythm)</div>
+    <p style="font-size: 14px; color: var(--muted); margin-bottom: 20px;">Flipping to black creates rhythm without color. Same scale, inverted.</p>
+    <div class="dark-preview">
+      <div class="dp-header">
+        <a href="#" class="logo-mark-light" style="font-size: 16px;">GAMBIT</a>
+        <div class="dp-nav"><span>Workers</span><span>Work</span><span>About</span><span>Insights</span></div>
+        <div class="dp-actions"><a href="#" class="btn-outline-inv" style="padding: 6px 14px; font-size: 12px;">Contact</a><a href="#" class="btn-solid-inv" style="padding: 6px 16px; font-size: 12px;">Ask Gambit</a></div>
+      </div>
+      <h2>We put AI to work.</h2>
+      <p class="dp-sub">Real jobs, real workflows, real outcomes. Five workers in sequence before a human ever sees it.</p>
+      <div class="dp-workers">
+        <div class="dp-worker"><div class="dp-wk-status">Working</div><div class="dp-wk-name">Chloe</div><div class="dp-wk-title">Municipal Concierge</div></div>
+        <div class="dp-worker"><div class="dp-wk-status">Working</div><div class="dp-wk-name">Harlo</div><div class="dp-wk-title">Freight Coordinator</div></div>
+        <div class="dp-worker"><div class="dp-wk-status">Working</div><div class="dp-wk-name">Demi</div><div class="dp-wk-title">HR Advisor</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 SUMMARY -->
+  <div class="section">
+    <div class="sl">14 — Summary</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+      <div class="card" style="padding: 20px;"><p style="font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Font</p><p style="font-size: 16px; font-weight: 500;">General Sans</p><p style="font-size: 12px; color: var(--muted);">Fontshare · Free · 300–600</p></div>
+      <div class="card" style="padding: 20px;"><p style="font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Palette</p><p style="font-size: 16px; font-weight: 500;">Monochrome + status</p><p style="font-size: 12px; color: var(--muted);">7 neutrals · 4 status colors</p></div>
+      <div class="card" style="padding: 20px;"><p style="font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Icons</p><p style="font-size: 16px; font-weight: 500;">Lucide · 1.5px</p><p style="font-size: 12px; color: var(--muted);">24/20/16px · Outline only</p></div>
+      <div class="card" style="padding: 20px;"><p style="font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Hover</p><p style="font-size: 16px; font-weight: 500;">opacity: 0.75</p><p style="font-size: 12px; color: var(--muted);">150ms ease · active: scale(0.97)</p></div>
+      <div class="card" style="padding: 20px;"><p style="font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Logo hover</p><p style="font-size: 16px; font-weight: 500;">Nudge right 6px</p><p style="font-size: 12px; color: var(--muted);">300ms · cubic-bezier(0.16, 1, 0.3, 1)</p></div>
+      <div class="card" style="padding: 20px;"><p style="font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;">Motion</p><p style="font-size: 16px; font-weight: 500;">One curve · Max 500ms</p><p style="font-size: 12px; color: var(--muted);">No bounce · No elastic · No parallax</p></div>
+    </div>
+  </div>
+
+</body>
+</html>

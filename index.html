@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- PRIMARY SEO -->
+<title>GambitCo | We Put AI to Work | AI Workers for Business</title>
+<meta name="description" content="Gambit builds custom AI workers that solve your toughest business problems. From healthcare to logistics, our AI workers handle complex operations 24/7 across web, SMS, voice, and phone. 15+ workers deployed, 100+ countries, 100k+ conversations.">
+<meta name="keywords" content="GambitCo, Gambit, AI workers, artificial intelligence, AI for business, custom AI, AI agents, conversational AI, AI operations, enterprise AI, AI deployment, AI automation, AskEllyn, AskTodd, Harlo, AI healthcare, AI logistics, AI legal">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Gambit Technology Inc.">
+<link rel="canonical" href="https://gambitco.io/">
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GambitCo">
+<meta property="og:title" content="GambitCo | We Put AI to Work">
+<meta property="og:description" content="AI workers that solve your toughest problems, freeing your team to focus on what's next. Custom-built, deployed across web, SMS, voice, and phone. 15+ workers live across healthcare, government, logistics, legal, and more.">
+<meta property="og:url" content="https://gambitco.io/">
+<meta property="og:image" content="https://gambitco.io/og-homepage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GambitCo - We put AI to work.">
+<meta property="og:locale" content="en_US">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GambitCo | We Put AI to Work">
+<meta name="twitter:description" content="AI workers that solve your toughest problems, freeing your team to focus on what's next. 15+ workers deployed across healthcare, government, logistics, legal, and more.">
+<meta name="twitter:image" content="https://gambitco.io/og-homepage.png">
+<meta name="twitter:image:alt" content="GambitCo - We put AI to work.">
+
+<!-- STRUCTURED DATA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Gambit Technology Inc.",
+  "alternateName": ["GambitCo", "Gambit", "Gambit Technologies"],
+  "url": "https://gambitco.io",
+  "logo": "https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png",
+  "description": "Gambit builds custom AI workers that solve complex business problems across healthcare, government, logistics, legal, entertainment, and more.",
+  "foundingDate": "2023",
+  "sameAs": [
+    "https://www.linkedin.com/company/gambit-co/",
+    "https://www.instagram.com/gambitco"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "AI@gambitco.io",
+    "contactType": "sales"
+  },
+  "knowsAbout": ["Artificial Intelligence", "AI Workers", "Conversational AI", "Enterprise AI", "AI Deployment", "AI Automation"],
+  "member": [
+    {"@type": "Person", "name": "Patrick Belliveau", "jobTitle": "CEO"},
+    {"@type": "Person", "name": "Chris Silivestru", "jobTitle": "CTO"},
+    {"@type": "Person", "name": "Ryan Burgio", "jobTitle": "Creative Director"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GambitCo",
+  "alternateName": "Gambit",
+  "url": "https://gambitco.io"
+}
+</script>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0a0a0a; --ink: #141414; --surface: #1a1a1e; --secondary: #52525b;
+  --muted: #a1a1aa; --border: #e4e4e7; --border-light: #f0f0f2;
+  --page: #fafafa; --white: #ffffff; --working: #16a34a;
+  --font: 'General Sans', sans-serif; --mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html { scroll-behavior: smooth; scroll-padding-top: 80px; font-family: var(--font); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+body { min-height: 100vh; }
+
+/* HEADER */
+header { position: fixed;  top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: var(--white); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
+.logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
+.logo:hover { transform: translateX(6px); }
+.logo img { height: 18px; width: auto; display: block; }
+.footer-logo-img { height: 16px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
+nav { display: flex; align-items: center; gap: 4px; }
+nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: 1px solid var(--border); color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-outline-h:hover { opacity: 0.75; }
+.btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-solid-h:hover { opacity: 0.75; }
+
+/* HERO */
+.hero { position: relative; min-height: 640px; overflow: hidden; background: var(--black); margin-top: 60px; }
+.hero-photo { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80') center/cover no-repeat; }
+.hero-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.65) 45%, rgba(10,10,10,0.25) 100%); }
+.hero-content { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 100px 32px 48px; }
+.hero-content h1 { font-size: clamp(38px, 5vw, 56px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; color: #fafafa; margin-bottom: 16px; max-width: 580px; }
+.hero-sub { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.55; max-width: 440px; margin-bottom: 32px; }
+.hero-cta { display: flex; gap: 10px; margin-bottom: 56px; }
+.hero-btn-primary { padding: 12px 28px; border-radius: 100px; background: #fafafa; color: var(--black); font-size: 14px; font-weight: 500; border: none; font-family: var(--font); cursor: pointer; text-decoration: none; transition: opacity 0.15s, transform 0.1s; }
+.hero-btn-primary:hover { opacity: 0.75; }
+.hero-btn-ghost { padding: 12px 28px; border-radius: 100px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; font-family: var(--font); cursor: pointer; text-decoration: none; transition: opacity 0.15s, transform 0.1s; }
+.hero-btn-ghost:hover { opacity: 0.75; }
+.glass-strip { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.glass-strip-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
+.glass-card { padding: 24px 28px; background: rgba(255,255,255,0.03); }
+.gc-status { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; color: var(--working); margin-bottom: 12px; }
+.gc-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--working); }
+.gc-name { font-size: 16px; font-weight: 500; color: #fafafa; margin-bottom: 2px; }
+.gc-title { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+.gc-num { font-size: 28px; font-weight: 500; color: #fafafa; letter-spacing: -0.02em; }
+.gc-label { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+.hero-pad { height: 48px; }
+
+/* MANIFESTO */
+.manifesto-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
+.manifesto { border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1.2fr 1fr; min-height: 420px; }
+.mf-left { background: var(--white); padding: 44px 48px; display: flex; flex-direction: column; justify-content: center; border: 1px solid var(--border); border-radius: 0 16px 16px 0; order: 2; }
+.mf-left h2 { font-size: 30px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 14px; }
+.mf-left p { font-size: 15px; color: var(--secondary); line-height: 1.6; max-width: 380px; }
+.mf-right { background: #c9c2b8; padding: 32px 32px 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; position: relative; overflow: hidden; border-radius: 16px 0 0 16px; order: 1; }
+.mf-right::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 32px, rgba(0,0,0,0.018) 32px, rgba(0,0,0,0.018) 33px); }
+.app-window { position: relative; z-index: 2; width: 100%; max-width: 440px; background: var(--ink); border-radius: 12px 12px 0 0; overflow: hidden; box-shadow: 0 -4px 40px rgba(0,0,0,0.15); }
+.app-titlebar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.app-dot { width: 9px; height: 9px; border-radius: 50%; }
+.app-dot-r { background: #ff5f57; } .app-dot-y { background: #febc2e; } .app-dot-g { background: #28c840; }
+.app-titlebar-text { margin-left: auto; font-size: 11px; color: rgba(255,255,255,0.25); font-family: var(--mono); }
+.app-body { padding: 18px 20px; }
+.w-identity { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.w-avatar { width: 32px; height: 32px; border-radius: 7px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); }
+.w-name { font-size: 14px; font-weight: 500; color: #fafafa; }
+.w-role { font-size: 12px; color: rgba(255,255,255,0.3); }
+.w-status-pill { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 100px; background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.15); font-size: 11px; font-weight: 500; color: var(--working); }
+.w-status-pill::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--working); }
+.w-log { display: flex; flex-direction: column; gap: 2px; }
+.w-log-entry { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; }
+.w-log-time { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.2); min-width: 48px; padding-top: 2px; }
+.w-log-icon { width: 16px; height: 16px; border-radius: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 9px; }
+.w-log-text { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+.w-log-text strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+.w-log-divider { height: 1px; background: rgba(255,255,255,0.04); margin: 2px 0 2px 56px; }
+.w-result { margin-top: 10px; padding: 12px 14px; border-radius: 8px; background: rgba(22,163,74,0.06); border: 1px solid rgba(22,163,74,0.12); }
+.w-result-label { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(22,163,74,0.5); margin-bottom: 6px; }
+.w-result p { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.45; font-style: italic; }
+.w-result-meta { display: flex; gap: 16px; margin-top: 8px; font-size: 10px; color: rgba(255,255,255,0.25); font-family: var(--mono); }
+
+/* BENEFITS */
+.benefits-wrap { padding: 80px 0; }
+.benefits-section { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.benefits-header { margin-bottom: 40px; }
+.benefits-header h2 { font-size: 30px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 8px; }
+.benefits-header p { font-size: 15px; color: var(--secondary); }
+.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: 14px; overflow: hidden; }
+.benefit-card { padding: 32px 28px; background: var(--white); }
+.benefit-icon { width: 36px; height: 36px; border-radius: 8px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.benefit-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+.benefit-card p { font-size: 13px; color: var(--muted); line-height: 1.45; }
+
+/* INDUSTRY TOGGLE */
+.industry-wrap { background: #f5f5f3; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 0; margin-top: 80px; }
+.industry-section { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.ind-header { margin-bottom: 32px; }
+.ind-header h2 { font-size: 30px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 10px; }
+.ind-header p { font-size: 15px; color: var(--secondary); max-width: 500px; }
+.ind-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); }
+.ind-tab { padding: 12px 20px; font-size: 14px; font-weight: 450; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--font); white-space: nowrap; }
+.ind-tab:hover { color: var(--secondary); }
+.ind-tab.active { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
+.ind-panel { display: none; }
+.ind-panel.active { display: grid; }
+.ind-panel { grid-template-columns: 1.1fr 1fr; min-height: 360px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 16px 16px; overflow: hidden; background: var(--white); }
+.ind-left { padding: 36px 40px; display: flex; flex-direction: column; justify-content: center; }
+.ind-left h3 { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; }
+.ind-left .ind-desc { font-size: 14px; color: var(--secondary); line-height: 1.5; margin-bottom: 24px; }
+.ind-wr { display: flex; align-items: center; gap: 12px; padding: 10px 8px; margin: 0 -8px; border-bottom: 1px solid var(--border-light); border-radius: 8px; cursor: pointer; transition: background 0.15s; }
+.ind-wr:last-child { border-bottom: none; }
+.ind-wr:hover { background: rgba(0,0,0,0.02); }
+.ind-wr.active { background: rgba(0,0,0,0.03); }
+.ind-wr-av { width: 28px; height: 28px; border-radius: 6px; background: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: var(--white); flex-shrink: 0; }
+.ind-wr-name { font-size: 13px; font-weight: 500; }
+.ind-wr-role { font-size: 12px; color: var(--muted); }
+.ind-wr-client { margin-left: auto; font-size: 11px; color: var(--muted); }
+.ind-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--working); display: inline-block; margin-right: 4px; }
+.ind-dot.upcoming { background: var(--muted); }
+.ind-right { position: relative; overflow: hidden; background: var(--black); display: none; flex-direction: column; }
+.ind-right.active { display: flex; }
+.ind-photo { position: absolute; inset: 0; background-size: cover; background-position: center top; }
+.ind-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); }
+.ind-brand { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }
+.ind-brand .ib-ask { font-size: 16px; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); display: block; margin-bottom: 4px; }
+.ind-brand .ib-name { font-size: 42px; font-weight: 500; letter-spacing: -0.02em; color: #ffffff; line-height: 1; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+.ind-brand .ib-tag { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 8px; text-align: center; }
+.ind-cta { display: inline-flex; align-items: center; padding: 10px 22px; border-radius: 100px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 500; font-family: var(--font); text-decoration: none; transition: background 0.15s; margin-top: 14px; cursor: pointer; }
+.ind-cta:hover { background: rgba(255,255,255,0.18); }
+.ind-stats { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+.ind-stat { padding: 18px 20px; background: rgba(0,0,0,0.3); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.ind-stat-num { font-size: 22px; font-weight: 500; color: #fafafa; letter-spacing: -0.02em; }
+.ind-stat-label { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+/* ASK GAMBIT */
+.ag-wrap { background: #c9c2b8; padding: 80px 0; }
+.ag-section { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.ag-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; min-height: 520px; }
+.ag-right h2 { font-size: 30px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+.ag-desc { font-size: 15px; color: rgba(0,0,0,0.5); line-height: 1.55; margin-bottom: 32px; max-width: 420px; }
+.ag-prompts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px; }
+.ag-prompt { padding: 14px 16px; border-radius: 10px; font-size: 13px; font-family: var(--font); cursor: pointer; transition: opacity 0.15s; text-align: left; line-height: 1.35; background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.04); color: var(--ink); }
+.ag-prompt:hover { opacity: 0.75; }
+.ag-faq { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; text-decoration: none; color: var(--ink); transition: opacity 0.15s; }
+.ag-faq:hover { opacity: 0.75; }
+.ag-chat { border-radius: 16px; overflow: hidden; height: 480px; display: flex; flex-direction: column; background: var(--white); border: none; box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
+.ag-chat-header { padding: 20px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-light); }
+.ag-chat-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; background: var(--ink); color: var(--white); }
+.ag-chat-msg { font-size: 14px; font-weight: 450; padding: 10px 16px; border-radius: 12px; max-width: 320px; background: var(--page); color: var(--ink); }
+.ag-chat-body { flex: 1; }
+.ag-chat-footer { padding: 16px 20px; display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border-light); }
+.ag-chat-input { flex: 1; padding: 12px 16px; border-radius: 10px; font-size: 13px; font-family: var(--font); border: none; outline: none; background: var(--page); color: var(--ink); }
+.ag-chat-input::placeholder { color: var(--muted); }
+.ag-chat-send { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; font-size: 16px; background: var(--ink); color: var(--white); }
+.ag-chat-legal { padding: 0 20px 14px; font-size: 10px; color: var(--muted); }
+.ag-chat-legal a { color: var(--secondary); text-decoration: underline; }
+
+/* LATEST */
+.latest-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
+.latest-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+.latest-header h2 { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; }
+.latest-header a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: opacity 0.15s; }
+.latest-header a:hover { opacity: 0.75; }
+.latest-list { display: flex; flex-direction: column; }
+.latest-item { display: grid; grid-template-columns: 80px 1fr 24px; align-items: start; gap: 16px; padding: 20px 8px; margin: 0 -8px; border-bottom: 1px solid var(--border-light); text-decoration: none; color: inherit; transition: background 0.15s; border-radius: 8px; }
+.latest-item:last-child { border-bottom: none; }
+.latest-item:hover { background: rgba(0,0,0,0.02); }
+.latest-date { font-size: 12px; color: var(--muted); padding-top: 2px; }
+.latest-title { font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 4px; }
+.latest-desc { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.latest-arrow { font-size: 14px; color: var(--border); transition: color 0.15s, transform 0.2s; padding-top: 2px; }
+.latest-item:hover .latest-arrow { color: var(--ink); transform: translateX(3px); }
+
+/* CTA */
+.cta-section { background: var(--black); margin-top: 80px; padding: 80px 32px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.cta-inner { max-width: 1280px; margin: 0 auto; text-align: center; }
+.cta-inner h2 { font-size: 36px; font-weight: 500; letter-spacing: -0.03em; color: #fafafa; margin-bottom: 10px; }
+.cta-inner p { font-size: 16px; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
+.cta-buttons { display: flex; justify-content: center; gap: 12px; }
+.cta-primary { padding: 14px 32px; border-radius: 100px; background: #fafafa; color: var(--black); font-size: 14px; font-weight: 500; font-family: var(--font); text-decoration: none; transition: opacity 0.15s; cursor: pointer; border: none; }
+.cta-primary:hover { opacity: 0.75; }
+.cta-outline { padding: 14px 32px; border-radius: 100px; background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; font-family: var(--font); text-decoration: none; transition: opacity 0.15s; cursor: pointer; }
+.cta-outline:hover { opacity: 0.75; }
+
+/* FOOTER */
+.site-footer { background: var(--black); padding: 40px 32px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.2); }
+.footer-center { display: flex; align-items: center; gap: 24px; }
+.footer-center a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
+.footer-center a:hover { color: rgba(255,255,255,0.6); }
+.footer-right { display: flex; align-items: center; gap: 16px; }
+.footer-legal { display: flex; align-items: center; gap: 8px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.4); }
+.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; text-decoration: none; }
+.footer-social:hover { background: rgba(255,255,255,0.1); }
+.footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+/* ═══ RESPONSIVE ═══ */
+
+/* Mobile menu toggle */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
+.menu-close { display: none; }
+
+/* Tablet: 1024px */
+@media (max-width: 1024px) {
+  .header-inner { padding: 0 24px; }
+  .hero-content { padding: 80px 24px 48px; }
+  .hero-content h1 { font-size: 42px; }
+  .manifesto-section { padding: 60px 24px 0; }
+  .manifesto { grid-template-columns: 1fr 1fr; }
+  .industry-section { padding: 0 24px; }
+  .ind-panel.active { grid-template-columns: 1fr 1fr; }
+  .ag-section { padding: 0 24px; }
+  .benefits-section { padding: 0 24px; }
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .latest-section { padding: 60px 24px 0; }
+  .team-grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .cs-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-page { padding: 100px 24px 60px; gap: 48px; }
+}
+
+/* Mobile: 768px */
+@media (max-width: 768px) {
+  /* Header */
+  .menu-toggle { display: block; }
+  nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 99; }
+  nav.open { display: flex; }
+  nav a { padding: 12px 0; font-size: 16px; }
+  .header-actions { gap: 8px; }
+  .btn-outline-h { display: none; }
+  .header-inner { padding: 0 20px; }
+
+  /* Hero */
+  .hero { min-height: 520px; }
+  .hero-content { padding: 60px 20px 32px; }
+  .hero-content h1 { font-size: 32px; max-width: 100%; }
+  .hero-sub { font-size: 15px; max-width: 100%; }
+  .hero-cta { flex-direction: column; gap: 8px; }
+  .hero-btn-primary, .hero-btn-ghost { text-align: center; justify-content: center; }
+  .glass-strip { padding: 0 20px; }
+  .glass-strip-inner { grid-template-columns: 1fr; }
+  .glass-card { padding: 18px 22px; }
+  .hero-pad { height: 32px; }
+
+  /* Manifesto */
+  .manifesto-section { padding: 48px 20px 0; }
+  .manifesto { grid-template-columns: 1fr; min-height: auto; }
+  .mf-left { order: 1; padding: 32px 28px; border-radius: 0 0 16px 16px; }
+  .mf-left h2 { font-size: 26px; }
+  .mf-left p { max-width: 100%; }
+  .mf-right { order: 2; border-radius: 16px 16px 0 0; min-height: 320px; padding: 24px 24px 0; }
+  .app-window { max-width: 100%; }
+
+  /* Industry toggle */
+  .industry-wrap { padding: 48px 0; margin-top: 48px; }
+  .industry-section { padding: 0 20px; }
+  .ind-header h2 { font-size: 26px; }
+  .ind-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 0; }
+  .ind-tab { padding: 12px 16px; font-size: 13px; }
+  .ind-panel.active { grid-template-columns: 1fr; }
+  .ind-left { padding: 28px 24px; }
+  .ind-left h3 { font-size: 20px; }
+  .ind-right { min-height: 340px; }
+  .ind-brand .ib-name { font-size: 34px !important; }
+  .ind-stats { grid-template-columns: repeat(3, 1fr); }
+  .ind-stat { padding: 14px 16px; }
+  .ind-stat-num { font-size: 18px; }
+  .ind-cta { padding: 8px 18px; font-size: 12px; }
+
+  /* Benefits */
+  .benefits-wrap { padding: 48px 0; }
+  .benefits-section { padding: 0 20px; }
+  .benefits-header h2 { font-size: 26px; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .benefit-card { padding: 24px 22px; }
+
+  /* Ask Gambit */
+  .ag-wrap { padding: 48px 0; }
+  .ag-section { padding: 0 20px; }
+  .ag-inner { grid-template-columns: 1fr; gap: 32px; min-height: auto; }
+  .ag-right { order: -1; }
+  .ag-right h2 { font-size: 26px; }
+  .ag-prompts { grid-template-columns: 1fr; }
+  .ag-chat { height: 400px; }
+
+  /* Latest */
+  .latest-section { padding: 48px 20px 0; }
+  .latest-header h2 { font-size: 22px; }
+  .latest-item { grid-template-columns: 60px 1fr 20px; gap: 12px; padding: 18px 8px; }
+  .latest-title { font-size: 14px; }
+  .latest-desc { display: none; }
+
+  /* CTA */
+  .cta-section { padding: 60px 20px; margin-top: 48px; }
+  .cta-inner h2 { font-size: 28px; }
+  .cta-buttons { flex-direction: column; gap: 8px; }
+  .cta-primary, .cta-outline { text-align: center; justify-content: center; }
+
+  /* Footer */
+  .site-footer { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+  .footer-left { flex-direction: column; gap: 6px; }
+  .footer-center { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-right { flex-direction: column; gap: 12px; align-items: center; }
+  .footer-socials { justify-content: center; }
+}
+
+/* Small mobile: 480px */
+@media (max-width: 480px) {
+  .hero-content h1 { font-size: 28px; }
+  .hero-sub { font-size: 14px; }
+  .gc-num { font-size: 22px; }
+  .mf-left h2 { font-size: 22px; }
+  .ind-header h2, .benefits-header h2, .ag-right h2 { font-size: 22px; }
+  .cta-inner h2 { font-size: 24px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-card { grid-template-columns: 1fr; }
+  .team-photo { width: 100%; height: 240px; }
+  .ind-stats { grid-template-columns: 1fr 1fr 1fr; }
+  .ind-stat { padding: 12px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header><div class="header-inner"><a href="#" class="logo"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit"></a><nav id="mainNav"><a href="#work">Vision</a><a href="#workers">Workers</a><a href="/about-us">About</a><a href="#latest">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo"></div><div class="hero-gradient"></div>
+  <div class="hero-content">
+    <h1>We put AI to work.</h1>
+    <p class="hero-sub">AI workers that solve your toughest problems, freeing your team to focus on what's next.</p>
+    <div class="hero-cta"><a href="#workers" class="hero-btn-primary">Meet the workers</a><a href="#work" class="hero-btn-ghost">Watch it work →</a></div>
+  </div>
+  <div class="glass-strip"><div class="glass-strip-inner">
+    <div class="glass-card"><div class="gc-status">Working</div><div class="gc-name">Chloe</div><div class="gc-title">Municipal Concierge · Vail</div><div class="gc-num">2,847</div><div class="gc-label">calls this week</div></div>
+    <div class="glass-card"><div class="gc-status">Working</div><div class="gc-name">Harlo</div><div class="gc-title">Freight Coordinator</div><div class="gc-num">412</div><div class="gc-label">loads confirmed today</div></div>
+    <div class="glass-card"><div class="gc-status">Working</div><div class="gc-name">Demi</div><div class="gc-title">HR Advisor</div><div class="gc-num">89</div><div class="gc-label">cases this week</div></div>
+  </div></div>
+  <div class="hero-pad"></div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto-section" id="work">
+  <div class="manifesto">
+    <div class="mf-left">
+      <h2>Complex operations need more than agents.</h2>
+      <p>Agents assist. Workers operate. We build AI that's custom to your business, trained on your knowledge, and built to handle the complex workflows your team shouldn't have to. Your team leads. The worker executes.</p>
+    </div>
+    <div class="mf-right">
+      <div class="app-window">
+        <div class="app-titlebar"><div class="app-dot app-dot-r"></div><div class="app-dot app-dot-y"></div><div class="app-dot app-dot-g"></div><div class="app-titlebar-text">worker · inbound-request</div></div>
+        <div class="app-body">
+          <div class="w-identity"><div class="w-avatar">W</div><div><div class="w-name">Worker</div><div class="w-role">Inbound Request Handler</div></div><div class="w-status-pill">Active</div></div>
+          <div class="w-log">
+            <div class="w-log-entry"><div class="w-log-time">09:41:02</div><div class="w-log-icon" style="background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);">→</div><div class="w-log-text"><strong>Inbound received</strong><br>Customer asking about service availability</div></div>
+            <div class="w-log-divider"></div>
+            <div class="w-log-entry"><div class="w-log-time">09:41:02</div><div class="w-log-icon" style="background:rgba(37,99,235,0.1);color:rgba(37,99,235,0.6);">◎</div><div class="w-log-text"><strong>Scope check</strong>: within boundaries<br>Owns: service info, availability, pricing</div></div>
+            <div class="w-log-divider"></div>
+            <div class="w-log-entry"><div class="w-log-time">09:41:03</div><div class="w-log-icon" style="background:rgba(217,119,6,0.1);color:rgba(217,119,6,0.6);">⟳</div><div class="w-log-text"><strong>Research</strong>: pulling live data<br>3 sources · confirmed · current</div></div>
+            <div class="w-log-divider"></div>
+            <div class="w-log-entry"><div class="w-log-time">09:41:04</div><div class="w-log-icon" style="background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);">✎</div><div class="w-log-text"><strong>Drafting</strong>: professional, concise, follow-up offered</div></div>
+            <div class="w-log-divider"></div>
+            <div class="w-log-entry"><div class="w-log-time">09:41:04</div><div class="w-log-icon" style="background:rgba(22,163,74,0.1);color:rgba(22,163,74,0.6);">✓</div><div class="w-log-text"><strong>Delivered</strong>: response sent</div></div>
+          </div>
+          <div class="w-result"><div class="w-result-label">Resolved</div><p>"Service is available in your area. I've texted you the details and next available times."</p><div class="w-result-meta"><span>2.4s</span><span>no escalation</span><span>3 sources</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY TOGGLE -->
+<div class="industry-wrap" id="workers">
+<section class="industry-section">
+  <div class="ind-header">
+    <h2>Workers across industries</h2>
+    <p>15+ workers deployed across healthcare, government, legal, logistics, and more.</p>
+  </div>
+  <div class="ind-tabs">
+    <button class="ind-tab active" onclick="sw(0)">Health & Wellness</button>
+    <button class="ind-tab" onclick="sw(1)">Government</button>
+    <button class="ind-tab" onclick="sw(2)">Legal & Finance</button>
+    <button class="ind-tab" onclick="sw(3)">Logistics</button>
+    <button class="ind-tab" onclick="sw(4)">Entertainment</button>
+    <button class="ind-tab" onclick="sw(5)">Business Services</button>
+  </div>
+
+  <div class="ind-panel active">
+    <div class="ind-left"><h3>Health & Wellness</h3><p class="ind-desc">Round-the-clock patient support with empathy, lived experience, and multilingual reach across 100+ countries.</p>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#7c3aed;font-size:9px;">AE</div><div><div class="ind-wr-name">AskEllyn</div><div class="ind-wr-role">Breast Cancer Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Cigna Healthcare</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#0d9488;font-size:9px;">AS</div><div><div class="ind-wr-name">AskShan</div><div class="ind-wr-role">Parkinson's Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+      <div class="ind-wr" onclick="sub(this,2)"><div class="ind-wr-av" style="font-size:9px;background:#b91c1c;">IG</div><div><div class="ind-wr-name">Chaddict + EvaMarie</div><div class="ind-wr-role">Addiction & Recovery</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Infiniti Group</div></div>
+      <div class="ind-wr" onclick="sub(this,3)"><div class="ind-wr-av" style="background:#e4e4e7;color:#a1a1aa;">U</div><div><div class="ind-wr-name">Urology Tool</div><div class="ind-wr-role">Medical Support</div></div><div class="ind-wr-client"><span class="ind-dot upcoming"></span>In progress</div></div>
+    </div>
+    <div class="ind-right active"><div class="ind-photo" style="background-image:url('https://gambitco.io/wp-content/uploads/2025/03/IMG_0931.jpeg');background-position:center top;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskEllyn</span><div class="ib-tag">Breast cancer support</div><a href="https://askellyn.ai" target="_blank" class="ind-cta">Chat with AskEllyn →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">100+</div><div class="ind-stat-label">countries</div></div><div class="ind-stat"><div class="ind-stat-num">50+</div><div class="ind-stat-label">languages</div></div><div class="ind-stat"><div class="ind-stat-num">100k+</div><div class="ind-stat-label">conversations</div></div></div></div>
+    <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskShan</span><div class="ib-tag">Parkinson's support</div><a href="https://thrivewelltogether.com/askshan/" target="_blank" class="ind-cta">Chat with AskShan →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">availability</div></div><div class="ind-stat"><div class="ind-stat-num">50+</div><div class="ind-stat-label">languages</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">internationally recognized</div></div></div></div>
+    <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.squarespace-cdn.com/content/v1/620b19221fdbcc0197b48eb8/75e9758e-a819-4051-86e3-b8459d0ab014/%24%240P3A1720.jpg?format=1500w');background-position:center top;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:32px;">Chaddict</span><div class="ib-tag">Addiction & recovery · Infiniti Group</div><a href="https://chaddict.com/" target="_blank" class="ind-cta">Chat with Chaddict →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">stigma-free support</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">trust-to-lead pipeline</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">real-time lead gen</div></div></div></div>
+    <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1631815588090-d4bfec5b1b98?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:32px;">Urology Tool</span><div class="ib-tag">Medical support · In progress</div></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">coming soon</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">medical support</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">in development</div></div></div></div>
+  </div>
+
+  <div class="ind-panel">
+    <div class="ind-left"><h3>Government</h3><p class="ind-desc">Visitor concierges and caregiver navigation deployed for cities and agencies. 24/7, no hold time.</p>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#2563eb;">C</div><div><div class="ind-wr-name">Chloe / VailOS</div><div class="ind-wr-role">Municipal Concierge</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Town of Vail</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#e17526;">A</div><div><div class="ind-wr-name">AskAshleigh</div><div class="ind-wr-role">Caregiver Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Area Agency on Aging</div></div>
+    </div>
+    <div class="ind-right active"><div class="ind-photo" style="background-image:url('https://www.thesebastianvail.com/wp-content/uploads/2024/09/WEB_LOWRES_timbers_sebastian_aerial_0136_D.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:36px;letter-spacing:0.02em;">Chloe</span><div class="ib-tag">Municipal concierge · Town of Vail</div><a href="tel:9706458245" class="ind-cta">Call Chloe · 970-645-VAIL →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">availability</div></div><div class="ind-stat"><div class="ind-stat-num">2.8s</div><div class="ind-stat-label">avg response</div></div><div class="ind-stat"><div class="ind-stat-num">0</div><div class="ind-stat-label">hold time</div></div></div></div>
+    <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:32px;">AskAshleigh</span><div class="ib-tag">Caregiver support · Area Agency on Aging</div><a href="https://gambitco.io/case-study/askashleigh/" target="_blank" class="ind-cta">Read case study →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">4</div><div class="ind-stat-label">awards won</div></div><div class="ind-stat"><div class="ind-stat-num">600+</div><div class="ind-stat-label">AAAs potential scale</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">caregiver support</div></div></div></div>
+  </div>
+
+  <div class="ind-panel">
+    <div class="ind-left"><h3>Legal & Finance</h3><p class="ind-desc">24/7 legal support and deal analysis. The first pass is handled so your team focuses on judgment calls.</p>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#1e3a5f;">T</div><div><div class="ind-wr-name">AskTodd</div><div class="ind-wr-role">Legal Strategist</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Gowlings LLP</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#164e63;">B</div><div><div class="ind-wr-name">Bogan / Spearhead</div><div class="ind-wr-role">PE / Deal Operations</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+    </div>
+    <div class="ind-right active"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskTodd</span><div class="ib-tag">Legal strategist · Gowlings LLP</div><a href="https://asktodd.ai" target="_blank" class="ind-cta">Chat with AskTodd →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">legal support</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">multi-jurisdiction</div></div><div class="ind-stat"><div class="ind-stat-num">2024</div><div class="ind-stat-label">launched</div></div></div></div>
+    <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:32px;">Spearhead</span><div class="ib-tag">PE / Deal operations</div></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">deal analysis</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">portfolio operations</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">PE workflows</div></div></div></div>
+  </div>
+
+  <div class="ind-panel">
+    <div class="ind-left"><h3>Logistics</h3><p class="ind-desc">Document ingestion, load validation, carrier matching, and exception routing. A unified system for inbound freight.</p>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#d97706;">H</div><div><div class="ind-wr-name">Harlo</div><div class="ind-wr-role">Freight Coordinator</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Logistics Alliance</div></div>
+    </div>
+    <div class="ind-right active"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:38px;letter-spacing:0.04em;">Harlo</span><div class="ib-tag">Freight coordinator · Logistics Alliance</div></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">412</div><div class="ind-stat-label">loads/day</div></div><div class="ind-stat"><div class="ind-stat-num">98.2%</div><div class="ind-stat-label">accuracy</div></div><div class="ind-stat"><div class="ind-stat-num">3min</div><div class="ind-stat-label">avg processing</div></div></div></div>
+  </div>
+
+  <div class="ind-panel">
+    <div class="ind-left"><h3>Entertainment</h3><p class="ind-desc">Fan engagement and hospitality workers that create personalized experiences at scale.</p>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#dc2626;">A</div><div><div class="ind-wr-name">AskAmber</div><div class="ind-wr-role">Fan Engagement</div></div><div class="ind-wr-client"><span class="ind-dot"></span>NASCAR / Daytona</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#0f766e;">G</div><div><div class="ind-wr-name">Gillis Sales</div><div class="ind-wr-role">Hospitality Sales</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+    </div>
+    <div class="ind-right active"><div class="ind-photo" style="background-image:url('https://res.cloudinary.com/ybmedia/image/upload/c_crop,e_improve,h_1125,w_2000,x_0,y_59/c_fill,f_auto,h_900,q_auto,w_1600/v1/m/0/f/0faee739be10a594e873be7ff836dbfdab118e8b/apr-26-2025-talladega-alabama-usa-arca-series.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskAmber</span><div class="ib-tag">Fan engagement · NASCAR / Daytona</div><a href="http://askamber.io" target="_blank" class="ind-cta">Chat with AskAmber →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">launched at Daytona</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">AI-powered fan engagement</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">availability</div></div></div></div>
+    <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:32px;">Gillis Sales</span><div class="ib-tag">Hospitality sales</div></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">hospitality sales</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">real-time packages</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">availability</div></div></div></div>
+  </div>
+
+  <div class="ind-panel">
+    <div class="ind-left"><h3>Business Services</h3><p class="ind-desc">HR coaching, media buying, and sales enablement. Operational workers inside your existing workflows.</p>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#6d28d9;">D</div><div><div class="ind-wr-name">Demi</div><div class="ind-wr-role">HR Advisor & Coach</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#e11d48;">B</div><div><div class="ind-wr-name">AskBibi</div><div class="ind-wr-role">Media Buying</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Bobit Media</div></div>
+      <div class="ind-wr" onclick="sub(this,2)"><div class="ind-wr-av" style="font-size:9px;background:#15803d;">GT</div><div><div class="ind-wr-name">GeoTab Assistant</div><div class="ind-wr-role">Sponsorship Sales</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Streetwise</div></div>
+    </div>
+    <div class="ind-right active"><div class="ind-photo" style="background-image:url('https://hellodemi.ai/wp-content/uploads/2026/01/iStock-1487231759.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:38px;font-weight:400;letter-spacing:-0.01em;">demi</span><div class="ib-tag">HR advisor & coach</div><a href="https://hellodemi.ai/" target="_blank" class="ind-cta">Chat with Demi →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">culture-first AI</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">reduce burnout</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">HR support</div></div></div></div>
+    <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskBibi</span><div class="ib-tag">Media buying · Bobit Media</div><a href="https://www.bobit.com/ask-bibi/" target="_blank" class="ind-cta">Chat with AskBibi →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">dynamic packages</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">cross-service sales</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">media buying</div></div></div></div>
+    <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:30px;">GeoTab</span><div class="ib-tag">Sponsorship sales · Streetwise</div><a href="https://gambitco.io/case-study/geotab/" target="_blank" class="ind-cta">Read case study →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">2025</div><div class="ind-stat-label">launched at Connect</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">real-time packages</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">dynamic imagery</div></div></div></div>
+  </div>
+</section>
+</div>
+
+<!-- BENEFITS -->
+<div class="benefits-wrap">
+<section class="benefits-section">
+  <div class="benefits-header">
+    <h2>What you get</h2>
+    <p>Every Gambit worker is built for your business, not pulled off a shelf.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+      <h3>From conversations to operations</h3>
+      <p>Whether it's supporting a patient at 2am or processing 400 freight loads a day, the worker matches the complexity of the job.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <h3>24/7, every channel</h3>
+      <p>Web, SMS, voice, phone. Your worker never sleeps, never calls in sick, and handles thousands of interactions simultaneously.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Built on your business</h3>
+      <p>Trained on your data, your processes, your brand. Not a generic model with your logo slapped on it.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+      <h3>You control it</h3>
+      <p>Update your worker's knowledge, tune its personality, and refine its behavior on your schedule, not ours.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3>Measured in outcomes</h3>
+      <p>Every interaction tracked. You see what the worker resolved, how fast, and where it escalated.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+      <h3>Gets smarter every week</h3>
+      <p>Continuous improvement from real conversations and real usage. The worker learns your business, not just your data.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ASK GAMBIT -->
+<div class="ag-wrap" id="askgambit">
+<section class="ag-section">
+  <div class="ag-inner">
+    <div>
+      <div class="ag-chat">
+        <div class="ag-chat-header"><div class="ag-chat-icon">G</div><div class="ag-chat-msg">G here. I've got the tea. Let's chat.</div></div>
+        <div class="ag-chat-body"></div>
+        <div class="ag-chat-footer"><input class="ag-chat-input" placeholder="Ask your question here..." readonly><button class="ag-chat-send">↑</button></div>
+        <div class="ag-chat-legal">By using this chat, you agree to Gambit's <a href="#">privacy policy</a> and <a href="#">terms of use</a>.</div>
+      </div>
+    </div>
+    <div class="ag-right">
+      <h2>Ask Gambit</h2>
+      <p class="ag-desc">Have a question? Our AI worker knows everything about what we do and how we work. Available 24/7.</p>
+      <div class="ag-prompts">
+        <div class="ag-prompt">What can you do?</div>
+        <div class="ag-prompt">Tell me about your technology.</div>
+        <div class="ag-prompt">How can we work together?</div>
+        <div class="ag-prompt">I want this for my company!</div>
+      </div>
+      <a href="#" class="ag-faq">Read our FAQs →</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- LATEST -->
+<section class="latest-section" id="latest">
+  <div class="latest-header">
+    <h2>The latest from Gambit</h2>
+    <a href="https://gambitco.io/insights/">View all →</a>
+  </div>
+  <div class="latest-list">
+    <a href="https://gambitco.io/gambitco-joins-hpe-unleash-ai-partner-program/" class="latest-item"><span class="latest-date">Dec 2025</span><div><div class="latest-title">GambitCo Joins HPE Unleash AI Partner Program</div><div class="latest-desc">Operationalizing AI across the enterprise through Hewlett Packard Enterprise's partner ecosystem.</div></div><span class="latest-arrow">→</span></a>
+    <a href="https://gambitco.io/gambit-featured-canadian-startup-documentary/" class="latest-item"><span class="latest-date">Dec 2025</span><div><div class="latest-title">Featured in First-Ever Canadian Startup Documentary</div><div class="latest-desc">Gambit's story captured in a documentary following Canada's emerging AI companies.</div></div><span class="latest-arrow">→</span></a>
+    <a href="https://gambitco.io/askellyn-launches-with-cigna/" class="latest-item"><span class="latest-date">Sep 2025</span><div><div class="latest-title">AskEllyn Now Live on Cigna Healthcare</div><div class="latest-desc">The world's first AI companion for breast cancer support, deployed on Cigna's patient community.</div></div><span class="latest-arrow">→</span></a>
+    <a href="https://gambitco.io/gambitco-primary-people-group-partner/" class="latest-item"><span class="latest-date">Aug 2025</span><div><div class="latest-title">Primary People Group Becomes First Channel Partner</div><div class="latest-desc">Expanding Gambit's reach through a dedicated channel partner focused on enterprise AI adoption.</div></div><span class="latest-arrow">→</span></a>
+    <a href="https://gambitco.io/foundersbeta-top-100-companies-to-watch-2025/" class="latest-item"><span class="latest-date">Jul 2025</span><div><div class="latest-title">Top 10 in FoundersBeta's 100 Companies to Watch</div><div class="latest-desc">Recognized among the most promising emerging technology companies in 2025.</div></div><span class="latest-arrow">→</span></a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Ready to put AI to work?</h2>
+    <p>Tell us what's not working. We'll show you what can.</p>
+    <div class="cta-buttons"><a href="#askgambit" class="cta-primary">Ask Gambit</a><a href="/get-started" class="cta-outline">Contact us</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-center"><a href="#work">Vision</a><a href="#workers">Workers</a><a href="/about-us">About</a><a href="#latest">Insights</a><a href="/get-started">Contact</a></div>
+    <div class="footer-right">
+      <div class="footer-legal"><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy-policy">Privacy</a></div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/company/gambit-co/" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://www.instagram.com/gambitco" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function sw(i) {
+  document.querySelectorAll('.ind-tab').forEach((t,n) => t.classList.toggle('active', n===i));
+  document.querySelectorAll('.ind-panel').forEach((p,n) => p.classList.toggle('active', n===i));
+}
+function sub(el, idx) {
+  var panel = el.closest('.ind-panel');
+  panel.querySelectorAll('.ind-wr').forEach(w => w.classList.remove('active'));
+  el.classList.add('active');
+  panel.querySelectorAll('.ind-right').forEach((r,n) => r.classList.toggle('active', n===idx));
+}
+// Close mobile nav on link click
+document.querySelectorAll('#mainNav a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mainNav').classList.remove('open');
+    document.querySelector('.menu-toggle').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>

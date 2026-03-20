@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- PRIMARY SEO -->
+<title>GambitCo FAQs | AI Workers, How It Works, Pricing</title>
+<meta name="description" content="Frequently asked questions about Gambit. Learn how our AI workers are built, what industries we serve, how long deployment takes, and how we measure success.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Gambit Technology Inc.">
+<link rel="canonical" href="https://gambitco.io/faqs">
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GambitCo">
+<meta property="og:title" content="GambitCo FAQs">
+<meta property="og:description" content="Everything you need to know about Gambit and our AI workers.">
+<meta property="og:url" content="https://gambitco.io/faqs">
+<meta property="og:image" content="https://gambitco.io/og-faqs.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GambitCo FAQs">
+<meta name="twitter:description" content="Everything you need to know about Gambit and our AI workers.">
+<meta name="twitter:image" content="https://gambitco.io/og-faqs.png">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0a0a0a; --ink: #141414; --secondary: #52525b;
+  --muted: #a1a1aa; --border: #e4e4e7; --border-light: #f0f0f2;
+  --page: #fafafa; --white: #ffffff;
+  --font: 'General Sans', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html { font-family: var(--font); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* HEADER */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: var(--white); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
+.logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
+.logo:hover { transform: translateX(6px); }
+.logo img { height: 18px; width: auto; display: block; }
+.footer-logo-img { height: 16px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
+nav { display: flex; align-items: center; gap: 4px; }
+nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: 1px solid var(--border); color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-outline-h:hover { opacity: 0.75; }
+.btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-solid-h:hover { opacity: 0.75; }
+
+/* FAQ PAGE */
+.faq-page { max-width: 760px; margin: 0 auto; padding: 120px 32px 0; flex: 1; }
+.faq-header { margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.faq-header h1 { font-size: 44px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 10px; }
+.faq-header p { font-size: 16px; color: var(--muted); }
+
+/* ACCORDION */
+.faq-list { display: flex; flex-direction: column; }
+
+.faq-item { border-bottom: 1px solid var(--border-light); }
+
+.faq-question {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0; background: none; border: none; cursor: pointer;
+  font-family: var(--font); font-size: 16px; font-weight: 500; color: var(--ink);
+  text-align: left; line-height: 1.35; gap: 24px;
+}
+.faq-question:hover { color: var(--secondary); }
+
+.faq-icon {
+  width: 24px; height: 24px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s var(--ease);
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s var(--ease), padding 0.3s var(--ease);
+}
+.faq-item.open .faq-answer {
+  max-height: 300px;
+}
+
+.faq-answer p {
+  font-size: 15px; color: var(--secondary); line-height: 1.65;
+  padding-bottom: 22px;
+}
+.faq-answer a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+
+/* CTA */
+.cta-section { background: var(--black); margin-top: 80px; padding: 80px 32px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.cta-inner { max-width: 1280px; margin: 0 auto; text-align: center; }
+.cta-inner h2 { font-size: 36px; font-weight: 500; letter-spacing: -0.03em; color: #fafafa; margin-bottom: 10px; }
+.cta-inner p { font-size: 16px; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
+.cta-buttons { display: flex; justify-content: center; gap: 12px; }
+.cta-primary { padding: 14px 32px; border-radius: 100px; background: #fafafa; color: var(--black); font-size: 14px; font-weight: 500; font-family: var(--font); text-decoration: none; transition: opacity 0.15s; cursor: pointer; border: none; }
+.cta-primary:hover { opacity: 0.75; }
+.cta-outline { padding: 14px 32px; border-radius: 100px; background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; font-family: var(--font); text-decoration: none; transition: opacity 0.15s; cursor: pointer; }
+.cta-outline:hover { opacity: 0.75; }
+
+/* FOOTER */
+.site-footer { background: var(--black); padding: 40px 32px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.2); }
+.footer-center { display: flex; align-items: center; gap: 24px; }
+.footer-center a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
+.footer-center a:hover { color: rgba(255,255,255,0.6); }
+.footer-right { display: flex; align-items: center; gap: 16px; }
+.footer-legal { display: flex; align-items: center; gap: 8px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.4); }
+.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; }
+.footer-social:hover { background: rgba(255,255,255,0.1); }
+.footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+/* ═══ RESPONSIVE ═══ */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
+
+@media (max-width: 1024px) {
+  .header-inner { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 99; }
+  nav.open { display: flex; }
+  nav a { padding: 12px 0; font-size: 16px; }
+  .header-actions { gap: 8px; }
+  .btn-outline-h { display: none; }
+  .header-inner { padding: 0 20px; }
+  .site-footer { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+  .footer-left { flex-direction: column; gap: 6px; }
+  .footer-center { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-right { flex-direction: column; gap: 12px; align-items: center; }
+  .footer-socials { justify-content: center; }
+  .cta-section { padding: 60px 20px; margin-top: 48px; }
+  .cta-inner h2 { font-size: 28px; }
+  .cta-buttons { flex-direction: column; gap: 8px; }
+  .cta-primary, .cta-outline { text-align: center; justify-content: center; }
+}
+@media (max-width: 768px) {
+  .faq-page { padding: 100px 20px 0; }
+  .faq-header h1 { font-size: 32px; }
+  .faq-question { font-size: 15px; gap: 16px; }
+}
+@media (max-width: 480px) {
+  .faq-header h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header><div class="header-inner"><a href="/" class="logo"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+
+<!-- FAQs -->
+<main class="faq-page">
+  <div class="faq-header">
+    <h1>FAQs</h1>
+    <p>The short answers. For everything else, <a href="/#askgambit" style="color: var(--ink); text-decoration: underline; text-underline-offset: 2px;">ask Gambit</a>.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        What does Gambit actually do?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>We build and deploy AI workers that do real jobs inside your business. Not chatbots. Not prototypes. Workers with a defined role, your brand's voice, and accountability to outcomes. They handle customer calls, process freight documents, coach employees, support patients. whatever the job requires.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        How is Gambit different from other AI companies?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>We build, not advise. Most AI consultancies deliver slide decks. We deliver working products that are live, measured, and improving every week. Our workers are deployed across healthcare, government, logistics, legal, entertainment, and more.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Do I need technical knowledge to work with Gambit?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>No. You bring the business challenge, we handle everything technical. Our team translates your workflows, data, and brand into a working AI worker without requiring you to become an AI expert.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        How long does it take to build a worker?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Weeks, not months. We focus on getting a working worker in front of real users quickly, then iterate based on actual conversations. Most projects go from first conversation to live deployment within 8–12 weeks.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        What industries do you work in?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Healthcare, government, legal, finance, logistics, sports and entertainment, hospitality, and business services. We have 15+ workers deployed across these industries. check out our <a href="/#workers">workers page</a> to see them.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Can I update and improve my worker myself?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Yes. You have full control to update your worker's knowledge, tune its personality, and refine its behavior on your schedule, not ours. We give you the tools to manage your worker independently.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Can Gambit work with my existing team?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Absolutely. We can embed with your team, adding AI capabilities without requiring new hires or extensive training. The worker integrates into your existing workflows, tools, and channels.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        How do you measure success?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>By real business outcomes. not vanity metrics. Every interaction is tracked. You see what the worker resolved, how fast, where it escalated, and what impact it's having on your operations.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        What happens after launch?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>The worker keeps getting smarter. We provide continuous improvement based on real conversations, performance data, and your feedback. We can either transfer full control to your team or provide ongoing support.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Can I try a Gambit worker right now?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Yes. <a href="/#askgambit">Ask Gambit</a> is our own AI worker, live on this site. You can also try <a href="https://askellyn.ai">AskEllyn</a> for breast cancer support or <a href="https://asktodd.ai">AskTodd</a> for legal strategy.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Who's behind Gambit?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>A team of builders. Pat Belliveau (CEO), Chris Silivestru (CTO), Ryan Burgio (Creative Director), and Sarah Stanley (Operations). <a href="/about-us">Meet the team</a>.</p></div>
+    </div>
+
+  </div>
+</main>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Ready to put AI to work?</h2>
+    <p>You have a role that needs filling. Let's talk about it.</p>
+    <div class="cta-buttons"><a href="/#askgambit" class="cta-primary">Ask Gambit</a><a href="/get-started" class="cta-outline">Contact us</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-center"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
+    <div class="footer-right">
+      <div class="footer-legal"><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy-policy">Privacy</a></div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/company/gambit-co/" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://www.instagram.com/gambitco" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll("#mainNav a").forEach(a=>{a.addEventListener("click",()=>{document.getElementById("mainNav").classList.remove("open");document.querySelector(".menu-toggle").classList.remove("open")})});
+</script>
+</body>
+</html>
