@@ -206,27 +206,15 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .ind-stat-label { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
 
 /* ASK GAMBIT */
-.ag-wrap { background-color: #E1D4B8; background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E"); background-repeat: repeat; padding: 80px 0; }
-.ag-section { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-.ag-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; min-height: 520px; }
-.ag-right h2 { font-size: 30px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
-.ag-desc { font-size: 15px; color: rgba(0,0,0,0.5); line-height: 1.55; margin-bottom: 32px; max-width: 420px; }
-.ag-prompts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px; }
-.ag-prompt { padding: 14px 16px; border-radius: 10px; font-size: 13px; font-family: var(--font); cursor: pointer; transition: opacity 0.15s; text-align: left; line-height: 1.35; background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.04); color: var(--ink); }
-.ag-prompt:hover { opacity: 0.75; }
-.ag-faq { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; text-decoration: none; color: var(--ink); transition: opacity 0.15s; }
-.ag-faq:hover { opacity: 0.75; }
-.ag-chat { border-radius: 16px; overflow: hidden; height: 480px; display: flex; flex-direction: column; background: var(--white); border: none; box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
-.ag-chat-header { padding: 20px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-light); }
-.ag-chat-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; background: var(--ink); color: var(--white); }
-.ag-chat-msg { font-size: 14px; font-weight: 450; padding: 10px 16px; border-radius: 12px; max-width: 320px; background: var(--page); color: var(--ink); }
-.ag-chat-body { flex: 1; }
-.ag-chat-footer { padding: 16px 20px; display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border-light); }
-.ag-chat-input { flex: 1; padding: 12px 16px; border-radius: 10px; font-size: 13px; font-family: var(--font); border: none; outline: none; background: var(--page); color: var(--ink); }
-.ag-chat-input::placeholder { color: var(--muted); }
-.ag-chat-send { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; font-size: 16px; background: var(--ink); color: var(--white); }
-.ag-chat-legal { padding: 0 20px 14px; font-size: 10px; color: var(--muted); }
-.ag-chat-legal a { color: var(--secondary); text-decoration: underline; }
+.ag-wrap { position: relative; overflow: hidden; background: #000; }
+.ag-wrap-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4) contrast(1.1); }
+.ag-wrap-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); }
+.ag-section { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 80px 32px; }
+.ag-inner { display: flex; flex-direction: column; align-items: center; text-align: center; min-height: 420px; justify-content: center; }
+.ag-right h2 { font-size: 56px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; color: #fff; margin-bottom: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+.ag-desc { font-size: 18px; color: #ccc; line-height: 1.55; margin-bottom: 32px; max-width: 480px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+.ag-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 12px 32px; font-size: 16px; font-family: var(--font); font-weight: 500; background: rgba(255,255,255,0.1); border: 1px solid #fff; border-radius: 50px; color: #fff; text-decoration: none; cursor: pointer; transition: background 0.2s; }
+.ag-cta:hover { background: rgba(255,255,255,0.2); }
 
 /* LATEST */
 .latest-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
@@ -354,13 +342,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   .benefit-card { padding: 24px 22px; }
 
   /* Ask Gambit */
-  .ag-wrap { padding: 48px 0; }
-  .ag-section { padding: 0 20px; }
-  .ag-inner { grid-template-columns: 1fr; gap: 32px; min-height: auto; }
-  .ag-right { order: -1; }
-  .ag-right h2 { font-size: 26px; }
-  .ag-prompts { grid-template-columns: 1fr; }
-  .ag-chat { height: 400px; }
+  .ag-section { padding: 48px 20px; }
+  .ag-inner { min-height: 320px; }
+  .ag-right h2 { font-size: 36px; }
 
   /* Latest */
   .latest-section { padding: 48px 20px 0; }
@@ -571,26 +555,14 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 
 <!-- ASK GAMBIT -->
 <div class="ag-wrap" id="askgambit">
+<img class="ag-wrap-bg" alt="Background image for AskShan support" src="https://lh3.googleusercontent.com/aida/ADBb0uj0GNxKQ3A-AczTh5Stm6ZJC52RY5HGELMkOyxgD4W1bthM0Qiy98cmvaxjxWzs5Mk1qNsnv8pgeQ_XYZxypMUE6UrtCgDyi8fmc8qKetUSw3ylsVCuFGLG2sQttlJngdYNpMHzvy7xk810pWhrmq6EuK0JqbSKgZr7xFX6poTxuAK3brFsF_u_nTOPDdXcVbTX9Pzb1NOyOA5ZWcowuHOBDLvl08g1tJArWCOhwBaZR6UeSuXepXreN_U">
+<div class="ag-wrap-overlay"></div>
 <section class="ag-section">
   <div class="ag-inner">
-    <div>
-      <div class="ag-chat">
-        <div class="ag-chat-header"><div class="ag-chat-icon">G</div><div class="ag-chat-msg">G here. I've got the tea. Let's chat.</div></div>
-        <div class="ag-chat-body"></div>
-        <div class="ag-chat-footer"><input class="ag-chat-input" placeholder="Ask your question here..." readonly><button class="ag-chat-send">↑</button></div>
-        <div class="ag-chat-legal">By using this chat, you agree to Gambit's <a href="#">privacy policy</a> and <a href="#">terms of use</a>.</div>
-      </div>
-    </div>
     <div class="ag-right">
-      <h2>Ask Gambit</h2>
-      <p class="ag-desc">Have a question? Our AI worker knows everything about what we do and how we work. Available 24/7.</p>
-      <div class="ag-prompts">
-        <div class="ag-prompt">What can you do?</div>
-        <div class="ag-prompt">Tell me about your technology.</div>
-        <div class="ag-prompt">How can we work together?</div>
-        <div class="ag-prompt">I want this for my company!</div>
-      </div>
-      <a href="#" class="ag-faq">Read our FAQs →</a>
+      <h2>AskShan</h2>
+      <p class="ag-desc">Parkinson's support</p>
+      <a href="#" class="ag-cta">Chat with AskShan →</a>
     </div>
   </div>
 </section>
