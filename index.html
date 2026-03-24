@@ -122,6 +122,16 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .gc-label { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; }
 .hero-pad { height: 48px; }
 
+/* LOGO STRIP */
+.logo-strip { max-width: 1280px; margin: 0 auto; padding: 48px 32px 12px; text-align: center; }
+.logo-strip .ls-label { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+.ls-logos { display: flex; align-items: center; justify-content: center; gap: 48px; margin-bottom: 28px; flex-wrap: wrap; }
+.ls-logo { font-size: 15px; font-weight: 600; color: var(--ink); opacity: 0.25; letter-spacing: -0.01em; white-space: nowrap; }
+.ls-divider { max-width: 800px; margin: 0 auto; height: 1px; background: var(--border); }
+.ls-partners { display: flex; align-items: center; justify-content: center; gap: 40px; padding-top: 20px; padding-bottom: 8px; flex-wrap: wrap; }
+.ls-partners-label { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.ls-partner { font-size: 14px; font-weight: 600; color: var(--ink); opacity: 0.2; white-space: nowrap; }
+
 /* MANIFESTO */
 .manifesto-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
 .manifesto { border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1.2fr 1fr; min-height: 420px; }
@@ -339,6 +349,11 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   .glass-strip-inner { grid-template-columns: 1fr; }
   .glass-card { padding: 18px 22px; }
   .hero-pad { height: 32px; }
+  .logo-strip { padding: 32px 20px 8px; }
+  .ls-logos { gap: 20px 32px; }
+  .ls-logo { font-size: 13px; }
+  .ls-partners { gap: 20px; }
+  .ls-partner { font-size: 12px; }
 
   /* Manifesto */
   .manifesto-section { padding: 48px 20px 0; }
@@ -436,9 +451,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 <section class="hero">
   <div class="hero-photo"></div><div class="hero-gradient"></div>
   <div class="hero-content">
-    <h1>We put AI to work.</h1>
-    <p class="hero-sub">Gambit deploys AI workers that solve your toughest problems, freeing your team to focus on what's next.</p>
-    <div class="hero-cta"><a href="#workers" class="hero-btn-primary">Meet the workers</a><a href="#work" class="hero-btn-ghost">Watch it work →</a></div>
+    <h1>Agents assist.<br>Workers operate.</h1>
+    <p class="hero-sub">Gambit builds AI workers that run your operations 24/7. Not agents. Not copilots. Workers with a job title, a scope, and accountability to an outcome.</p>
+    <div class="hero-cta"><a href="#workers" class="hero-btn-primary">See the workers</a><a href="#work" class="hero-btn-ghost">How it works →</a></div>
   </div>
   <div class="glass-strip"><div class="glass-strip-inner">
     <div class="glass-card"><div class="gc-status">Working</div><div class="gc-name">AskTodd</div><div class="gc-title">Legal Strategist · Gowlings</div><div class="gc-num">450</div><div class="gc-label">consultations this week</div></div>
@@ -446,6 +461,26 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
     <div class="glass-card"><div class="gc-status">Working</div><div class="gc-name">Demi</div><div class="gc-title">HR Advisor</div><div class="gc-num">89</div><div class="gc-label">cases this week</div></div>
   </div></div>
   <div class="hero-pad"></div>
+</section>
+
+<!-- LOGO STRIP -->
+<section class="logo-strip">
+  <p class="ls-label">Workers deployed at</p>
+  <div class="ls-logos">
+    <span class="ls-logo">Cigna Healthcare</span>
+    <span class="ls-logo">Town of Vail</span>
+    <span class="ls-logo">Infiniti Group</span>
+    <span class="ls-logo">Spearhead Corporate Development</span>
+    <span class="ls-logo">Logistics Alliance</span>
+    <span class="ls-logo">Geotab</span>
+    <span class="ls-logo">Bobit Media</span>
+  </div>
+  <div class="ls-divider"></div>
+  <div class="ls-partners">
+    <span class="ls-partners-label">Technology partners</span>
+    <span class="ls-partner">HPE</span>
+    <span class="ls-partner">TD Synnex</span>
+  </div>
 </section>
 
 <!-- MANIFESTO -->
@@ -639,7 +674,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
   <div class="cta-inner">
     <h2>Ready to put AI to work?</h2>
     <p>Tell us what's not working. We'll show you what can.</p>
-    <div class="cta-buttons"><a href="#askgambit" class="cta-primary">Ask Gambit</a><a href="/get-started" class="cta-outline">Contact us</a></div>
+    <div class="cta-buttons"><a href="/get-started" class="cta-primary">Book a 30-min scope call</a><a href="#askgambit" class="cta-outline">Ask Gambit first</a></div>
   </div>
 </section>
 
