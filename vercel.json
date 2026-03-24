@@ -1,10 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/case-study/:slug",
-      "destination": "/case-study-:slug.html"
-    }
-  ],
+  "rewrites": [],
   "redirects": [
     {
       "source": "/#solutions",

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gambit | AskEllyn: AI Companion for Breast Cancer Support</title>
+<title>Gambit | The Next-Generation Data Layer</title>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -36,26 +36,14 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 
 /* ARTICLE */
 .article-page { max-width: 720px; margin: 0 auto; padding: 120px 32px 0; flex: 1; }
-
 .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; margin-bottom: 32px; transition: color 0.15s; }
 .article-back:hover { color: var(--ink); }
-
 .article-header { margin-bottom: 40px; }
 .article-header h1 { font-size: 36px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
 .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: var(--muted); }
 .article-meta-divider { width: 1px; height: 14px; background: var(--border); }
-
-/* Hero image */
-.article-hero {
-  width: 100%; border-radius: 14px; overflow: hidden;
-  margin-bottom: 40px; background: var(--border);
-  aspect-ratio: 16 / 9;
-}
-.article-hero img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-}
-
-/* Body. reuse text-page-body styles */
+.article-hero { width: 100%; border-radius: 14px; overflow: hidden; margin-bottom: 40px; background: var(--border); aspect-ratio: 16 / 9; }
+.article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .article-body h2 { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; padding-top: 32px; border-top: 1px solid var(--border-light); }
 .article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 .article-body h3 { font-size: 17px; font-weight: 500; margin-top: 32px; margin-bottom: 12px; }
@@ -69,16 +57,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .article-body blockquote { border-left: 2px solid var(--border); padding-left: 20px; margin: 24px 0; }
 .article-body blockquote p { color: var(--muted); font-style: italic; }
 .article-body hr { border: none; height: 1px; background: var(--border); margin: 32px 0; }
-
-/* Inline image */
-.article-body .inline-img {
-  width: 100%; border-radius: 12px; overflow: hidden;
-  margin: 32px 0; background: var(--border);
-}
+.article-body .inline-img { width: 100%; border-radius: 12px; overflow: hidden; margin: 32px 0; background: var(--border); }
 .article-body .inline-img img { width: 100%; display: block; }
 .article-body .inline-img figcaption { font-size: 12px; color: var(--muted); padding: 10px 0 0; }
-
-/* Share / bottom */
 .article-footer { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding-bottom: 0; }
 .article-author-block { display: flex; align-items: center; gap: 12px; }
 .article-author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--border); overflow: hidden; }
@@ -100,14 +81,18 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
 .footer-legal a:hover { color: rgba(255,255,255,0.4); }
 .footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
-/* ═══ RESPONSIVE ═══ */
+.footer-center { display: flex; align-items: center; gap: 24px; }
+.footer-center a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
+.footer-center a:hover { color: rgba(255,255,255,0.6); }
+.footer-right { display: flex; align-items: center; gap: 16px; }
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; text-decoration: none; }
+.footer-social:hover { background: rgba(255,255,255,0.1); }
+.footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
 .menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
 
-@media (max-width: 1024px) {
-  .header-inner { padding: 0 24px; }
-}
-
+@media (max-width: 1024px) { .header-inner { padding: 0 24px; } }
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
   nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 99; }
@@ -142,70 +127,54 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <body>
 
 <!-- HEADER -->
-<header><div class="header-inner"><a href="/" class="logo"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
 
 <!-- ARTICLE -->
 <main class="article-page">
 
-  <a href="/case-studies" class="article-back">← Back to Case Studies</a>
+  <a href="/insights" class="article-back">&larr; Back to Insights</a>
 
   <div class="article-header">
-    <h1>AskEllyn: AI Companion for Breast Cancer Support</h1>
+    <h1>The Next-Generation Data Layer</h1>
     <div class="article-meta">
       <span>Ryan Burgio</span>
       <div class="article-meta-divider"></div>
-      <span>Health &amp; Wellness · Cigna Healthcare</span>
+      <span>February 2025</span>
     </div>
   </div>
 
-  <!-- HERO IMAGE. Change the src -->
-  <div class="article-hero">
-    <img src="https://gambitco.io/wp-content/uploads/2025/03/Screenshot-2026-01-09-at-9.17.18 AM.png" alt="AskEllyn">
-  </div>
+  <div class="article-hero"></div>
 
-  <!-- ARTICLE BODY. Replace with your content -->
   <div class="article-body">
 
-    <p>AskEllyn is the world's first AI companion for breast cancer support. built on the lived experience of Ellyn Winters-Robinson, a breast cancer survivor and author of <em>Flat Please, Hold the Shame</em>.</p>
+    <p>The promise of enterprise AI has always depended on one thing: data. Not just having it, but making it usable -- connected, contextualized, and accessible in real time to the systems that need it. For most organizations, this remains the single biggest bottleneck. Gambit Cloud's next-generation data layer is our answer to that challenge: a unified intelligence foundation that connects knowledge, reasoning, and enterprise data into a single layer purpose-built for AI workers.</p>
 
-    <p>Now live on Cigna Healthcare's breast cancer community, AskEllyn provides multilingual, empathetic support to patients and families in over 100 countries and 50+ languages.</p>
+    <h2>Why Traditional Data Architectures Fall Short</h2>
 
-    <h2>The Challenge</h2>
+    <p>Enterprise data today is scattered across dozens of systems -- CRMs, ERPs, data warehouses, document stores, communication platforms, and more. Traditional integration approaches attempt to pipe this data into centralized repositories, but the result is often stale, incomplete, or stripped of the context that made it valuable in the first place. When an AI system needs to answer a question like "What is the status of this customer's most recent order, and have they raised any concerns about it?", it needs to pull from multiple sources in real time and understand the relationships between those data points.</p>
 
-    <p>Breast cancer patients face an overwhelming amount of information at the moment they're least equipped to process it. Support resources are fragmented, clinical, and rarely available at 2am when the anxiety hits hardest. Healthcare providers can't scale one-on-one support to every patient who needs it.</p>
+    <p>Legacy data layers were designed for dashboards and batch reporting. They were never built for the kind of dynamic, contextual retrieval that AI workers require. This mismatch is why so many enterprise AI deployments stall after the proof-of-concept phase -- the AI is only as good as the data it can access, and most data architectures were not designed for this kind of access pattern.</p>
 
-    <h2>The Worker</h2>
+    <h2>A Unified Intelligence Foundation</h2>
 
-    <p>AskEllyn isn't a medical tool. it's a companion. Built on Ellyn's personal journey, the worker provides non-medical support with warmth, empathy, and the kind of understanding that only comes from lived experience.</p>
+    <p>Gambit Cloud's data layer takes a fundamentally different approach. Instead of centralizing data into yet another warehouse, it creates a <strong>live knowledge graph</strong> that sits on top of existing enterprise systems. This graph maintains real-time connections to source systems and enriches raw data with semantic context -- understanding not just what data exists, but what it means and how it relates to other information across the organization.</p>
 
-    <ul>
-      <li><strong>Conversational and multilingual</strong>. available in 50+ languages, meeting patients wherever they are</li>
-      <li><strong>Emotionally intelligent</strong>. trained on real patient conversations and Ellyn's personal narrative</li>
-      <li><strong>Always available</strong>. 24/7 support that doesn't require an appointment or a waitlist</li>
-      <li><strong>Licensed by a major insurer</strong>. deployed on Cigna Healthcare for digital patient engagement</li>
-    </ul>
+    <p>When an AI worker needs information, it queries this knowledge graph rather than individual databases. The data layer handles the complexity of resolving data across systems, reconciling conflicts, applying access controls, and delivering a coherent, contextualized answer. From the worker's perspective, the entire enterprise looks like a single, well-organized knowledge base.</p>
 
-    <h2>The Impact</h2>
+    <h2>Built for AI Workers</h2>
 
-    <p>Since launch, AskEllyn has been used in over 100 countries with 100,000+ conversations. The worker was a panelist at a GE conference and passed through their quality control process. a milestone for AI in healthcare.</p>
+    <p>Every design decision in the data layer was made with AI workers in mind. The system supports sub-second retrieval for conversational use cases, maintains provenance tracking so workers can cite their sources, and enforces granular access controls that respect the same permissions boundaries as the underlying enterprise systems. It also includes a feedback mechanism that allows workers to flag data quality issues, creating a continuous improvement loop that gets better with every interaction.</p>
 
-    <blockquote>
-      <p>AskEllyn represents what's possible when AI is grounded in real human experience rather than just clinical data.</p>
-    </blockquote>
-
-    <h2>What's Next</h2>
-
-    <p>AskEllyn continues to improve through real-world conversations. The model is being refined based on patient interactions, and new deployment channels are in development to reach more patients through the platforms they already use.</p>
+    <p>The next generation of enterprise AI will not be defined by better models alone. It will be defined by better data foundations -- systems that give AI workers the context, accuracy, and speed they need to operate as true members of the team. That is what we are building at Gambit Cloud.</p>
 
   </div>
 
-  <!-- AUTHOR BLOCK -->
   <div class="article-footer">
     <div class="article-author-block">
       <div class="article-author-avatar"></div>
       <div>
         <div class="article-author-name">Ryan Burgio</div>
-        <div class="article-author-role">Creative Director, Gambit</div>
+        <div class="article-author-role">Gambit</div>
       </div>
     </div>
     <div class="article-share">Share this article</div>
@@ -216,9 +185,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-left"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
-    <div class="footer-links"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
-    <div class="footer-legal"><a href="/terms-of-service">Terms of Service</a><span>·</span><a href="/privacy-policy">Privacy Policy</a></div>
+    <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-center"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
+    <div class="footer-legal"><a href="/terms-of-service">Terms of Service</a><span>&middot;</span><a href="/privacy-policy">Privacy Policy</a></div>
   </div>
 </footer>
 

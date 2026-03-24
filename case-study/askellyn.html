@@ -3,29 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- PRIMARY SEO -->
-<title>Partner with GambitCo | AI Channel Partners & Resellers</title>
-<meta name="description" content="Partner with Gambit to bring AI workers to your clients. We work with channel partners, technology providers, and resellers across industries.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Gambit Technology Inc.">
-<link rel="canonical" href="https://gambitco.io/partners">
-
-<!-- OPEN GRAPH -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="GambitCo">
-<meta property="og:title" content="Partner with GambitCo">
-<meta property="og:description" content="Bring AI workers to your clients. Partner with Gambit.">
-<meta property="og:url" content="https://gambitco.io/partners">
-<meta property="og:image" content="https://gambitco.io/og-partners.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- TWITTER CARD -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Partner with GambitCo">
-<meta name="twitter:description" content="Bring AI workers to your clients. Partner with Gambit.">
-<meta name="twitter:image" content="https://gambitco.io/og-partners.png">
+<title>Gambit | AskEllyn: AI Companion for Breast Cancer Support</title>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -40,6 +18,7 @@
 html { font-family: var(--font); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
 body { min-height: 100vh; display: flex; flex-direction: column; }
 
+/* HEADER */
 header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: var(--white); border-bottom: 1px solid var(--border); }
 .header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
 .logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
@@ -55,26 +34,61 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
 .btn-solid-h:hover { opacity: 0.75; }
 
-.form-page { max-width: 1280px; margin: 0 auto; padding: 120px 32px 80px; flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.form-intro h1 { font-size: 44px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 16px; }
-.form-intro p { font-size: 17px; color: var(--secondary); line-height: 1.55; max-width: 440px; margin-bottom: 32px; }
-.form-intro-detail { font-size: 14px; color: var(--muted); line-height: 1.6; }
-.form-intro-detail a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+/* ARTICLE */
+.article-page { max-width: 720px; margin: 0 auto; padding: 120px 32px 0; flex: 1; }
 
-.form-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px; }
-.form-row { margin-bottom: 20px; }
-.form-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-.form-label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--ink); }
-.form-label .req { color: var(--muted); font-weight: 400; }
-.form-input { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: var(--font); color: var(--ink); background: var(--page); transition: border-color 0.15s; outline: none; }
-.form-input:focus { border-color: var(--muted); }
-.form-input::placeholder { color: #c4c4c8; }
-textarea.form-input { min-height: 120px; resize: vertical; }
-.form-submit { display: inline-flex; align-items: center; padding: 12px 28px; border-radius: 100px; background: var(--ink); color: var(--white); font-size: 14px; font-weight: 500; font-family: var(--font); border: none; cursor: pointer; transition: opacity 0.15s; margin-top: 4px; }
-.form-submit:hover { opacity: 0.75; }
-.form-hp { display: none; }
+.article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; margin-bottom: 32px; transition: color 0.15s; }
+.article-back:hover { color: var(--ink); }
 
-.site-footer { background: var(--black); padding: 40px 32px; }
+.article-header { margin-bottom: 40px; }
+.article-header h1 { font-size: 36px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+.article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: var(--muted); }
+.article-meta-divider { width: 1px; height: 14px; background: var(--border); }
+
+/* Hero image */
+.article-hero {
+  width: 100%; border-radius: 14px; overflow: hidden;
+  margin-bottom: 40px; background: var(--border);
+  aspect-ratio: 16 / 9;
+}
+.article-hero img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* Body. reuse text-page-body styles */
+.article-body h2 { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; padding-top: 32px; border-top: 1px solid var(--border-light); }
+.article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.article-body h3 { font-size: 17px; font-weight: 500; margin-top: 32px; margin-bottom: 12px; }
+.article-body p { font-size: 15px; color: var(--secondary); line-height: 1.7; margin-bottom: 16px; }
+.article-body p:last-child { margin-bottom: 0; }
+.article-body ul, .article-body ol { margin-bottom: 16px; padding-left: 24px; }
+.article-body li { font-size: 15px; color: var(--secondary); line-height: 1.7; margin-bottom: 8px; }
+.article-body a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.75; }
+.article-body strong { color: var(--ink); font-weight: 500; }
+.article-body blockquote { border-left: 2px solid var(--border); padding-left: 20px; margin: 24px 0; }
+.article-body blockquote p { color: var(--muted); font-style: italic; }
+.article-body hr { border: none; height: 1px; background: var(--border); margin: 32px 0; }
+
+/* Inline image */
+.article-body .inline-img {
+  width: 100%; border-radius: 12px; overflow: hidden;
+  margin: 32px 0; background: var(--border);
+}
+.article-body .inline-img img { width: 100%; display: block; }
+.article-body .inline-img figcaption { font-size: 12px; color: var(--muted); padding: 10px 0 0; }
+
+/* Share / bottom */
+.article-footer { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding-bottom: 0; }
+.article-author-block { display: flex; align-items: center; gap: 12px; }
+.article-author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--border); overflow: hidden; }
+.article-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.article-author-name { font-size: 14px; font-weight: 500; }
+.article-author-role { font-size: 12px; color: var(--muted); }
+.article-share { font-size: 13px; color: var(--muted); }
+
+/* FOOTER */
+.site-footer { background: var(--black); padding: 40px 32px; margin-top: 80px; }
 .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .footer-left { display: flex; align-items: center; gap: 16px; }
 .footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
@@ -122,68 +136,92 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   .cta-primary, .cta-outline { text-align: center; justify-content: center; }
 }
 @media (max-width: 768px) {
-  .form-page { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 32px; }
-  .form-intro h1 { font-size: 32px; }
-  .form-row-split { grid-template-columns: 1fr; }
+  .article-page { padding: 100px 20px 0; }
+  .article-header h1 { font-size: 28px; }
+  .article-meta { flex-wrap: wrap; gap: 8px; }
+  .article-footer { flex-direction: column; gap: 16px; align-items: flex-start; }
 }
 @media (max-width: 480px) {
-  .form-intro h1 { font-size: 28px; }
+  .article-header h1 { font-size: 24px; }
+  .article-hero { border-radius: 10px; }
 }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
 
-<main class="form-page">
-  <div class="form-intro">
-    <h1>Partner with Gambit</h1>
-    <p>We work with channel partners, technology providers, and resellers who want to bring AI workers to their clients.</p>
-    <div class="form-intro-detail">
-      <p>Tell us about the opportunity. whether you have a specific client in mind, a vertical you want to target, or a technology integration you'd like to explore.</p>
+<!-- ARTICLE -->
+<main class="article-page">
+
+  <a href="/case-studies" class="article-back">← Back to Case Studies</a>
+
+  <div class="article-header">
+    <h1>AskEllyn: AI Companion for Breast Cancer Support</h1>
+    <div class="article-meta">
+      <span>Ryan Burgio</span>
+      <div class="article-meta-divider"></div>
+      <span>Health &amp; Wellness · Cigna Healthcare</span>
     </div>
   </div>
 
-  <div class="form-card">
-    <form action="https://formspree.io/f/mbdzbyzg" method="POST">
-      <input type="hidden" name="_subject" value="New Partner Inquiry">
-
-      <div class="form-row-split">
-        <div>
-          <label class="form-label">First name <span class="req">*</span></label>
-          <input type="text" name="first_name" class="form-input" placeholder="First name" required>
-        </div>
-        <div>
-          <label class="form-label">Last name <span class="req">*</span></label>
-          <input type="text" name="last_name" class="form-input" placeholder="Last name" required>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Company <span class="req">*</span></label>
-        <input type="text" name="company" class="form-input" placeholder="Your company" required>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Email <span class="req">*</span></label>
-        <input type="email" name="email" class="form-input" placeholder="you@company.com" required>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Partnership details <span class="req">*</span></label>
-        <textarea name="message" class="form-input" placeholder="What kind of partnership are you looking for? A specific client, a vertical, a technology integration?" required></textarea>
-      </div>
-
-      <div class="form-hp">
-        <input type="text" name="_gotcha">
-      </div>
-
-      <button type="submit" class="form-submit">Send it →</button>
-
-    </form>
+  <!-- HERO IMAGE. Change the src -->
+  <div class="article-hero">
+    <img src="/img/worker-ellyn.jpg" alt="AskEllyn">
   </div>
+
+  <!-- ARTICLE BODY. Replace with your content -->
+  <div class="article-body">
+
+    <p>AskEllyn is the world's first AI companion for breast cancer support. built on the lived experience of Ellyn Winters-Robinson, a breast cancer survivor and author of <em>Flat Please, Hold the Shame</em>.</p>
+
+    <p>Now live on Cigna Healthcare's breast cancer community, AskEllyn provides multilingual, empathetic support to patients and families in over 100 countries and 50+ languages.</p>
+
+    <h2>The Challenge</h2>
+
+    <p>Breast cancer patients face an overwhelming amount of information at the moment they're least equipped to process it. Support resources are fragmented, clinical, and rarely available at 2am when the anxiety hits hardest. Healthcare providers can't scale one-on-one support to every patient who needs it.</p>
+
+    <h2>The Worker</h2>
+
+    <p>AskEllyn isn't a medical tool. it's a companion. Built on Ellyn's personal journey, the worker provides non-medical support with warmth, empathy, and the kind of understanding that only comes from lived experience.</p>
+
+    <ul>
+      <li><strong>Conversational and multilingual</strong>. available in 50+ languages, meeting patients wherever they are</li>
+      <li><strong>Emotionally intelligent</strong>. trained on real patient conversations and Ellyn's personal narrative</li>
+      <li><strong>Always available</strong>. 24/7 support that doesn't require an appointment or a waitlist</li>
+      <li><strong>Licensed by a major insurer</strong>. deployed on Cigna Healthcare for digital patient engagement</li>
+    </ul>
+
+    <h2>The Impact</h2>
+
+    <p>Since launch, AskEllyn has been used in over 100 countries with 100,000+ conversations. The worker was a panelist at a GE conference and passed through their quality control process. a milestone for AI in healthcare.</p>
+
+    <blockquote>
+      <p>AskEllyn represents what's possible when AI is grounded in real human experience rather than just clinical data.</p>
+    </blockquote>
+
+    <h2>What's Next</h2>
+
+    <p>AskEllyn continues to improve through real-world conversations. The model is being refined based on patient interactions, and new deployment channels are in development to reach more patients through the platforms they already use.</p>
+
+  </div>
+
+  <!-- AUTHOR BLOCK -->
+  <div class="article-footer">
+    <div class="article-author-block">
+      <div class="article-author-avatar"></div>
+      <div>
+        <div class="article-author-name">Ryan Burgio</div>
+        <div class="article-author-role">Creative Director, Gambit</div>
+      </div>
+    </div>
+    <div class="article-share">Share this article</div>
+  </div>
+
 </main>
 
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>

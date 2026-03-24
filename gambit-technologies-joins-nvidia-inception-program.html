@@ -3,29 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- PRIMARY SEO -->
-<title>Get Started with GambitCo | Build Your AI Worker</title>
-<meta name="description" content="Tell us what you are trying to build. Gambit builds custom AI workers deployed in weeks, not months. Contact us to get started.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Gambit Technology Inc.">
-<link rel="canonical" href="https://gambitco.io/get-started">
-
-<!-- OPEN GRAPH -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="GambitCo">
-<meta property="og:title" content="Get Started with GambitCo">
-<meta property="og:description" content="Tell us what's not working. We'll show you what can.">
-<meta property="og:url" content="https://gambitco.io/get-started">
-<meta property="og:image" content="https://gambitco.io/og-contact.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- TWITTER CARD -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Get Started with GambitCo">
-<meta name="twitter:description" content="Tell us what's not working. We'll show you what can.">
-<meta name="twitter:image" content="https://gambitco.io/og-contact.png">
+<title>Gambit | Gambit Technologies Joins NVIDIA Inception Program</title>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -33,7 +11,7 @@
 :root {
   --black: #0a0a0a; --ink: #141414; --secondary: #52525b;
   --muted: #a1a1aa; --border: #e4e4e7; --border-light: #f0f0f2;
-  --page: #fafafa; --white: #ffffff; --working: #16a34a;
+  --page: #fafafa; --white: #ffffff;
   --font: 'General Sans', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -56,49 +34,42 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
 .btn-solid-h:hover { opacity: 0.75; }
 
-/* FORM PAGE */
-.form-page { max-width: 1280px; margin: 0 auto; padding: 120px 32px 80px; flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-
-.form-intro {}
-.form-intro h1 { font-size: 44px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 16px; }
-.form-intro p { font-size: 17px; color: var(--secondary); line-height: 1.55; max-width: 440px; margin-bottom: 32px; }
-.form-intro-detail { font-size: 14px; color: var(--muted); line-height: 1.6; }
-.form-intro-detail a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
-
-/* FORM */
-.form-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px; }
-
-.form-row { margin-bottom: 20px; }
-.form-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-
-.form-label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--ink); }
-.form-label .req { color: var(--muted); font-weight: 400; }
-
-.form-input {
-  width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px;
-  font-size: 14px; font-family: var(--font); color: var(--ink); background: var(--page);
-  transition: border-color 0.15s; outline: none;
-}
-.form-input:focus { border-color: var(--muted); }
-.form-input::placeholder { color: #c4c4c8; }
-
-textarea.form-input { min-height: 120px; resize: vertical; }
-
-.form-submit {
-  display: inline-flex; align-items: center;
-  padding: 12px 28px; border-radius: 100px;
-  background: var(--ink); color: var(--white);
-  font-size: 14px; font-weight: 500; font-family: var(--font);
-  border: none; cursor: pointer; transition: opacity 0.15s;
-  margin-top: 4px;
-}
-.form-submit:hover { opacity: 0.75; }
-
-/* Honeypot */
-.form-hp { display: none; }
+/* ARTICLE */
+.article-page { max-width: 720px; margin: 0 auto; padding: 120px 32px 0; flex: 1; }
+.article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; margin-bottom: 32px; transition: color 0.15s; }
+.article-back:hover { color: var(--ink); }
+.article-header { margin-bottom: 40px; }
+.article-header h1 { font-size: 36px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+.article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: var(--muted); }
+.article-meta-divider { width: 1px; height: 14px; background: var(--border); }
+.article-hero { width: 100%; border-radius: 14px; overflow: hidden; margin-bottom: 40px; background: var(--border); aspect-ratio: 16 / 9; }
+.article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.article-body h2 { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; padding-top: 32px; border-top: 1px solid var(--border-light); }
+.article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.article-body h3 { font-size: 17px; font-weight: 500; margin-top: 32px; margin-bottom: 12px; }
+.article-body p { font-size: 15px; color: var(--secondary); line-height: 1.7; margin-bottom: 16px; }
+.article-body p:last-child { margin-bottom: 0; }
+.article-body ul, .article-body ol { margin-bottom: 16px; padding-left: 24px; }
+.article-body li { font-size: 15px; color: var(--secondary); line-height: 1.7; margin-bottom: 8px; }
+.article-body a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; transition: opacity 0.15s; }
+.article-body a:hover { opacity: 0.75; }
+.article-body strong { color: var(--ink); font-weight: 500; }
+.article-body blockquote { border-left: 2px solid var(--border); padding-left: 20px; margin: 24px 0; }
+.article-body blockquote p { color: var(--muted); font-style: italic; }
+.article-body hr { border: none; height: 1px; background: var(--border); margin: 32px 0; }
+.article-body .inline-img { width: 100%; border-radius: 12px; overflow: hidden; margin: 32px 0; background: var(--border); }
+.article-body .inline-img img { width: 100%; display: block; }
+.article-body .inline-img figcaption { font-size: 12px; color: var(--muted); padding: 10px 0 0; }
+.article-footer { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding-bottom: 0; }
+.article-author-block { display: flex; align-items: center; gap: 12px; }
+.article-author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--border); overflow: hidden; }
+.article-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.article-author-name { font-size: 14px; font-weight: 500; }
+.article-author-role { font-size: 12px; color: var(--muted); }
+.article-share { font-size: 13px; color: var(--muted); }
 
 /* FOOTER */
-.site-footer { background: var(--black); padding: 40px 32px; }
+.site-footer { background: var(--black); padding: 40px 32px; margin-top: 80px; }
 .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .footer-left { display: flex; align-items: center; gap: 16px; }
 .footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
@@ -118,14 +89,10 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 .footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; text-decoration: none; }
 .footer-social:hover { background: rgba(255,255,255,0.1); }
 .footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-/* ═══ RESPONSIVE ═══ */
 .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
 .menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
 
-@media (max-width: 1024px) {
-  .header-inner { padding: 0 24px; }
-}
-
+@media (max-width: 1024px) { .header-inner { padding: 0 24px; } }
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
   nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 99; }
@@ -146,12 +113,14 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   .cta-primary, .cta-outline { text-align: center; justify-content: center; }
 }
 @media (max-width: 768px) {
-  .form-page { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 32px; }
-  .form-intro h1 { font-size: 32px; }
-  .form-row-split { grid-template-columns: 1fr; }
+  .article-page { padding: 100px 20px 0; }
+  .article-header h1 { font-size: 28px; }
+  .article-meta { flex-wrap: wrap; gap: 8px; }
+  .article-footer { flex-direction: column; gap: 16px; align-items: flex-start; }
 }
 @media (max-width: 480px) {
-  .form-intro h1 { font-size: 28px; }
+  .article-header h1 { font-size: 24px; }
+  .article-hero { border-radius: 10px; }
 }
 </style>
 </head>
@@ -160,54 +129,57 @@ textarea.form-input { min-height: 120px; resize: vertical; }
 <!-- HEADER -->
 <header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
 
-<!-- GET STARTED -->
-<main class="form-page">
-  <div class="form-intro">
-    <h1>Get started</h1>
-    <p>Tell us what you're trying to build. We'll figure out what the worker needs to do and get back to you within a day.</p>
-    <div class="form-intro-detail">
-      <p>Or if you'd prefer, just <a href="/#askgambit">ask Gambit</a> directly. our AI worker can answer most questions about what we do and how we work.</p>
+<!-- ARTICLE -->
+<main class="article-page">
+
+  <a href="/insights" class="article-back">&larr; Back to Insights</a>
+
+  <div class="article-header">
+    <h1>Gambit Technologies Joins NVIDIA Inception Program</h1>
+    <div class="article-meta">
+      <span>Ryan Burgio</span>
+      <div class="article-meta-divider"></div>
+      <span>June 2025</span>
     </div>
   </div>
 
-  <div class="form-card">
-    <form action="https://formspree.io/f/mbdzbyzg" method="POST">
+  <div class="article-hero"></div>
 
-      <div class="form-row-split">
-        <div>
-          <label class="form-label">First name <span class="req">*</span></label>
-          <input type="text" name="first_name" class="form-input" placeholder="First name" required>
-        </div>
-        <div>
-          <label class="form-label">Last name <span class="req">*</span></label>
-          <input type="text" name="last_name" class="form-input" placeholder="Last name" required>
-        </div>
-      </div>
+  <div class="article-body">
 
-      <div class="form-row">
-        <label class="form-label">Company <span class="req">*</span></label>
-        <input type="text" name="company" class="form-input" placeholder="Your company" required>
-      </div>
+    <p>Gambit Technologies has been accepted into the <strong>NVIDIA Inception Program</strong>, a prestigious accelerator designed to nurture startups that are pushing the boundaries of AI and data science. This membership connects Gambit with NVIDIA's world-class technology stack, deep learning expertise, and a global network of AI innovators.</p>
 
-      <div class="form-row">
-        <label class="form-label">Email <span class="req">*</span></label>
-        <input type="email" name="email" class="form-input" placeholder="you@company.com" required>
-      </div>
+    <h2>What Is NVIDIA Inception?</h2>
 
-      <div class="form-row">
-        <label class="form-label">Project details <span class="req">*</span></label>
-        <textarea name="message" class="form-input" placeholder="What are you looking to build? The more detail, the better." required></textarea>
-      </div>
+    <p>NVIDIA Inception is a free program designed to help startups evolve faster through access to cutting-edge technology, NVIDIA experts, and a broad ecosystem of venture capitalists and industry partners. Members receive benefits including preferred pricing on NVIDIA hardware and software, technical guidance from NVIDIA's engineering teams, and co-marketing opportunities that amplify visibility across the AI landscape.</p>
 
-      <!-- Honeypot spam protection -->
-      <div class="form-hp">
-        <input type="text" name="_gotcha">
-      </div>
+    <p>The program is highly selective, accepting startups that demonstrate strong technical foundations and a clear vision for how AI can transform their respective industries. Gambit's acceptance is a recognition of the company's innovative approach to building enterprise AI workers.</p>
 
-      <button type="submit" class="form-submit">Send it →</button>
+    <h2>Accelerating Gambit's AI Infrastructure</h2>
 
-    </form>
+    <p>Access to NVIDIA's technology stack has immediate and practical implications for Gambit. The company's AI workers rely on sophisticated natural language processing, contextual reasoning, and real-time inference capabilities -- all of which benefit from the GPU-accelerated computing that NVIDIA pioneered. Through the Inception Program, Gambit gains deeper access to tools like NVIDIA AI Enterprise, TensorRT, and the CUDA computing platform, enabling faster model training and more efficient deployment at scale.</p>
+
+    <p>This is particularly important as Gambit continues to expand its roster of AI workers across industries. Each new worker requires specialized training and optimization, and NVIDIA's infrastructure helps Gambit deliver these systems with the performance and reliability that enterprise clients demand.</p>
+
+    <h2>A Validation of Gambit's Vision</h2>
+
+    <p>Joining the NVIDIA Inception Program places Gambit alongside some of the most innovative AI companies in the world. It is a signal to the market that Gambit's approach to enterprise AI -- purpose-built workers that operate as dedicated team members -- is not only viable but increasingly recognized by the industry's most influential players.</p>
+
+    <p>For Gambit's enterprise clients, this membership translates directly into better-performing AI workers, faster innovation cycles, and the confidence that comes from knowing their AI partner is backed by the gold standard in computing infrastructure. As Gambit continues to grow, the NVIDIA Inception Program will serve as a critical accelerant for the company's mission to put AI to work.</p>
+
   </div>
+
+  <div class="article-footer">
+    <div class="article-author-block">
+      <div class="article-author-avatar"></div>
+      <div>
+        <div class="article-author-name">Ryan Burgio</div>
+        <div class="article-author-role">Gambit</div>
+      </div>
+    </div>
+    <div class="article-share">Share this article</div>
+  </div>
+
 </main>
 
 <!-- FOOTER -->
@@ -215,7 +187,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   <div class="footer-inner">
     <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
     <div class="footer-center"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
-    <div class="footer-right"><div class="footer-legal"><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy-policy">Privacy</a></div><div class="footer-socials"><a href="https://www.linkedin.com/company/gambit-co/" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.instagram.com/gambitco" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+    <div class="footer-legal"><a href="/terms-of-service">Terms of Service</a><span>&middot;</span><a href="/privacy-policy">Privacy Policy</a></div>
   </div>
 </footer>
 

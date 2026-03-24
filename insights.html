@@ -95,6 +95,14 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
 .footer-legal a:hover { color: rgba(255,255,255,0.4); }
 .footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
+.footer-center { display: flex; align-items: center; gap: 24px; }
+.footer-center a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
+.footer-center a:hover { color: rgba(255,255,255,0.6); }
+.footer-right { display: flex; align-items: center; gap: 16px; }
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; text-decoration: none; }
+.footer-social:hover { background: rgba(255,255,255,0.1); }
+.footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 /* ═══ RESPONSIVE ═══ */
 .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
 .menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
@@ -138,7 +146,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <body>
 
 <!-- HEADER -->
-<header><div class="header-inner"><a href="/" class="logo"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
 
 <!-- INSIGHTS LISTING -->
 <main class="insights-page">
@@ -148,7 +156,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 
   <div class="insights-list">
 
-    <a href="/insights" class="insight-item">
+    <a href="/gambitco-joins-hpe-unleash-ai-partner-program" class="insight-item">
       <div class="insight-date">Dec 2025</div>
       <div>
         <div class="insight-title">GambitCo Joins HPE Unleash AI Partner Program</div>
@@ -158,7 +166,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/gambit-featured-canadian-startup-documentary" class="insight-item">
       <div class="insight-date">Dec 2025</div>
       <div>
         <div class="insight-title">Featured in First-Ever Canadian Startup Documentary</div>
@@ -168,7 +176,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/askellyn-launches-with-cigna" class="insight-item">
       <div class="insight-date">Sep 2025</div>
       <div>
         <div class="insight-title">AskEllyn Now Live on Cigna Healthcare</div>
@@ -178,7 +186,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/gambitco-primary-people-group-partner" class="insight-item">
       <div class="insight-date">Aug 2025</div>
       <div>
         <div class="insight-title">Primary People Group Becomes First Channel Partner</div>
@@ -188,7 +196,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/foundersbeta-top-100-companies-to-watch-2025" class="insight-item">
       <div class="insight-date">Jul 2025</div>
       <div>
         <div class="insight-title">Top 10 in FoundersBeta's 100 Companies to Watch</div>
@@ -198,7 +206,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/gambit-technologies-joins-nvidia-inception-program" class="insight-item">
       <div class="insight-date">Jun 2025</div>
       <div>
         <div class="insight-title">Gambit Technologies Joins NVIDIA Inception Program</div>
@@ -208,7 +216,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/interview-lets-talk-ai-gambit-cto-chris-silivestru" class="insight-item">
       <div class="insight-date">May 2025</div>
       <div>
         <div class="insight-title">Interview: Let's Talk AI with Gambit CTO Chris Silivestru</div>
@@ -218,7 +226,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/introducing-askellyn-ai-companion-breast-cancer-support" class="insight-item">
       <div class="insight-date">Mar 2025</div>
       <div>
         <div class="insight-title">Introducing AskEllyn: World's First AI Companion for Breast Cancer Support</div>
@@ -228,7 +236,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/the-next-generation-data-layer" class="insight-item">
       <div class="insight-date">Feb 2025</div>
       <div>
         <div class="insight-title">The Next-Generation Data Layer</div>
@@ -238,7 +246,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <span class="insight-arrow">→</span>
     </a>
 
-    <a href="/insights" class="insight-item">
+    <a href="/the-future-of-ai-and-customer-interactions" class="insight-item">
       <div class="insight-date">Jan 2025</div>
       <div>
         <div class="insight-title">The Future of AI and Customer Interactions</div>
@@ -254,9 +262,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-left"><img src="https://gambitco.io/wp-content/uploads/2025/01/cropped-Black-logo-no-background.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
-    <div class="footer-links"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
-    <div class="footer-legal"><a href="/terms-of-service">Terms of Service</a><span>·</span><a href="/privacy-policy">Privacy Policy</a></div>
+    <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-center"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
+    <div class="footer-right"><div class="footer-legal"><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy-policy">Privacy</a></div><div class="footer-socials"><a href="https://www.linkedin.com/company/gambit-co/" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.instagram.com/gambitco" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
   </div>
 </footer>
 

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Consent Flow | GambitCo</title>
+<meta name="description" content="SMS opt-in consent flow documentation for Gambit AI chat experiences. TCPA and CTIA compliant messaging policy.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Gambit Technology Inc.">
+<link rel="canonical" href="https://gambitco.io/sms-consent-flow">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0a0a0a; --ink: #141414; --secondary: #52525b;
+  --muted: #a1a1aa; --border: #e4e4e7; --border-light: #f0f0f2;
+  --page: #fafafa; --white: #ffffff;
+  --font: 'General Sans', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html { font-family: var(--font); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* HEADER */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: var(--white); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
+.logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
+.logo:hover { transform: translateX(6px); }
+.logo img { height: 18px; width: auto; display: block; }
+.footer-logo-img { height: 16px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
+nav { display: flex; align-items: center; gap: 4px; }
+nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: 1px solid var(--border); color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-outline-h:hover { opacity: 0.75; }
+.btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-solid-h:hover { opacity: 0.75; }
+
+/* TEXT PAGE */
+.text-page { max-width: 720px; margin: 0 auto; padding: 120px 32px 80px; flex: 1; }
+
+.text-page-header { margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.text-page-header h1 { font-size: 36px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 8px; }
+.text-page-meta { font-size: 14px; color: var(--muted); }
+
+.text-page-body h2 { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; padding-top: 32px; border-top: 1px solid var(--border-light); }
+.text-page-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.text-page-body h3 { font-size: 17px; font-weight: 500; margin-top: 32px; margin-bottom: 12px; }
+
+.text-page-body p { font-size: 15px; color: var(--secondary); line-height: 1.7; margin-bottom: 16px; }
+.text-page-body p:last-child { margin-bottom: 0; }
+
+.text-page-body ul, .text-page-body ol { margin-bottom: 16px; padding-left: 24px; }
+.text-page-body li { font-size: 15px; color: var(--secondary); line-height: 1.7; margin-bottom: 8px; }
+
+.text-page-body a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; transition: opacity 0.15s; }
+.text-page-body a:hover { opacity: 0.75; }
+
+.text-page-body strong { color: var(--ink); font-weight: 500; }
+
+.text-page-body hr { border: none; height: 1px; background: var(--border); margin: 32px 0; }
+
+.text-page-body blockquote { border-left: 2px solid var(--border); padding-left: 20px; margin: 24px 0; }
+.text-page-body blockquote p { color: var(--muted); font-style: italic; }
+
+.text-page-body .flow-diagram { background: var(--page); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; font-family: monospace; font-size: 13px; color: var(--secondary); line-height: 1.8; white-space: pre-line; }
+
+/* FOOTER */
+.site-footer { background: var(--black); padding: 40px 32px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.2); }
+.footer-center { display: flex; align-items: center; gap: 24px; }
+.footer-center a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
+.footer-center a:hover { color: rgba(255,255,255,0.6); }
+.footer-right { display: flex; align-items: center; gap: 16px; }
+.footer-legal { display: flex; align-items: center; gap: 8px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.4); }
+.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; text-decoration: none; }
+.footer-social:hover { background: rgba(255,255,255,0.1); }
+.footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* RESPONSIVE */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
+
+@media (max-width: 1024px) {
+  .header-inner { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 99; }
+  nav.open { display: flex; }
+  nav a { padding: 12px 0; font-size: 16px; }
+  .header-actions { gap: 8px; }
+  .btn-outline-h { display: none; }
+  .header-inner { padding: 0 20px; }
+  .site-footer { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+  .footer-left { flex-direction: column; gap: 6px; }
+  .footer-center { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-right { flex-direction: column; gap: 12px; align-items: center; }
+  .footer-socials { justify-content: center; }
+}
+@media (max-width: 768px) {
+  .text-page { padding: 100px 20px 60px; }
+  .text-page-header h1 { font-size: 32px; }
+}
+@media (max-width: 480px) {
+  .text-page-header h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+
+<!-- TEXT CONTENT -->
+<main class="text-page">
+  <div class="text-page-header">
+    <h1>SMS Consent Flow</h1>
+    <p class="text-page-meta">Gambit Technology Inc.</p>
+  </div>
+
+  <div class="text-page-body">
+
+    <p>This document outlines the SMS opt-in consent flow for Gambit's AI chat experiences delivered via text message. All messaging complies with TCPA and CTIA guidelines.</p>
+
+    <h2>1. Initial Contact</h2>
+
+    <p>Users initiate contact by texting a toll-free number (found via QR code, website, or promotional material). The initial promotional or call-to-action messaging includes disclosure language such as:</p>
+
+    <blockquote>
+      <p>"Powered by [Gambit Client Name]! Msg &amp; Data rates may apply. Reply STOP to cancel now or at any time. Terms and Conditions Apply: [link]"</p>
+    </blockquote>
+
+    <h2>2. Initial User Interaction &amp; Onboarding Status</h2>
+
+    <p>When a user sends any initial SMS message to the toll-free number (whether typed in or launched via QR code):</p>
+
+    <ol>
+      <li><strong>System Check:</strong> Our system checks if the incoming phone number is new or if it was previously opted-out or re-assigned. If the number has never interacted with our system before (or was marked as reassigned), our platform assigns the user the status of "onboarding" and triggers the opt-in confirmation message.</li>
+      <li><strong>Opt-In Message:</strong> The system sends the following one-time confirmation message:</li>
+    </ol>
+
+    <blockquote>
+      <p>"Welcome to [Gambit Client's Name] chat with [Personality X]. Reply YES to confirm you want to receive messages. Reply STOP to opt out. Msg &amp; Data rates may apply. Msg frequency varies. T&amp;Cs: [URL]. Privacy Policy: [URL]."</p>
+    </blockquote>
+
+    <h2>3. User Consent</h2>
+
+    <p>To complete the opt-in, the user must reply "YES." Upon receiving the "YES" response:</p>
+
+    <ol>
+      <li>Our system updates the user record to a status of "consented."</li>
+      <li>We then send the first message from the personality or brand (e.g., a welcome message or conversation starter).</li>
+    </ol>
+
+    <h3>Post-Opt-In Welcome Message</h3>
+
+    <blockquote>
+      <p>"Thanks for confirming! You can now chat with [Personality X] anytime. Reply STOP to unsubscribe at any time."</p>
+    </blockquote>
+
+    <h2>4. Failure to Consent</h2>
+
+    <ul>
+      <li><strong>No "YES" Reply:</strong> If the user does not reply, no additional marketing or conversation messages will be sent. The user remains in "onboarding" status until they either confirm or the number is seen to be re-assigned, at which point the status is changed to "reassigned" in the Gambit system.</li>
+      <li><strong>Reply received that is not "YES":</strong> If the user does not reply with "YES" (other text that's not recognized as confirmation), no additional marketing or conversation messages will be sent. The user remains in "onboarding" status until they either confirm or the number is seen to be re-assigned, at which point the status is changed to "reassigned" in the Gambit system.</li>
+      <li><strong>STOP Before Consent:</strong> If the user replies "STOP" (or equivalent such as "CANCEL"), then the system marks the user as opted-out, and we send a STOP confirmation message (see below).</li>
+    </ul>
+
+    <h2>5. Message Flow &amp; Frequency</h2>
+
+    <p>Once a user is marked as "consented":</p>
+
+    <ol>
+      <li><strong>Conversation Messages:</strong> The user can exchange texts freely with the AI personality. Gambit's conversation engine will respond at the user's request.</li>
+      <li><strong>Message Frequency:</strong> Frequency varies based on user prompts and check-in variation. We do not send recurring marketing blasts; check-in frequency is dependent on user usage and chat contents but is expected to be less than 10/month in all cases. The main usage is ongoing conversation.</li>
+      <li><strong>Data Rates:</strong> Standard message and data rates may apply to each message sent or received, depending on the user's mobile carrier.</li>
+    </ol>
+
+    <h2>6. STOP Instructions</h2>
+
+    <p>Users can reply with <strong>STOP</strong> at any time to immediately opt out of all future messages.</p>
+
+    <p>When the system receives a STOP, it updates the user's status to "opted-out" and sends the following STOP confirmation message:</p>
+
+    <blockquote>
+      <p>"You have been unsubscribed from [Gambit client's name] chat experience. No more messages will be sent. Reply START to re-subscribe."</p>
+    </blockquote>
+
+    <h2>7. Data &amp; Privacy</h2>
+
+    <ol>
+      <li><strong>Data Collection:</strong> We store user phone numbers, timestamps, and conversation messages to deliver the AI chat functionality.</li>
+      <li><strong>Data Sharing:</strong> User information is not shared with third parties for marketing purposes outside of Gambit's service.</li>
+      <li><strong>Privacy Policy:</strong> All data usage and retention policies follow our published <a href="/privacy-policy">privacy policy</a>.</li>
+      <li><strong>Reassigned Numbers:</strong> If we detect (through user complaint or Twilio re-assignment checks or alerts) that a phone number has changed ownership, we will treat any inbound message from that number as a new user and re-trigger the opt-in flow.</li>
+    </ol>
+
+    <h2>8. Compliance with TCPA and CTIA</h2>
+
+    <p>Our SMS opt-in flow and messaging policy follow these industry standards:</p>
+
+    <h3>TCPA (Telephone Consumer Protection Act)</h3>
+    <ul>
+      <li>We obtain express, written consent from users before sending any marketing or automated messages.</li>
+      <li>Users must proactively reply "YES" to confirm consent.</li>
+    </ul>
+
+    <h3>CTIA Guidelines</h3>
+    <ul>
+      <li>We clearly identify our brand/service name (Gambit, [Personality X]) and the nature of the messages.</li>
+      <li>We disclose possible carrier charges and data rates.</li>
+      <li>We include STOP instructions in the confirmation and promotional messages.</li>
+    </ul>
+
+    <h2>9. Potential Edge Cases &amp; Exceptions</h2>
+
+    <ol>
+      <li><strong>User Already Consented:</strong> If the user's status is already "consented," we continue normal conversation. No new opt-in prompt is triggered.</li>
+      <li><strong>User Unsubscribes, Then Sends a New Message:</strong> If a user previously unsubscribed and then sends a new message, we re-initiate the opt-in flow (onboarding → confirm → consent) to ensure compliance.</li>
+      <li><strong>International Users:</strong> For numbers outside the United States, the same opt-in flow will apply.</li>
+    </ol>
+
+    <h2>10. Example User Flow</h2>
+
+    <div class="flow-diagram">User sees the toll-free number or QR code
+        ↓
+User texts "Hello" (or any message)
+        ↓
+System checks if user is new or re-assigned
+        ↓
+┌─ If new/re-assigned → Send Opt-In Message
+└─ If already consented → Proceed with chat
+        ↓
+User replies "YES"
+        ↓
+System sets status to "consented"
+        ↓
+System sends welcome or first AI personality message
+        ↓
+User conversation continues</div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-center"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
+    <div class="footer-right"><div class="footer-legal"><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy-policy">Privacy</a></div><div class="footer-socials"><a href="https://www.linkedin.com/company/gambit-co/" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.instagram.com/gambitco" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll("#mainNav a").forEach(a=>{a.addEventListener("click",()=>{document.getElementById("mainNav").classList.remove("open");document.querySelector(".menu-toggle").classList.remove("open")})});
+</script>
+</body>
+</html>

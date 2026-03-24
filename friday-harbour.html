@@ -3,29 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- PRIMARY SEO -->
-<title>Partner with GambitCo | AI Channel Partners & Resellers</title>
-<meta name="description" content="Partner with Gambit to bring AI workers to your clients. We work with channel partners, technology providers, and resellers across industries.">
+<title>Friday Harbour | GambitCo</title>
+<meta name="description" content="Chat with the Friday Harbour All Seasons Resort AI concierge, powered by Gambit.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Gambit Technology Inc.">
-<link rel="canonical" href="https://gambitco.io/partners">
-
-<!-- OPEN GRAPH -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="GambitCo">
-<meta property="og:title" content="Partner with GambitCo">
-<meta property="og:description" content="Bring AI workers to your clients. Partner with Gambit.">
-<meta property="og:url" content="https://gambitco.io/partners">
-<meta property="og:image" content="https://gambitco.io/og-partners.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- TWITTER CARD -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Partner with GambitCo">
-<meta name="twitter:description" content="Bring AI workers to your clients. Partner with Gambit.">
-<meta name="twitter:image" content="https://gambitco.io/og-partners.png">
+<link rel="canonical" href="https://gambitco.io/friday-harbour">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -37,9 +19,10 @@
   --font: 'General Sans', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
-html { font-family: var(--font); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+html { font-family: var(--font); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; }
 body { min-height: 100vh; display: flex; flex-direction: column; }
 
+/* HEADER */
 header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: var(--white); border-bottom: 1px solid var(--border); }
 .header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
 .logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
@@ -50,51 +33,86 @@ nav { display: flex; align-items: center; gap: 4px; }
 nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
 nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .header-actions { display: flex; align-items: center; gap: 10px; }
-.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: 1px solid var(--border); color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: none; color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
 .btn-outline-h:hover { opacity: 0.75; }
 .btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
 .btn-solid-h:hover { opacity: 0.75; }
 
-.form-page { max-width: 1280px; margin: 0 auto; padding: 120px 32px 80px; flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.form-intro h1 { font-size: 44px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 16px; }
-.form-intro p { font-size: 17px; color: var(--secondary); line-height: 1.55; max-width: 440px; margin-bottom: 32px; }
-.form-intro-detail { font-size: 14px; color: var(--muted); line-height: 1.6; }
-.form-intro-detail a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+/* HERO BANNER */
+.worker-hero {
+  margin-top: 60px;
+  position: relative;
+  padding: 80px 32px 280px;
+  text-align: center;
+  background: url('/img/friday-harbour-hero.jpg') center center / cover no-repeat;
+  overflow: hidden;
+}
+.worker-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+.worker-hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.fh-logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
 
-.form-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 36px; }
-.form-row { margin-bottom: 20px; }
-.form-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-.form-label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--ink); }
-.form-label .req { color: var(--muted); font-weight: 400; }
-.form-input { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: var(--font); color: var(--ink); background: var(--page); transition: border-color 0.15s; outline: none; }
-.form-input:focus { border-color: var(--muted); }
-.form-input::placeholder { color: #c4c4c8; }
-textarea.form-input { min-height: 120px; resize: vertical; }
-.form-submit { display: inline-flex; align-items: center; padding: 12px 28px; border-radius: 100px; background: var(--ink); color: var(--white); font-size: 14px; font-weight: 500; font-family: var(--font); border: none; cursor: pointer; transition: opacity 0.15s; margin-top: 4px; }
-.form-submit:hover { opacity: 0.75; }
-.form-hp { display: none; }
+/* EMBED AREA */
+.worker-embed {
+  flex: 1;
+  max-width: 1080px;
+  margin: -200px auto 0;
+  padding: 0 32px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
 
+.embed-container {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+/* Bottom spacing */
+.worker-spacer { height: 80px; }
+
+/* FOOTER */
 .site-footer { background: var(--black); padding: 40px 32px; }
 .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .footer-left { display: flex; align-items: center; gap: 16px; }
-.footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
 .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.2); }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
-.footer-links a:hover { color: rgba(255,255,255,0.6); }
-.footer-legal { display: flex; align-items: center; gap: 8px; }
-.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
-.footer-legal a:hover { color: rgba(255,255,255,0.4); }
-.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
 .footer-center { display: flex; align-items: center; gap: 24px; }
 .footer-center a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
 .footer-center a:hover { color: rgba(255,255,255,0.6); }
 .footer-right { display: flex; align-items: center; gap: 16px; }
+.footer-legal { display: flex; align-items: center; gap: 8px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.4); }
+.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.1); }
 .footer-socials { display: flex; align-items: center; gap: 10px; }
 .footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; text-decoration: none; }
 .footer-social:hover { background: rgba(255,255,255,0.1); }
 .footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-/* ═══ RESPONSIVE ═══ */
+
+/* RESPONSIVE */
 .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
 .menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
 
@@ -116,74 +134,40 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   .footer-center { flex-wrap: wrap; justify-content: center; gap: 16px; }
   .footer-right { flex-direction: column; gap: 12px; align-items: center; }
   .footer-socials { justify-content: center; }
-  .cta-section { padding: 60px 20px; margin-top: 48px; }
-  .cta-inner h2 { font-size: 28px; }
-  .cta-buttons { flex-direction: column; gap: 8px; }
-  .cta-primary, .cta-outline { text-align: center; justify-content: center; }
-}
-@media (max-width: 768px) {
-  .form-page { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 32px; }
-  .form-intro h1 { font-size: 32px; }
-  .form-row-split { grid-template-columns: 1fr; }
+  .worker-hero { padding: 60px 20px 220px; }
+  .worker-embed { margin: -160px auto 0; padding: 0 20px; }
+  .fh-logo { max-width: 220px; }
 }
 @media (max-width: 480px) {
-  .form-intro h1 { font-size: 28px; }
+  .fh-logo { max-width: 180px; }
 }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
 
-<main class="form-page">
-  <div class="form-intro">
-    <h1>Partner with Gambit</h1>
-    <p>We work with channel partners, technology providers, and resellers who want to bring AI workers to their clients.</p>
-    <div class="form-intro-detail">
-      <p>Tell us about the opportunity. whether you have a specific client in mind, a vertical you want to target, or a technology integration you'd like to explore.</p>
+<!-- HERO BANNER -->
+<div class="worker-hero">
+  <div class="worker-hero-content">
+    <img src="/img/friday-harbour-logo.png" alt="Friday Harbour All Seasons Resort" class="fh-logo">
+  </div>
+</div>
+
+<!-- EMBED AREA -->
+<div class="worker-embed">
+  <div class="embed-container">
+    <div id="gambit-chat-container"
+         style="width: 100%; height: 600px; min-height: 400px; border-radius: 15px; overflow: hidden;"
+         class="chat-embed">
     </div>
   </div>
+</div>
 
-  <div class="form-card">
-    <form action="https://formspree.io/f/mbdzbyzg" method="POST">
-      <input type="hidden" name="_subject" value="New Partner Inquiry">
+<div class="worker-spacer"></div>
 
-      <div class="form-row-split">
-        <div>
-          <label class="form-label">First name <span class="req">*</span></label>
-          <input type="text" name="first_name" class="form-input" placeholder="First name" required>
-        </div>
-        <div>
-          <label class="form-label">Last name <span class="req">*</span></label>
-          <input type="text" name="last_name" class="form-input" placeholder="Last name" required>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Company <span class="req">*</span></label>
-        <input type="text" name="company" class="form-input" placeholder="Your company" required>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Email <span class="req">*</span></label>
-        <input type="email" name="email" class="form-input" placeholder="you@company.com" required>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Partnership details <span class="req">*</span></label>
-        <textarea name="message" class="form-input" placeholder="What kind of partnership are you looking for? A specific client, a vertical, a technology integration?" required></textarea>
-      </div>
-
-      <div class="form-hp">
-        <input type="text" name="_gotcha">
-      </div>
-
-      <button type="submit" class="form-submit">Send it →</button>
-
-    </form>
-  </div>
-</main>
-
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
@@ -192,6 +176,10 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   </div>
 </footer>
 
+<script
+  src="https://embed.gambitco.io/client/b8e38115-0d93-41c1-8d48-b40238b19120/surface/29be8f04-0ddb-432b-a5ae-c19a718019bb/embed.js"
+  data-gambit-container="gambit-chat-container">
+</script>
 <script>
 document.querySelectorAll("#mainNav a").forEach(a=>{a.addEventListener("click",()=>{document.getElementById("mainNav").classList.remove("open");document.querySelector(".menu-toggle").classList.remove("open")})});
 </script>
