@@ -125,15 +125,15 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 /* LOGO STRIP */
 .logo-strip { max-width: 1280px; margin: 0 auto; padding: 48px 32px 12px; text-align: center; }
 .logo-strip .ls-label { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
-.ls-logos { display: flex; align-items: center; justify-content: center; gap: 48px; margin-bottom: 28px; flex-wrap: wrap; }
+.ls-logos { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 28px; flex-wrap: wrap; }
 .ls-logo { display: flex; align-items: center; justify-content: center; }
-.ls-logo img { width: 120px; height: auto; object-fit: contain; opacity: 0.7; filter: grayscale(100%); transition: opacity 0.2s; }
+.ls-logo img { max-width: 160px; max-height: 50px; width: auto; height: auto; object-fit: contain; opacity: 0.7; filter: grayscale(100%); transition: opacity 0.2s; }
 .ls-logo img:hover { opacity: 1; }
 .ls-divider { max-width: 800px; margin: 0 auto; height: 1px; background: var(--border); }
-.ls-partners { display: flex; align-items: center; justify-content: center; gap: 40px; padding-top: 20px; padding-bottom: 8px; flex-wrap: wrap; }
+.ls-partners { display: flex; align-items: center; justify-content: center; gap: 2.5rem; padding-top: 20px; padding-bottom: 8px; flex-wrap: wrap; }
 .ls-partners-label { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
 .ls-partner { display: flex; align-items: center; justify-content: center; }
-.ls-partner img { width: 100px; height: auto; object-fit: contain; opacity: 0.7; filter: grayscale(100%); transition: opacity 0.2s; }
+.ls-partner img { max-width: 130px; max-height: 40px; width: auto; height: auto; object-fit: contain; opacity: 0.7; filter: grayscale(100%); transition: opacity 0.2s; }
 .ls-partner img:hover { opacity: 1; }
 
 /* MANIFESTO */
@@ -354,10 +354,10 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   .glass-card { padding: 18px 22px; }
   .hero-pad { height: 32px; }
   .logo-strip { padding: 32px 20px 8px; }
-  .ls-logos { gap: 20px 32px; }
-  .ls-logo img { width: 90px; }
-  .ls-partners { gap: 20px; }
-  .ls-partner img { width: 80px; }
+  .ls-logos { gap: 1.5rem 2rem; }
+  .ls-logo img { max-width: 120px; max-height: 40px; }
+  .ls-partners { gap: 1.5rem; }
+  .ls-partner img { max-width: 100px; max-height: 32px; }
 
   /* Manifesto */
   .manifesto-section { padding: 48px 20px 0; }
