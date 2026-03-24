@@ -38,7 +38,7 @@
   "alternateName": ["GambitCo", "Gambit"],
   "url": "https://gambitco.io",
   "logo": "https://gambitco.io/img/gambit-logo.png",
-  "description": "We build AI workers that do real jobs inside real businesses. Not demos. Not prototypes. Workers that are deployed, measured, and improving every week.",
+  "description": "We build AI workers that do real jobs inside real businesses. Deployed, measured, and improving every week.",
   "foundingDate": "2023",
   "sameAs": [
     "https://www.linkedin.com/company/gambit-co/",
@@ -69,7 +69,7 @@
     {
       "@type": "Person",
       "name": "Chris Silivestru",
-      "jobTitle": "Head of Technology",
+      "jobTitle": "CTO",
       "description": "Architecting the AI solutions that power our client success. Ex-Shopify, the brains behind Gambit Cloud. Deep expertise in scalable systems.",
       "sameAs": "https://www.linkedin.com/in/chrissilivestru/",
       "image": "https://gambitco.io/img/team-chris.png"
@@ -81,6 +81,14 @@
       "description": "Managing operations and ensuring everything runs smoothly. 15+ years managing tech leaders at early-stage growth companies.",
       "sameAs": "https://www.linkedin.com/in/sarah-stanley-shin-5b431464/",
       "image": "https://gambitco.io/img/team-sarah.png"
+    },
+    {
+      "@type": "Person",
+      "name": "Alex Bukowski",
+      "jobTitle": "Head of Growth",
+      "description": "Driving business development and strategic partnerships. Connecting the right companies with the right AI workers.",
+      "sameAs": "https://www.linkedin.com/in/aleksandra-bukowski/",
+      "image": "https://gambitco.io/img/team-alex.jpg"
     }
   ]
 }
@@ -105,8 +113,8 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px;
 .header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
 .logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
 .logo:hover { transform: translateX(6px); }
-.logo img { height: 18px; width: auto; display: block; }
-.footer-logo-img { height: 16px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
+.logo img { height: 24px; width: auto; display: block; }
+.footer-logo-img { height: 20px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
 nav { display: flex; align-items: center; gap: 4px; }
 nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
 nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
@@ -214,7 +222,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <main class="about-page">
   <div class="about-header">
     <h1>About us</h1>
-    <p>We build AI workers that do real jobs inside real businesses. Not demos. Not prototypes. Workers that are deployed, measured, and improving every week.</p>
+    <p>We build AI workers that do real jobs inside real businesses. Deployed, measured, and improving every week.</p>
   </div>
 
   <div class="team-grid">
@@ -222,9 +230,11 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 
     <div class="team-card"><div class="team-photo"><img src="/img/team-ryan.jpg" alt="Ryan Burgio"></div><div><div class="team-name">Ryan Burgio</div><div class="team-title">Creative Director</div><p class="team-bio">Turning AI products into powerful brands with distinct personalities. 20+ years in marketing, design and brand building.</p><a href="https://www.linkedin.com/in/ryanburgio/" target="_blank" class="team-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div></div>
 
-    <div class="team-card"><div class="team-photo"><img src="/img/team-chris.png" alt="Chris Silivestru"></div><div><div class="team-name">Chris Silivestru</div><div class="team-title">Head of Technology</div><p class="team-bio">Architecting the AI solutions that power our client success. Ex-Shopify, the brains behind Gambit Cloud. Deep expertise in scalable systems.</p><a href="https://www.linkedin.com/in/chrissilivestru/" target="_blank" class="team-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div></div>
+    <div class="team-card"><div class="team-photo"><img src="/img/team-chris.png" alt="Chris Silivestru"></div><div><div class="team-name">Chris Silivestru</div><div class="team-title">CTO</div><p class="team-bio">Architecting the AI solutions that power our client success. Ex-Shopify, the brains behind Gambit Cloud. Deep expertise in scalable systems.</p><a href="https://www.linkedin.com/in/chrissilivestru/" target="_blank" class="team-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div></div>
 
     <div class="team-card"><div class="team-photo"><img src="/img/team-sarah.png" alt="Sarah Stanley"></div><div><div class="team-name">Sarah Stanley</div><div class="team-title">Executive Assistant</div><p class="team-bio">Managing operations and ensuring everything runs smoothly. 15+ years managing tech leaders at early-stage growth companies.</p><a href="https://www.linkedin.com/in/sarah-stanley-shin-5b431464/" target="_blank" class="team-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div></div>
+
+    <div class="team-card"><div class="team-photo"><img src="/img/team-alex.jpg" alt="Alex Bukowski"></div><div><div class="team-name">Alex Bukowski</div><div class="team-title">Head of Growth</div><p class="team-bio">Driving business development and strategic partnerships. Connecting the right companies with the right AI workers.</p><a href="https://www.linkedin.com/in/aleksandra-bukowski/" target="_blank" class="team-linkedin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div></div>
   </div>
 </main>
 

@@ -87,8 +87,8 @@ header { position: fixed;  top: 0; left: 0; right: 0; z-index: 100; height: 60px
 .header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
 .logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
 .logo:hover { transform: translateX(6px); }
-.logo img { height: 18px; width: auto; display: block; }
-.footer-logo-img { height: 16px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
+.logo img { height: 24px; width: auto; display: block; }
+.footer-logo-img { height: 20px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
 nav { display: flex; align-items: center; gap: 4px; }
 nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
 nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
@@ -104,7 +104,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .hero-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.65) 45%, rgba(10,10,10,0.25) 100%); }
 .hero-content { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 100px 32px 48px; }
 .hero-content h1 { font-size: clamp(38px, 5vw, 56px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; color: #fafafa; margin-bottom: 16px; max-width: 580px; }
-.hero-sub { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.55; max-width: 440px; margin-bottom: 32px; }
+.hero-sub { font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.55; max-width: 440px; margin-bottom: 32px; }
 .hero-cta { display: flex; gap: 10px; margin-bottom: 56px; }
 .hero-btn-primary { padding: 12px 28px; border-radius: 100px; background: #fafafa; color: var(--black); font-size: 14px; font-weight: 500; border: none; font-family: var(--font); cursor: pointer; text-decoration: none; transition: opacity 0.15s, transform 0.1s; }
 .hero-btn-primary:hover { opacity: 0.75; }
@@ -116,9 +116,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .gc-status { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; color: var(--working); margin-bottom: 12px; }
 .gc-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--working); }
 .gc-name { font-size: 16px; font-weight: 500; color: #fafafa; margin-bottom: 2px; }
-.gc-title { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+.gc-title { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
 .gc-num { font-size: 28px; font-weight: 500; color: #fafafa; letter-spacing: -0.02em; }
-.gc-label { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+.gc-label { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; }
 .hero-pad { height: 48px; }
 
 /* MANIFESTO */
@@ -163,7 +163,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .benefit-card { padding: 32px 28px; background: var(--white); }
 .benefit-icon { width: 36px; height: 36px; border-radius: 8px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
 .benefit-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
-.benefit-card p { font-size: 13px; color: var(--muted); line-height: 1.45; }
+.benefit-card p { font-size: 13px; color: var(--secondary); line-height: 1.45; }
 
 /* INDUSTRY TOGGLE */
 .industry-wrap { background: #f5f5f3; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 0; margin-top: 80px; }
@@ -172,7 +172,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .ind-header h2 { font-size: 30px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 10px; }
 .ind-header p { font-size: 15px; color: var(--secondary); max-width: 500px; }
 .ind-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); }
-.ind-tab { padding: 12px 20px; font-size: 14px; font-weight: 450; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--font); white-space: nowrap; }
+.ind-tab { padding: 12px 20px; font-size: 14px; font-weight: 450; color: var(--secondary); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--font); white-space: nowrap; }
 .ind-tab:hover { color: var(--secondary); }
 .ind-tab.active { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
 .ind-panel { display: none; }
@@ -187,8 +187,8 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .ind-wr.active { background: rgba(0,0,0,0.03); }
 .ind-wr-av { width: 28px; height: 28px; border-radius: 6px; background: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: var(--white); flex-shrink: 0; }
 .ind-wr-name { font-size: 13px; font-weight: 500; }
-.ind-wr-role { font-size: 12px; color: var(--muted); }
-.ind-wr-client { margin-left: auto; font-size: 11px; color: var(--muted); }
+.ind-wr-role { font-size: 12px; color: var(--secondary); }
+.ind-wr-client { margin-left: auto; font-size: 11px; color: var(--secondary); }
 .ind-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--working); display: inline-block; margin-right: 4px; }
 .ind-dot.upcoming { background: var(--muted); }
 .ind-right { position: relative; overflow: hidden; background: var(--black); display: none; flex-direction: column; }
@@ -433,7 +433,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   <div class="hero-photo"></div><div class="hero-gradient"></div>
   <div class="hero-content">
     <h1>We put AI to work.</h1>
-    <p class="hero-sub">AI workers that solve your toughest problems, freeing your team to focus on what's next.</p>
+    <p class="hero-sub">Gambit deploys AI workers that solve your toughest problems, freeing your team to focus on what's next.</p>
     <div class="hero-cta"><a href="#workers" class="hero-btn-primary">Meet the workers</a><a href="#work" class="hero-btn-ghost">Watch it work →</a></div>
   </div>
   <div class="glass-strip"><div class="glass-strip-inner">
@@ -479,7 +479,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <section class="industry-section">
   <div class="ind-header">
     <h2>Workers across industries</h2>
-    <p>15+ workers deployed across healthcare, government, legal, logistics, and more.</p>
+    <p>15+ AI workers deployed across healthcare, government, legal, logistics, and more.</p>
   </div>
   <div class="ind-tabs">
     <button class="ind-tab active" onclick="sw(0)">Health & Wellness</button>
@@ -543,7 +543,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
       <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#e11d48;">B</div><div><div class="ind-wr-name">AskBibi</div><div class="ind-wr-role">Media Buying</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Bobit Media</div></div>
       <div class="ind-wr" onclick="sub(this,2)"><div class="ind-wr-av" style="font-size:9px;background:#15803d;">GT</div><div><div class="ind-wr-name">GeoTab Assistant</div><div class="ind-wr-role">Sponsorship Sales</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Streetwise</div></div>
     </div>
-    <div class="ind-right active"><div class="ind-photo" style="background-image:url('https://hellodemi.ai/wp-content/uploads/2026/01/iStock-1487231759.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:38px;font-weight:400;letter-spacing:-0.01em;">demi</span><div class="ib-tag">HR advisor & coach</div><a href="https://hellodemi.ai/" target="_blank" class="ind-cta">Chat with Demi →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">culture-first AI</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">reduce burnout</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">HR support</div></div></div></div>
+    <div class="ind-right active"><div class="ind-photo" style="background-image:url('https://hellodemi.ai/wp-content/uploads/2026/01/iStock-1487231759.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:38px;font-weight:500;letter-spacing:-0.01em;">Demi</span><div class="ib-tag">HR advisor & coach</div><a href="https://hellodemi.ai/" target="_blank" class="ind-cta">Chat with Demi →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">culture-first AI</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">reduce burnout</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">HR support</div></div></div></div>
     <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskBibi</span><div class="ib-tag">Media buying · Bobit Media</div><a href="https://www.bobit.com/ask-bibi/" target="_blank" class="ind-cta">Chat with AskBibi →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">dynamic packages</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">cross-service sales</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">media buying</div></div></div></div>
     <div class="ind-right"><div class="ind-photo" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:30px;">GeoTab</span><div class="ib-tag">Sponsorship sales · Streetwise</div><a href="https://gambitco.io/case-study/geotab/" target="_blank" class="ind-cta">Read case study →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">2025</div><div class="ind-stat-label">launched at Connect</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">real-time packages</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">dynamic imagery</div></div></div></div>
   </div>
@@ -555,7 +555,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <section class="benefits-section">
   <div class="benefits-header">
     <h2>What you get</h2>
-    <p>Every Gambit worker is built for your business, not pulled off a shelf.</p>
+    <p>Every Gambit worker is custom-built for your business, not pulled off a shelf.</p>
   </div>
   <div class="benefits-grid">
     <div class="benefit-card">
