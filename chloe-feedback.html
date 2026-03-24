@@ -325,12 +325,37 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
     const formView    = document.getElementById('cfFormView');
     const successView = document.getElementById('cfSuccessView');
     const againBtn    = document.getElementById('cfAgainBtn');
+
+    var cfLastSubmit = 0;
+    var CF_RATE_LIMIT_MS = 30000;
+    var cfSubmitCount = 0;
+    var CF_MAX_SUBMISSIONS = 5;
+
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       errorText.style.display = 'none';
+
+      var now = Date.now();
+      if (now - cfLastSubmit < CF_RATE_LIMIT_MS) {
+        errorText.textContent = 'Please wait before submitting again.';
+        errorText.style.display = 'block';
+        return;
+      }
+      if (cfSubmitCount >= CF_MAX_SUBMISSIONS) {
+        errorText.textContent = 'Maximum submissions reached. Thank you for your feedback.';
+        errorText.style.display = 'block';
+        return;
+      }
+
       var topic    = document.getElementById('cfTopic').value;
       var feedback = document.getElementById('cfFeedback').value.trim();
       if (!topic || !feedback) return;
+      if (feedback.length > 2000) {
+        errorText.textContent = 'Feedback is too long. Please keep it under 2000 characters.';
+        errorText.style.display = 'block';
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span class="cf-spinner"></span>Sending\u2026';
       try {
@@ -344,9 +369,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
             timestamp: new Date().toISOString()
           })
         });
+        cfLastSubmit = Date.now();
+        cfSubmitCount++;
         formView.style.display    = 'none';
         successView.style.display = 'block';
       } catch (err) {
+        errorText.textContent = 'Something went wrong \u2014 please try again.';
         errorText.style.display = 'block';
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Submit Feedback';
@@ -357,6 +385,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Submit Feedback';
       errorText.style.display   = 'none';
+      errorText.textContent     = 'Something went wrong \u2014 please try again.';
       successView.style.display = 'none';
       formView.style.display    = 'block';
     });
