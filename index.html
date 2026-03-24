@@ -126,11 +126,15 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .logo-strip { max-width: 1280px; margin: 0 auto; padding: 48px 32px 12px; text-align: center; }
 .logo-strip .ls-label { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
 .ls-logos { display: flex; align-items: center; justify-content: center; gap: 48px; margin-bottom: 28px; flex-wrap: wrap; }
-.ls-logo { font-size: 15px; font-weight: 600; color: var(--ink); opacity: 0.25; letter-spacing: -0.01em; white-space: nowrap; }
+.ls-logo { display: flex; align-items: center; justify-content: center; }
+.ls-logo img { height: 28px; width: auto; object-fit: contain; opacity: 0.7; filter: grayscale(100%); transition: opacity 0.2s; }
+.ls-logo img:hover { opacity: 1; }
 .ls-divider { max-width: 800px; margin: 0 auto; height: 1px; background: var(--border); }
 .ls-partners { display: flex; align-items: center; justify-content: center; gap: 40px; padding-top: 20px; padding-bottom: 8px; flex-wrap: wrap; }
 .ls-partners-label { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
-.ls-partner { font-size: 14px; font-weight: 600; color: var(--ink); opacity: 0.2; white-space: nowrap; }
+.ls-partner { display: flex; align-items: center; justify-content: center; }
+.ls-partner img { height: 24px; width: auto; object-fit: contain; opacity: 0.7; filter: grayscale(100%); transition: opacity 0.2s; }
+.ls-partner img:hover { opacity: 1; }
 
 /* MANIFESTO */
 .manifesto-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
@@ -351,9 +355,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   .hero-pad { height: 32px; }
   .logo-strip { padding: 32px 20px 8px; }
   .ls-logos { gap: 20px 32px; }
-  .ls-logo { font-size: 13px; }
+  .ls-logo img { height: 22px; }
   .ls-partners { gap: 20px; }
-  .ls-partner { font-size: 12px; }
+  .ls-partner img { height: 18px; }
 
   /* Manifesto */
   .manifesto-section { padding: 48px 20px 0; }
@@ -467,19 +471,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 <section class="logo-strip">
   <p class="ls-label">Workers deployed at</p>
   <div class="ls-logos">
-    <span class="ls-logo">Cigna Healthcare</span>
-    <span class="ls-logo">Town of Vail</span>
-    <span class="ls-logo">Infiniti Group</span>
-    <span class="ls-logo">Spearhead Corporate Development</span>
-    <span class="ls-logo">Logistics Alliance</span>
-    <span class="ls-logo">Geotab</span>
-    <span class="ls-logo">Bobit Media</span>
+    <span class="ls-logo"><img src="img/Cigna.png" alt="Cigna Healthcare"></span>
+    <span class="ls-logo"><img src="img/Town of Vail.png" alt="Town of Vail"></span>
+    <span class="ls-logo"><img src="img/Infiniti Group.png" alt="Infiniti Group"></span>
+    <span class="ls-logo"><img src="img/Spearhead.png" alt="Spearhead Corporate Development"></span>
+    <span class="ls-logo"><img src="img/LA.png" alt="Logistics Alliance"></span>
+    <span class="ls-logo"><img src="img/Geotab (2).png" alt="Geotab"></span>
+    <span class="ls-logo"><img src="img/bobit.png" alt="Bobit Media"></span>
   </div>
   <div class="ls-divider"></div>
   <div class="ls-partners">
     <span class="ls-partners-label">Technology partners</span>
-    <span class="ls-partner">HPE</span>
-    <span class="ls-partner">TD Synnex</span>
+    <span class="ls-partner"><img src="img/HPE.png" alt="HPE"></span>
+    <span class="ls-partner"><img src="img/TD SYNNEX.png" alt="TD Synnex"></span>
   </div>
 </section>
 
