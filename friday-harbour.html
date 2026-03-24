@@ -50,7 +50,7 @@ nav { display: flex; align-items: center; gap: 4px; }
 nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
 nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .header-actions { display: flex; align-items: center; gap: 10px; }
-.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: none; color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: 1px solid var(--border); color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
 .btn-outline-h:hover { opacity: 0.75; }
 .btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
 .btn-solid-h:hover { opacity: 0.75; }
@@ -158,17 +158,20 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 @media (max-width: 480px) {
   .fh-logo { max-width: 180px; }
 }
+/* FOCUS STATES */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
+.btn-outline-h:focus-visible, .btn-solid-h:focus-visible, .hero-btn-primary:focus-visible, .hero-btn-ghost:focus-visible, .cta-primary:focus-visible, .cta-outline:focus-visible { outline-offset: 3px; }
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit" loading="lazy"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
 
 <!-- HERO BANNER -->
 <div class="worker-hero">
   <div class="worker-hero-content">
-    <img src="/img/logo-white.png" alt="Friday Harbour All Seasons Resort" class="fh-logo">
+    <img src="/img/logo-white.png" alt="Friday Harbour All Seasons Resort" loading="lazy" class="fh-logo">
   </div>
 </div>
 
@@ -187,9 +190,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" loading="lazy" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
     <div class="footer-center"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
-    <div class="footer-right"><div class="footer-legal"><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy-policy">Privacy</a></div><div class="footer-socials"><a href="https://www.linkedin.com/company/gambit-co/" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.instagram.com/gambitco" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+    <div class="footer-right"><div class="footer-legal"><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy-policy">Privacy</a></div><div class="footer-socials"><a href="https://www.linkedin.com/company/gambit-co/" target="_blank" rel="noopener noreferrer" class="footer-social"><svg viewBox="0 0 24 24" aria-label="LinkedIn"><title>LinkedIn</title><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.instagram.com/gambitco" target="_blank" rel="noopener noreferrer" class="footer-social"><svg viewBox="0 0 24 24" aria-label="Instagram"><title>Instagram</title><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
   </div>
 </footer>
 
