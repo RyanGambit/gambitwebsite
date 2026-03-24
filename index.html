@@ -229,6 +229,23 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .ag-chat-legal { padding: 0 20px 14px; font-size: 10px; color: var(--muted); }
 .ag-chat-legal a { color: var(--secondary); text-decoration: underline; }
 
+/* CASE STUDIES */
+.cs-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
+.cs-section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+.cs-section-header h2 { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; }
+.cs-section-header a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: opacity 0.15s; }
+.cs-section-header a:hover { opacity: 0.75; }
+.cs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cs-card { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--white); text-decoration: none; color: inherit; transition: border-color 0.15s, box-shadow 0.15s; }
+.cs-card:hover { border-color: #c8c8cc; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+.cs-card-img { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: var(--border); }
+.cs-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s var(--ease); }
+.cs-card:hover .cs-card-img img { transform: scale(1.03); }
+.cs-card-body { padding: 20px 22px 24px; }
+.cs-card-industry { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.cs-card-title { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 8px; }
+.cs-card-desc { font-size: 13px; color: var(--muted); line-height: 1.45; }
+
 /* LATEST */
 .latest-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
 .latest-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
@@ -362,6 +379,11 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   .ag-right h2 { font-size: 26px; }
   .ag-prompts { grid-template-columns: 1fr; }
   .ag-chat { height: 400px; }
+
+  /* Case Studies */
+  .cs-section { padding: 48px 20px 0; }
+  .cs-section-header h2 { font-size: 22px; }
+  .cs-grid { grid-template-columns: 1fr; gap: 20px; }
 
   /* Latest */
   .latest-section { padding: 48px 20px 0; }
@@ -591,6 +613,64 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   </div>
 </section>
 </div>
+
+<!-- CASE STUDIES -->
+<section class="cs-section" id="case-studies">
+  <div class="cs-section-header">
+    <h2>Case Studies</h2>
+    <a href="/case-studies">View all →</a>
+  </div>
+  <div class="cs-grid">
+    <a href="/case-study/askevamarie" class="cs-card">
+      <div class="cs-card-img"><img src="https://gambitco.io/wp-content/uploads/2026/01/Chaddict-AskEva-Marie.png" alt="Chaddict and AskEvaMarie"></div>
+      <div class="cs-card-body">
+        <div class="cs-card-industry">Addiction & Recovery</div>
+        <div class="cs-card-title">Chaddict and AskEvaMarie: AI Support for Addiction and Recovery</div>
+        <div class="cs-card-desc">Trust-based AI companions that generate qualified leads through stigma-free conversations.</div>
+      </div>
+    </a>
+    <a href="/case-study/askashleigh" class="cs-card">
+      <div class="cs-card-img"><img src="https://gambitco.io/wp-content/uploads/2025/11/Gemini_Generated_Image_wzpcuxwzpcuxwzpc.png" alt="AskAshleigh"></div>
+      <div class="cs-card-body">
+        <div class="cs-card-industry">Government</div>
+        <div class="cs-card-title">AskAshleigh: Support for Caregivers, Anytime They Need It</div>
+        <div class="cs-card-desc">A caregiver support tool built with the U.S. Gov't Area Agency on Aging.</div>
+      </div>
+    </a>
+    <a href="/case-study/geotab" class="cs-card">
+      <div class="cs-card-img"><img src="https://gambitco.io/wp-content/uploads/2025/12/Gemini_Generated_Image_bgabb4bgabb4bgab.png" alt="GeoTab Assistant"></div>
+      <div class="cs-card-body">
+        <div class="cs-card-industry">Business Services</div>
+        <div class="cs-card-title">GeoTab Assistant: A Smarter Way to Explore Sponsorship Opportunities</div>
+        <div class="cs-card-desc">An AI sponsorship assistant that builds customized packages in real time.</div>
+      </div>
+    </a>
+    <a href="/case-study/askellyn" class="cs-card">
+      <div class="cs-card-img"><img src="https://gambitco.io/wp-content/uploads/2025/03/Screenshot-2026-01-09-at-9.17.18 AM.png" alt="AskEllyn"></div>
+      <div class="cs-card-body">
+        <div class="cs-card-industry">Health & Wellness</div>
+        <div class="cs-card-title">AskEllyn: AI Companion for Breast Cancer Support</div>
+        <div class="cs-card-desc">The world's first AI companion for breast cancer, now live on Cigna Healthcare across 100+ countries.</div>
+      </div>
+    </a>
+    <a href="/case-study/asktodd" class="cs-card">
+      <div class="cs-card-img"><img src="https://gambitco.io/wp-content/uploads/2025/03/Screenshot-2026-01-08-at-4.12.37 PM.png" alt="AskTodd"></div>
+      <div class="cs-card-body">
+        <div class="cs-card-industry">Legal</div>
+        <div class="cs-card-title">AskTodd: AI for Legal Strategy</div>
+        <div class="cs-card-desc">24/7 legal support modeled on decades of practice at Gowlings LLP.</div>
+      </div>
+    </a>
+    <a href="/case-study/askbibi" class="cs-card">
+      <div class="cs-card-img"><img src="https://gambitco.io/wp-content/uploads/2025/03/AskBibi.png" alt="AskBibi"></div>
+      <div class="cs-card-body">
+        <div class="cs-card-industry">Business Services</div>
+        <div class="cs-card-title">AskBibi: AI-Powered Sales Assistant</div>
+        <div class="cs-card-desc">A media buying assistant that dynamically generates cross-service marketing packages.</div>
+      </div>
+    </a>
+  </div>
+</section>
 
 <!-- LATEST -->
 <section class="latest-section" id="latest">
