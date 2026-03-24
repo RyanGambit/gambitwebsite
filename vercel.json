@@ -35,6 +35,11 @@
       "source": "/introducing-askellyn-worlds-first-ai-companion-for-breast-cancer-support",
       "destination": "/case-study/askellyn",
       "permanent": true
+    },
+    {
+      "source": "/partners",
+      "destination": "/get-started",
+      "permanent": true
     }
   ],
   "headers": [
