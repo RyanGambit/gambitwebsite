@@ -525,20 +525,20 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
     <p>15+ AI workers deployed across healthcare, government, legal, logistics, and more.</p>
   </div>
   <div class="ind-tabs">
-    <button class="ind-tab active" data-sw="0">Health & Wellness</button>
-    <button class="ind-tab" data-sw="1">Government</button>
-    <button class="ind-tab" data-sw="2">Legal & Finance</button>
-    <button class="ind-tab" data-sw="3">Logistics</button>
-    <button class="ind-tab" data-sw="4">Entertainment</button>
-    <button class="ind-tab" data-sw="5">Business Services</button>
+    <button class="ind-tab active" onclick="sw(0)">Health & Wellness</button>
+    <button class="ind-tab" onclick="sw(1)">Government</button>
+    <button class="ind-tab" onclick="sw(2)">Legal & Finance</button>
+    <button class="ind-tab" onclick="sw(3)">Logistics</button>
+    <button class="ind-tab" onclick="sw(4)">Entertainment</button>
+    <button class="ind-tab" onclick="sw(5)">Business Services</button>
   </div>
 
   <div class="ind-panel active">
     <div class="ind-left"><h3>Health & Wellness</h3><p class="ind-desc">Round-the-clock patient support with empathy, lived experience, and multilingual reach across 100+ countries.</p>
-      <div class="ind-wr active"><div class="ind-wr-av" style="background:#7c3aed;font-size:9px;">AE</div><div><div class="ind-wr-name">AskEllyn</div><div class="ind-wr-role">Breast Cancer Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Cigna Healthcare</div></div>
-      <div class="ind-wr"><div class="ind-wr-av" style="background:#0d9488;font-size:9px;">AS</div><div><div class="ind-wr-name">AskShan</div><div class="ind-wr-role">Parkinson's Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
-      <div class="ind-wr"><div class="ind-wr-av" style="font-size:9px;background:#b91c1c;">IG</div><div><div class="ind-wr-name">Chaddict + EvaMarie</div><div class="ind-wr-role">Addiction & Recovery</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Infiniti Group</div></div>
-      <div class="ind-wr"><div class="ind-wr-av" style="background:#e4e4e7;color:#a1a1aa;">U</div><div><div class="ind-wr-name">Urology Tool</div><div class="ind-wr-role">Medical Support</div></div><div class="ind-wr-client"><span class="ind-dot upcoming"></span>In progress</div></div>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#7c3aed;font-size:9px;">AE</div><div><div class="ind-wr-name">AskEllyn</div><div class="ind-wr-role">Breast Cancer Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Cigna Healthcare</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#0d9488;font-size:9px;">AS</div><div><div class="ind-wr-name">AskShan</div><div class="ind-wr-role">Parkinson's Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+      <div class="ind-wr" onclick="sub(this,2)"><div class="ind-wr-av" style="font-size:9px;background:#b91c1c;">IG</div><div><div class="ind-wr-name">Chaddict + EvaMarie</div><div class="ind-wr-role">Addiction & Recovery</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Infiniti Group</div></div>
+      <div class="ind-wr" onclick="sub(this,3)"><div class="ind-wr-av" style="background:#e4e4e7;color:#a1a1aa;">U</div><div><div class="ind-wr-name">Urology Tool</div><div class="ind-wr-role">Medical Support</div></div><div class="ind-wr-client"><span class="ind-dot upcoming"></span>In progress</div></div>
     </div>
     <div class="ind-right active"><div class="ind-photo" style="background-image:url('/img/worker-ellyn.jpg');background-position:center top;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskEllyn</span><div class="ib-tag">Breast cancer support</div><a href="https://askellyn.ai" target="_blank" rel="noopener noreferrer" class="ind-cta">Chat with AskEllyn →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">100+</div><div class="ind-stat-label">countries</div></div><div class="ind-stat"><div class="ind-stat-num">50+</div><div class="ind-stat-label">languages</div></div><div class="ind-stat"><div class="ind-stat-num">100k+</div><div class="ind-stat-label">conversations</div></div></div></div>
     <div class="ind-right"><div class="ind-photo" style="background-image:url('/img/worker-ask-shan.png');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskShan</span><div class="ib-tag">Parkinson's support</div><a href="https://thrivewelltogether.com/askshan/" target="_blank" rel="noopener noreferrer" class="ind-cta">Chat with AskShan →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">availability</div></div><div class="ind-stat"><div class="ind-stat-num">50+</div><div class="ind-stat-label">languages</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">internationally recognized</div></div></div></div>
@@ -548,8 +548,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 
   <div class="ind-panel">
     <div class="ind-left"><h3>Government</h3><p class="ind-desc">Visitor concierges and caregiver navigation deployed for cities and agencies. 24/7, no hold time.</p>
-      <div class="ind-wr active"><div class="ind-wr-av" style="background:#2563eb;">C</div><div><div class="ind-wr-name">Chloe / VailOS</div><div class="ind-wr-role">Municipal Concierge</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Town of Vail</div></div>
-      <div class="ind-wr"><div class="ind-wr-av" style="background:#e17526;">A</div><div><div class="ind-wr-name">AskAshleigh</div><div class="ind-wr-role">Caregiver Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Area Agency on Aging</div></div>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#2563eb;">C</div><div><div class="ind-wr-name">Chloe / VailOS</div><div class="ind-wr-role">Municipal Concierge</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Town of Vail</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#e17526;">A</div><div><div class="ind-wr-name">AskAshleigh</div><div class="ind-wr-role">Caregiver Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Area Agency on Aging</div></div>
     </div>
     <div class="ind-right active"><div class="ind-photo" style="background-image:url('/img/ind-vail.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:36px;letter-spacing:0.02em;">Chloe</span><div class="ib-tag">Municipal concierge · Town of Vail</div><a href="tel:9706458245" class="ind-cta">Call Chloe · 970-645-VAIL →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">availability</div></div><div class="ind-stat"><div class="ind-stat-num">2.8s</div><div class="ind-stat-label">avg response</div></div><div class="ind-stat"><div class="ind-stat-num">0</div><div class="ind-stat-label">hold time</div></div></div></div>
     <div class="ind-right"><div class="ind-photo" style="background-image:url('/img/ind-caregiver.jpg');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:32px;">AskAshleigh</span><div class="ib-tag">Caregiver support · Area Agency on Aging</div><a href="https://gambitco.io/case-study/askashleigh/" target="_blank" rel="noopener noreferrer" class="ind-cta">Read case study →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">4</div><div class="ind-stat-label">awards won</div></div><div class="ind-stat"><div class="ind-stat-num">600+</div><div class="ind-stat-label">AAAs potential scale</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">caregiver support</div></div></div></div>
@@ -557,8 +557,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 
   <div class="ind-panel">
     <div class="ind-left"><h3>Legal & Finance</h3><p class="ind-desc">24/7 legal support and deal analysis. The first pass is handled so your team focuses on judgment calls.</p>
-      <div class="ind-wr active"><div class="ind-wr-av" style="background:#1e3a5f;">T</div><div><div class="ind-wr-name">AskTodd</div><div class="ind-wr-role">Legal Strategist</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Gowlings LLP</div></div>
-      <div class="ind-wr"><div class="ind-wr-av" style="background:#164e63;">B</div><div><div class="ind-wr-name">Bogan / Spearhead</div><div class="ind-wr-role">PE / Deal Operations</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#1e3a5f;">T</div><div><div class="ind-wr-name">AskTodd</div><div class="ind-wr-role">Legal Strategist</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Gowlings LLP</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#164e63;">B</div><div><div class="ind-wr-name">Bogan / Spearhead</div><div class="ind-wr-role">PE / Deal Operations</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
     </div>
     <div class="ind-right active"><div class="ind-photo" style="background-image:url('/img/ind-legal.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskTodd</span><div class="ib-tag">Legal strategist · Gowlings LLP</div><a href="https://asktodd.ai" target="_blank" rel="noopener noreferrer" class="ind-cta">Chat with AskTodd →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">legal support</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">multi-jurisdiction</div></div><div class="ind-stat"><div class="ind-stat-num">2024</div><div class="ind-stat-label">launched</div></div></div></div>
     <div class="ind-right"><div class="ind-photo" style="background-image:url('/img/ind-finance.jpg');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:32px;">Spearhead</span><div class="ib-tag">PE / Deal operations</div></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">deal analysis</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">portfolio operations</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">PE workflows</div></div></div></div>
@@ -566,15 +566,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 
   <div class="ind-panel">
     <div class="ind-left"><h3>Logistics</h3><p class="ind-desc">Document ingestion, load validation, carrier matching, and exception routing. A unified system for inbound freight.</p>
-      <div class="ind-wr active"><div class="ind-wr-av" style="background:#d97706;">H</div><div><div class="ind-wr-name">Harlo</div><div class="ind-wr-role">Freight Coordinator</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Logistics Alliance</div></div>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#d97706;">H</div><div><div class="ind-wr-name">Harlo</div><div class="ind-wr-role">Freight Coordinator</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Logistics Alliance</div></div>
     </div>
     <div class="ind-right active"><div class="ind-photo" style="background-image:url('/img/ind-freight.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:38px;letter-spacing:0.04em;">Harlo</span><div class="ib-tag">Freight coordinator · Logistics Alliance</div></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">412</div><div class="ind-stat-label">loads/day</div></div><div class="ind-stat"><div class="ind-stat-num">98.2%</div><div class="ind-stat-label">accuracy</div></div><div class="ind-stat"><div class="ind-stat-num">3min</div><div class="ind-stat-label">avg processing</div></div></div></div>
   </div>
 
   <div class="ind-panel">
     <div class="ind-left"><h3>Entertainment</h3><p class="ind-desc">Fan engagement and hospitality workers that create personalized experiences at scale.</p>
-      <div class="ind-wr active"><div class="ind-wr-av" style="background:#dc2626;">A</div><div><div class="ind-wr-name">AskAmber</div><div class="ind-wr-role">Fan Engagement</div></div><div class="ind-wr-client"><span class="ind-dot"></span>NASCAR / Daytona</div></div>
-      <div class="ind-wr"><div class="ind-wr-av" style="background:#0f766e;">G</div><div><div class="ind-wr-name">Gillis Sales</div><div class="ind-wr-role">Hospitality Sales</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#dc2626;">A</div><div><div class="ind-wr-name">AskAmber</div><div class="ind-wr-role">Fan Engagement</div></div><div class="ind-wr-client"><span class="ind-dot"></span>NASCAR / Daytona</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#0f766e;">G</div><div><div class="ind-wr-name">Gillis Sales</div><div class="ind-wr-role">Hospitality Sales</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
     </div>
     <div class="ind-right active"><div class="ind-photo" style="background-image:url('/img/ind-amber.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskAmber</span><div class="ib-tag">Fan engagement · NASCAR / Daytona</div><a href="https://askamber.io" target="_blank" rel="noopener noreferrer" class="ind-cta">Chat with AskAmber →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">launched at Daytona</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">AI-powered fan engagement</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">availability</div></div></div></div>
     <div class="ind-right"><div class="ind-photo" style="background-image:url('/img/ind-gillis.jpg');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:32px;">Gillis Sales</span><div class="ib-tag">Hospitality sales</div></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">hospitality sales</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">real-time packages</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">availability</div></div></div></div>
@@ -582,9 +582,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 
   <div class="ind-panel">
     <div class="ind-left"><h3>Business Services</h3><p class="ind-desc">HR coaching, media buying, and sales enablement. Operational workers inside your existing workflows.</p>
-      <div class="ind-wr active"><div class="ind-wr-av" style="background:#6d28d9;">D</div><div><div class="ind-wr-name">Demi</div><div class="ind-wr-role">HR Advisor & Coach</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
-      <div class="ind-wr"><div class="ind-wr-av" style="background:#e11d48;">B</div><div><div class="ind-wr-name">AskBibi</div><div class="ind-wr-role">Media Buying</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Bobit Media</div></div>
-      <div class="ind-wr"><div class="ind-wr-av" style="font-size:9px;background:#15803d;">GT</div><div><div class="ind-wr-name">GeoTab Assistant</div><div class="ind-wr-role">Sponsorship Sales</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Streetwise</div></div>
+      <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#6d28d9;">D</div><div><div class="ind-wr-name">Demi</div><div class="ind-wr-role">HR Advisor & Coach</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#e11d48;">B</div><div><div class="ind-wr-name">AskBibi</div><div class="ind-wr-role">Media Buying</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Bobit Media</div></div>
+      <div class="ind-wr" onclick="sub(this,2)"><div class="ind-wr-av" style="font-size:9px;background:#15803d;">GT</div><div><div class="ind-wr-name">GeoTab Assistant</div><div class="ind-wr-role">Sponsorship Sales</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Streetwise</div></div>
     </div>
     <div class="ind-right active"><div class="ind-photo" style="background-image:url('/img/ind-demi.jpg');"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name" style="font-size:38px;font-weight:500;letter-spacing:-0.01em;">Demi</span><div class="ib-tag">HR advisor & coach</div><a href="https://hellodemi.ai/" target="_blank" rel="noopener noreferrer" class="ind-cta">Chat with Demi →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">culture-first AI</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">reduce burnout</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">HR support</div></div></div></div>
     <div class="ind-right"><div class="ind-photo" style="background-image:url('/img/ind-askbibi.jpg');background-position:center;"></div><div class="ind-overlay"></div><div class="ind-brand"><span class="ib-name">AskBibi</span><div class="ib-tag">Media buying · Bobit Media</div><a href="https://www.bobit.com/ask-bibi/" target="_blank" rel="noopener noreferrer" class="ind-cta">Chat with AskBibi →</a></div><div class="ind-stats"><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">dynamic packages</div></div><div class="ind-stat"><div class="ind-stat-num">·</div><div class="ind-stat-label">cross-service sales</div></div><div class="ind-stat"><div class="ind-stat-num">24/7</div><div class="ind-stat-label">media buying</div></div></div></div>
@@ -698,13 +698,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 </footer>
 
 <script>
-document.querySelectorAll('.ind-wr').forEach(function(el) {
-  el.addEventListener('click', function() {
-    var siblings = Array.prototype.slice.call(this.parentElement.querySelectorAll('.ind-wr'));
-    var idx = siblings.indexOf(this);
-    sub(this, idx);
-  });
-});
 function sw(i) {
   document.querySelectorAll('.ind-tab').forEach((t,n) => t.classList.toggle('active', n===i));
   document.querySelectorAll('.ind-panel').forEach((p,n) => p.classList.toggle('active', n===i));
