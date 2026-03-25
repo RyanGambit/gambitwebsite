@@ -262,7 +262,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 <body>
 
 <!-- HEADER -->
-<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit" loading="lazy"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit" loading="lazy"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" id="menuToggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
 
 <!-- FEEDBACK FORM -->
 <div class="cf-feedback-form">
@@ -317,7 +317,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 </footer>
 
 <script>
-  const CF_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxIK3wunnxhyeEJNQNLW79fb0XniLXENdvI5JEIBkNdGpCwz4S4DlBDqhfMcb7oecef0A/exec';
+document.getElementById("menuToggle").addEventListener("click",function(){document.getElementById("mainNav").classList.toggle("open");this.classList.toggle("open")});
   (function() {
     const form        = document.getElementById('cfForm');
     const submitBtn   = document.getElementById('cfSubmitBtn');
@@ -326,26 +326,33 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
     const successView = document.getElementById('cfSuccessView');
     const againBtn    = document.getElementById('cfAgainBtn');
 
-    var cfLastSubmit = 0;
-    var CF_RATE_LIMIT_MS = 30000;
-    var cfSubmitCount = 0;
-    var CF_MAX_SUBMISSIONS = 5;
+    async function submitFeedback(rating, feedback) {
+      // Get CSRF token
+      const tokenRes = await fetch('/api/feedback');
+      if (!tokenRes.ok) throw new Error('Could not get security token');
+      const { token } = await tokenRes.json();
+
+      // Submit with token
+      const res = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': token
+        },
+        body: JSON.stringify({ rating, feedback })
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Submission failed');
+      }
+
+      return res.json();
+    }
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       errorText.style.display = 'none';
-
-      var now = Date.now();
-      if (now - cfLastSubmit < CF_RATE_LIMIT_MS) {
-        errorText.textContent = 'Please wait before submitting again.';
-        errorText.style.display = 'block';
-        return;
-      }
-      if (cfSubmitCount >= CF_MAX_SUBMISSIONS) {
-        errorText.textContent = 'Maximum submissions reached. Thank you for your feedback.';
-        errorText.style.display = 'block';
-        return;
-      }
 
       var topic    = document.getElementById('cfTopic').value;
       var feedback = document.getElementById('cfFeedback').value.trim();
@@ -359,22 +366,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span class="cf-spinner"></span>Sending\u2026';
       try {
-        await fetch(CF_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify({
-            topic:     topic,
-            feedback:  feedback,
-            timestamp: new Date().toISOString()
-          })
-        });
-        cfLastSubmit = Date.now();
-        cfSubmitCount++;
+        // Map topic to a numeric rating for the API (1-5 scale not used in original form,
+        // so we send a default rating of 3 and include topic in the feedback text)
+        var fullFeedback = '[' + topic + '] ' + feedback;
+        await submitFeedback(3, fullFeedback);
         formView.style.display    = 'none';
         successView.style.display = 'block';
       } catch (err) {
-        errorText.textContent = 'Something went wrong \u2014 please try again.';
+        errorText.textContent = err.message || 'Something went wrong \u2014 please try again.';
         errorText.style.display = 'block';
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Submit Feedback';

@@ -168,7 +168,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 <body>
 
 <!-- HEADER -->
-<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit" loading="lazy"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit" loading="lazy"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" id="menuToggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
 
 <!-- ARTICLE -->
 <main class="article-page">
@@ -216,7 +216,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 
   <div class="article-footer">
     <div class="article-author-block">
-      <div class="article-author-avatar"></div>
+      <div class="article-author-avatar"><img src="/img/team-ryan.jpg" alt="Ryan Burgio" loading="lazy"></div>
       <div>
         <div class="article-author-name">Ryan Burgio</div>
         <div class="article-author-role">Gambit</div>
@@ -237,6 +237,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 </footer>
 
 <script>
+document.getElementById("menuToggle").addEventListener("click",function(){document.getElementById("mainNav").classList.toggle("open");this.classList.toggle("open")});
 document.querySelectorAll("#mainNav a").forEach(a=>{a.addEventListener("click",()=>{document.getElementById("mainNav").classList.remove("open");document.querySelector(".menu-toggle").classList.remove("open")})});
 </script>
 </body>
