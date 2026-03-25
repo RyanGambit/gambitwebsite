@@ -115,7 +115,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .glass-strip-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
 .glass-card { padding: 24px 28px; background: rgba(255,255,255,0.03); }
 .gc-status { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; color: var(--working); margin-bottom: 12px; }
-.gc-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--working); }
+.gc-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--working); animation: pulse 2s ease-in-out infinite; }
 .gc-name { font-size: 16px; font-weight: 500; color: #fafafa; margin-bottom: 2px; }
 .gc-title { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
 .gc-num { font-size: 28px; font-weight: 500; color: #fafafa; letter-spacing: -0.02em; }
@@ -204,8 +204,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .ind-wr-name { font-size: 14px; font-weight: 500; }
 .ind-wr-role { font-size: 13px; color: var(--secondary); }
 .ind-wr-client { margin-left: auto; font-size: 12px; color: var(--secondary); }
-.ind-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--working); display: inline-block; margin-right: 4px; }
-.ind-dot.upcoming { background: var(--muted); }
+.ind-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--working); display: inline-block; margin-right: 4px; animation: pulse 2s ease-in-out infinite; }
+.ind-dot.upcoming { background: var(--muted); animation: none; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 .ind-right { position: relative; overflow: hidden; background: var(--black); display: none; flex-direction: column; }
 .ind-right.active { display: flex; }
 .ind-photo { position: absolute; inset: 0; background-size: cover; background-position: center top; }
