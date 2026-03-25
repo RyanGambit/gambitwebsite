@@ -124,14 +124,14 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 
 /* LOGO STRIP */
 .logo-strip { max-width: 1280px; margin: 0 auto; padding: 36px 32px 12px; text-align: center; }
-.logo-strip .ls-label { font-size: 14px; color: var(--secondary); margin-bottom: 20px; letter-spacing: 0.02em; }
-.ls-logos { display: flex; align-items: center; justify-content: center; gap: 2.5rem; margin-bottom: 24px; flex-wrap: wrap; }
+.logo-strip .ls-label { font-size: 11px; color: var(--muted); margin-bottom: 24px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+.ls-logos { display: flex; align-items: center; justify-content: center; gap: 2.5rem; margin-bottom: 36px; flex-wrap: wrap; }
 .ls-logo { display: flex; align-items: center; justify-content: center; }
 .ls-logo img { max-width: 180px; max-height: 56px; width: auto; height: auto; object-fit: contain; opacity: 0.6; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; }
 .ls-logo img:hover { opacity: 0.85; filter: grayscale(50%); }
 .ls-divider { max-width: 700px; margin: 0 auto; height: 1px; background: var(--border); }
-.ls-partners { display: flex; align-items: center; justify-content: center; gap: 2rem; padding-top: 18px; padding-bottom: 8px; flex-wrap: wrap; }
-.ls-partners-label { font-size: 13px; color: var(--secondary); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.ls-partners-label { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-top: 36px; margin-bottom: 20px; }
+.ls-partners { display: flex; align-items: center; justify-content: center; gap: 2rem; padding-bottom: 8px; flex-wrap: wrap; }
 .ls-partner { display: flex; align-items: center; justify-content: center; }
 .ls-partner img { max-width: 140px; max-height: 42px; width: auto; height: auto; object-fit: contain; opacity: 0.6; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; }
 .ls-partner img:hover { opacity: 0.85; filter: grayscale(50%); }
@@ -354,8 +354,9 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   .glass-card { padding: 18px 22px; }
   .hero-pad { height: 32px; }
   .logo-strip { padding: 32px 20px 8px; }
-  .ls-logos { gap: 1.25rem 1.75rem; }
+  .ls-logos { gap: 1.25rem 1.75rem; margin-bottom: 28px; }
   .ls-logo img { max-width: 120px; max-height: 42px; }
+  .ls-partners-label { margin-top: 28px; margin-bottom: 16px; }
   .ls-partners { gap: 1.25rem; }
   .ls-partner img { max-width: 100px; max-height: 32px; }
 
@@ -480,8 +481,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 
   </div>
   <div class="ls-divider"></div>
+  <p class="ls-partners-label">Technology partners</p>
   <div class="ls-partners">
-    <span class="ls-partners-label">Technology partners</span>
     <span class="ls-partner"><img src="img/HPE.png" alt="HPE"></span>
     <span class="ls-partner"><img src="img/TD SYNNEX.png" alt="TD Synnex"></span>
   </div>
