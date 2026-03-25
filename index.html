@@ -373,9 +373,8 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
   .industry-section { padding: 0 20px; }
   .ind-header h2 { font-size: 26px; }
   .ind-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 0; }
-  .ind-tab { padding: 12px 16px; font-size: 13px; min-height: 44px; }
+  .ind-tab { padding: 12px 16px; font-size: 13px; }
   .ind-panel.active { grid-template-columns: 1fr; }
-  .ind-wr { padding: 14px 8px; min-height: 48px; }
   .ind-left { padding: 28px 24px; }
   .ind-left h3 { font-size: 20px; }
   .ind-right { min-height: 340px; }
@@ -699,11 +698,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 </footer>
 
 <script>
-document.querySelectorAll('.ind-tab').forEach(function(tab) {
-  tab.addEventListener('click', function() {
-    sw(parseInt(this.getAttribute('data-sw')));
-  });
-});
 document.querySelectorAll('.ind-wr').forEach(function(el) {
   el.addEventListener('click', function() {
     var siblings = Array.prototype.slice.call(this.parentElement.querySelectorAll('.ind-wr'));
@@ -721,6 +715,11 @@ function sub(el, idx) {
   el.classList.add('active');
   panel.querySelectorAll('.ind-right').forEach((r,n) => r.classList.toggle('active', n===idx));
 }
+// Toggle mobile nav
+document.getElementById('menuToggle').addEventListener('click', function() {
+  document.getElementById('mainNav').classList.toggle('open');
+  this.classList.toggle('open');
+});
 // Close mobile nav on link click
 document.querySelectorAll('#mainNav a').forEach(a => {
   a.addEventListener('click', () => {
