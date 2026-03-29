@@ -129,13 +129,13 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 
 /* LOGO STRIP */
 .logo-strip { max-width: 1280px; margin: 0 auto; padding: 36px 32px 12px; text-align: center; }
-.logo-strip .ls-label { font-size: 11px; color: var(--muted); margin-bottom: 24px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+.logo-strip .ls-label { font-size: 11px; color: var(--secondary); margin-bottom: 24px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
 .ls-logos { display: flex; align-items: center; justify-content: center; gap: 2.5rem; margin-bottom: 36px; flex-wrap: wrap; }
 .ls-logo { display: flex; align-items: center; justify-content: center; }
 .ls-logo img { max-width: 180px; max-height: 56px; width: auto; height: auto; object-fit: contain; opacity: 0.6; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; }
 .ls-logo img:hover { opacity: 0.85; filter: grayscale(50%); }
 .ls-divider { max-width: 700px; margin: 0 auto; height: 1px; background: var(--border); }
-.ls-partners-label { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-top: 36px; margin-bottom: 20px; }
+.ls-partners-label { font-size: 11px; color: var(--secondary); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-top: 36px; margin-bottom: 20px; }
 .ls-partners { display: flex; align-items: center; justify-content: center; gap: 2rem; padding-bottom: 8px; flex-wrap: wrap; }
 .ls-partner { display: flex; align-items: center; justify-content: center; }
 .ls-partner img { max-width: 140px; max-height: 42px; width: auto; height: auto; object-fit: contain; opacity: 0.6; filter: grayscale(100%); transition: opacity 0.3s, filter 0.3s; }
@@ -271,7 +271,7 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .latest-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px 0; }
 .latest-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
 .latest-header h2 { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; }
-.latest-header a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: opacity 0.15s; }
+.latest-header a { font-size: 13px; font-weight: 500; color: var(--secondary); text-decoration: none; transition: opacity 0.15s; }
 .latest-header a:hover { opacity: 0.75; }
 .latest-list { display: flex; flex-direction: column; }
 .latest-item { display: grid; grid-template-columns: 80px 1fr 24px; align-items: start; gap: 16px; padding: 20px 8px; margin: 0 -8px; border-bottom: 1px solid var(--border-light); text-decoration: none; color: inherit; transition: background 0.15s; border-radius: 8px; }
@@ -299,15 +299,15 @@ nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .footer-left { display: flex; align-items: center; gap: 16px; }
 .footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
-.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.35); }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.6); }
 .footer-center { display: flex; align-items: center; gap: 24px; }
-.footer-center a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.15s; }
-.footer-center a:hover { color: rgba(255,255,255,0.7); }
+.footer-center a { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.15s; }
+.footer-center a:hover { color: rgba(255,255,255,0.9); }
 .footer-right { display: flex; align-items: center; gap: 16px; }
 .footer-legal { display: flex; align-items: center; gap: 8px; }
-.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.15s; }
-.footer-legal a:hover { color: rgba(255,255,255,0.5); }
-.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.2); }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.8); }
+.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.4); }
 .footer-socials { display: flex; align-items: center; gap: 10px; }
 .footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; text-decoration: none; }
 .footer-social:hover { background: rgba(255,255,255,0.1); }
@@ -543,7 +543,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
   <div class="ind-panel active">
     <div class="ind-left"><h3>Health & Wellness</h3><p class="ind-desc">Round-the-clock patient support with empathy, lived experience, and multilingual reach across 100+ countries.</p>
       <div class="ind-wr active" onclick="sub(this,0)"><div class="ind-wr-av" style="background:#7c3aed;font-size:9px;">AE</div><div><div class="ind-wr-name">AskEllyn</div><div class="ind-wr-role">Breast Cancer Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Cigna Healthcare</div></div>
-      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#0d9488;font-size:9px;">AS</div><div><div class="ind-wr-name">AskShan</div><div class="ind-wr-role">Parkinson's Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
+      <div class="ind-wr" onclick="sub(this,1)"><div class="ind-wr-av" style="background:#0a7a70;font-size:9px;">AS</div><div><div class="ind-wr-name">AskShan</div><div class="ind-wr-role">Parkinson's Support</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Live</div></div>
       <div class="ind-wr" onclick="sub(this,2)"><div class="ind-wr-av" style="font-size:9px;background:#b91c1c;">IG</div><div><div class="ind-wr-name">Chaddict + EvaMarie</div><div class="ind-wr-role">Addiction & Recovery</div></div><div class="ind-wr-client"><span class="ind-dot"></span>Infiniti Group</div></div>
       <div class="ind-wr" onclick="sub(this,3)"><div class="ind-wr-av" style="background:#e4e4e7;color:#a1a1aa;">U</div><div><div class="ind-wr-name">Urology Tool</div><div class="ind-wr-role">Medical Support</div></div><div class="ind-wr-client"><span class="ind-dot upcoming"></span>In progress</div></div>
     </div>
