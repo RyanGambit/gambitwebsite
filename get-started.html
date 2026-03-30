@@ -203,6 +203,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
         <textarea name="message" class="form-input" placeholder="What are you looking to build? The more detail, the better." required></textarea>
       </div>
 
+      <!-- Redirect to custom thank-you page -->
+      <input type="hidden" name="_next" value="https://gambitco.io/thank-you">
+
       <!-- Honeypot spam protection -->
       <div class="form-hp">
         <input type="text" name="_gotcha">
