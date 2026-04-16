@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hieddy | GambitCo</title>
+<meta name="description" content="Chat with Hieddy, your clearer mirror, powered by Gambit.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Gambit Technology Inc.">
+<link rel="canonical" href="https://gambitco.io/hieddy">
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GambitCo">
+<meta property="og:title" content="Hieddy | GambitCo">
+<meta property="og:description" content="Chat with Hieddy, your clearer mirror, powered by Gambit.">
+<meta property="og:url" content="https://gambitco.io/hieddy">
+<meta property="og:image" content="https://gambitco.io/img/gambit-logo.png">
+<meta property="og:image:alt" content="Hieddy - your clearer mirror, powered by GambitCo">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hieddy | GambitCo">
+<meta name="twitter:description" content="Chat with Hieddy, your clearer mirror, powered by Gambit.">
+<meta name="twitter:image" content="https://gambitco.io/img/gambit-logo.png">
+<meta name="twitter:image:alt" content="Hieddy - your clearer mirror, powered by GambitCo">
+
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0a0a0a; --ink: #141414; --secondary: #52525b;
+  --muted: #a1a1aa; --border: #e4e4e7; --border-light: #f0f0f2;
+  --page: #fafafa; --white: #ffffff;
+  --hero-orange: #F5A57A;
+  --font: 'General Sans', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html { font-family: var(--font); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* HEADER */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: var(--white); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
+.logo { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; display: inline-block; transition: transform 0.3s var(--ease); }
+.logo:hover { transform: translateX(6px); }
+.logo img { height: 24px; width: auto; display: block; }
+.footer-logo-img { height: 20px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.5; }
+nav { display: flex; align-items: center; gap: 4px; }
+nav a { font-size: 14px; font-weight: 450; color: var(--secondary); text-decoration: none; padding: 6px 16px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.btn-outline-h { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 100px; background: transparent; border: 1px solid var(--border); color: var(--secondary); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-outline-h:hover { opacity: 0.75; }
+.btn-solid-h { display: inline-flex; align-items: center; padding: 7px 18px; border-radius: 100px; background: var(--ink); border: 1px solid var(--ink); color: var(--white); font-size: 13.5px; font-weight: 500; font-family: var(--font); text-decoration: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-solid-h:hover { opacity: 0.75; }
+
+/* HERO BANNER */
+.worker-hero {
+  margin-top: 60px;
+  background: var(--hero-orange);
+  padding: 80px 32px 180px;
+  text-align: center;
+}
+.worker-hero h1 {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--white);
+  margin: 0 auto 12px;
+}
+.worker-hero p {
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 400;
+  color: var(--white);
+  opacity: 0.9;
+  margin: 0 auto;
+}
+
+/* EMBED AREA */
+.worker-embed {
+  flex: 1;
+  max-width: 1080px;
+  margin: -140px auto 0;
+  padding: 0 32px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.embed-container {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+/* Bottom spacing */
+.worker-spacer { height: 80px; }
+
+/* FOOTER */
+.site-footer { background: var(--black); padding: 40px 32px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.6); }
+.footer-center { display: flex; align-items: center; gap: 24px; }
+.footer-center a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.15s; }
+.footer-center a:hover { color: rgba(255,255,255,0.9); }
+.footer-right { display: flex; align-items: center; gap: 16px; }
+.footer-legal { display: flex; align-items: center; gap: 8px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.15s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.8); }
+.footer-legal span { font-size: 12px; color: rgba(255,255,255,0.4); }
+.footer-socials { display: flex; align-items: center; gap: 10px; }
+.footer-social { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); transition: background 0.15s; text-decoration: none; }
+.footer-social:hover { background: rgba(255,255,255,0.1); }
+.footer-social svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* RESPONSIVE */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.menu-toggle svg { width: 22px; height: 22px; stroke: var(--ink); stroke-width: 1.5; }
+
+@media (max-width: 1024px) {
+  .header-inner { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 24px 24px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 99; }
+  nav.open { display: flex; }
+  nav a { padding: 12px 0; font-size: 16px; }
+  .header-actions { gap: 8px; }
+  .btn-outline-h { display: none; }
+  .header-inner { padding: 0 20px; }
+  .site-footer { padding: 32px 20px; }
+  .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+  .footer-left { flex-direction: column; gap: 6px; }
+  .footer-center { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-right { flex-direction: column; gap: 12px; align-items: center; }
+  .footer-socials { justify-content: center; }
+  .worker-hero { padding: 60px 20px 140px; }
+  .worker-embed { margin: -100px auto 0; padding: 0 20px; }
+}
+@media (max-width: 480px) {
+  .worker-hero h1 { font-size: 56px; }
+}
+/* FOCUS STATES */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
+.btn-outline-h:focus-visible, .btn-solid-h:focus-visible, .hero-btn-primary:focus-visible, .hero-btn-ghost:focus-visible, .cta-primary:focus-visible, .cta-outline:focus-visible { outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header><div class="header-inner"><a href="/" class="logo"><img src="/img/gambit-logo.png" alt="Gambit" loading="lazy"></a><nav id="mainNav"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a></nav><div class="header-actions"><a href="/get-started" class="btn-outline-h">Contact</a><a href="/#askgambit" class="btn-solid-h">Ask Gambit</a><button class="menu-toggle" id="menuToggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div></div></header>
+
+<!-- HERO BANNER -->
+<div class="worker-hero">
+  <h1>hieddy</h1>
+  <p>your clearer mirror</p>
+</div>
+
+<!-- EMBED AREA -->
+<div class="worker-embed">
+  <div class="embed-container">
+    <div id="gambit-chat-container"
+         style="width: 100%; height: 600px; min-height: 400px; border-radius: 15px; overflow: hidden;"
+         class="chat-embed">
+    </div>
+  </div>
+</div>
+
+<div class="worker-spacer"></div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="/img/gambit-logo.png" alt="Gambit" loading="lazy" class="footer-logo-img"><p class="footer-tagline">We put AI to work.</p></div>
+    <div class="footer-center"><a href="/#work">Vision</a><a href="/#workers">Workers</a><a href="/case-studies">Case Studies</a><a href="/about-us">About</a><a href="/insights">Insights</a><a href="/get-started">Contact</a></div>
+    <div class="footer-right"><div class="footer-legal"><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy-policy">Privacy</a></div><div class="footer-socials"><a href="https://www.linkedin.com/company/gambit-co/" target="_blank" rel="noopener noreferrer" class="footer-social"><svg viewBox="0 0 24 24" aria-label="LinkedIn"><title>LinkedIn</title><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.instagram.com/gambitco" target="_blank" rel="noopener noreferrer" class="footer-social"><svg viewBox="0 0 24 24" aria-label="Instagram"><title>Instagram</title><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+  </div>
+</footer>
+
+<script
+  src="https://embed.gambitco.io/client/a1e10d53-9a2d-4a7c-9829-d23b830c5b9b/surface/1dc83653-3a44-455d-ba8f-1addfadff771/embed.js"
+  data-gambit-container="gambit-chat-container">
+</script>
+<script>
+document.getElementById("menuToggle").addEventListener("click",function(){document.getElementById("mainNav").classList.toggle("open");this.classList.toggle("open")});
+document.querySelectorAll("#mainNav a").forEach(a=>{a.addEventListener("click",()=>{document.getElementById("mainNav").classList.remove("open");document.querySelector(".menu-toggle").classList.remove("open")})});
+</script>
+</body>
+</html>
