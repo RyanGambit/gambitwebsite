@@ -313,6 +313,9 @@ input { font-family: var(--font); }
   gap: 14px;
 }
 .topbar-left img { height: 20px; width: auto; display: block; }
+.topbar-logo { display: inline-flex; align-items: center; transition: opacity 0.15s; }
+.topbar-logo:hover { opacity: 0.7; }
+.topbar-logo:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; border-radius: 4px; }
 .topbar-divider {
   width: 1px;
   height: 16px;
@@ -1232,7 +1235,9 @@ input { font-family: var(--font); }
     <div class="shell">
       <div data-topbar class="topbar">
         <div class="topbar-left">
-          <img src="/img/gambit-logo.png" alt="Gambit">
+          <a href="https://gambitco.io/" target="_blank" rel="noopener" class="topbar-logo" aria-label="Visit gambitco.io">
+            <img src="/img/gambit-logo.png" alt="Gambit">
+          </a>
           <span class="topbar-divider"></span>
           <span class="topbar-label">Dejero / Beacon Proposal</span>
         </div>
@@ -1515,9 +1520,7 @@ input { font-family: var(--font); }
       <div class="pilot-desc">Focused subset. Full personality and guardrails. Fee applies to the full engagement if you proceed.</div>
     </div>
     <div class="price-notes">
-      <div class="price-note">Application layer ownership transfers to Dejero</div>
       <div class="price-note">Gambit manages runtime infrastructure and ongoing optimization</div>
-      <div class="price-note">Codebase handed over if you bring management in-house</div>
       <div class="price-note">LLM API and hosting costs passed through at cost, no markup</div>
     </div>
   </div>
