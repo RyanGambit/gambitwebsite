@@ -191,10 +191,10 @@ input { font-family: var(--font); }
   transform: translateY(0);
 }
 .welcome .w-roster {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 160px);
   gap: 8px;
-  margin-bottom: 48px;
-  flex-wrap: wrap;
+  margin: 0 auto 48px;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.4s var(--ease);
@@ -1709,7 +1709,7 @@ input { font-family: var(--font); }
 
     var msgs = [{
       role: 'assistant',
-      content: "Hey! I'm G. I know this proposal inside and out. Beacon, pricing, timelines, how we'd approach the build, what we've done before. Ask me anything. And if you want to see our work firsthand, I can point you to live workers you can try yourself."
+      content: "Hey! I'm G. I know this proposal inside and out. Beacon, pricing, timelines, how we'd approach the build, what we've done before. Ask me anything."
     }];
 
     function render() {
