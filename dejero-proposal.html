@@ -225,6 +225,9 @@ input { font-family: var(--font); }
 .welcome .w-card:nth-child(3) { transition-delay: 120ms; }
 .welcome .w-card:nth-child(4) { transition-delay: 180ms; }
 .welcome .w-card:nth-child(5) { transition-delay: 240ms; }
+.welcome .w-card:nth-child(6) { transition-delay: 300ms; }
+.welcome .w-card:nth-child(7) { transition-delay: 360ms; }
+.welcome .w-card:nth-child(8) { transition-delay: 420ms; }
 .welcome .w-card-status {
   display: flex;
   align-items: center;
@@ -874,7 +877,7 @@ input { font-family: var(--font); }
   font-weight: 500;
   letter-spacing: -0.03em;
   color: var(--white);
-  margin-bottom: 12px;
+  margin-bottom: 32px;
   line-height: 1.1;
 }
 .cta-sub {
@@ -1215,6 +1218,9 @@ input { font-family: var(--font); }
       <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">Harlo</div><div class="w-card-role">Freight Coordinator</div></div>
       <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">AskTodd</div><div class="w-card-role">Legal Strategist</div></div>
       <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">AskAmber</div><div class="w-card-role">Fan Engagement</div></div>
+      <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">Spearhead</div><div class="w-card-role">Corporate Development</div></div>
+      <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">AskAshleigh</div><div class="w-card-role">Caregiver Support</div></div>
+      <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">GillisOS</div><div class="w-card-role">Operations</div></div>
     </div>
     <div class="w-bridge">We'd like to build one for you.</div>
     <div class="w-payoff">Meet Beacon.</div>
@@ -1522,10 +1528,8 @@ input { font-family: var(--font); }
   <div class="band-inner">
     <div class="cta-center">
       <h2 class="cta-title">Ready to build Beacon?</h2>
-      <p class="cta-sub">Reply to this proposal, or book a call to kick off discovery.</p>
       <div class="cta-row">
         <a class="cta-primary" href="mailto:ryan@gambitco.io?subject=Beacon%20-%20Let's%20Go">Email Ryan</a>
-        <a class="cta-ghost" href="https://gambitco.io/get-started" target="_blank" rel="noopener">Book a scope call</a>
       </div>
       <div class="signoff">
         <p>Ryan Burgio &middot; Managing Partner &middot; ryan@gambitco.io</p>
@@ -1689,6 +1693,9 @@ input { font-family: var(--font); }
     });
 
     initChat(widget);
+
+    // Open AskG by default so readers see it immediately.
+    setChatOpen(true);
   }
 
   function initChat(widget) {
