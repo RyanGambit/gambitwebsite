@@ -81,55 +81,91 @@ export default async function handler(req, res) {
   const url = `${protocol}://${host}/dejero-proposal`;
 
   let browser;
+  let stage = 'init';
   try {
+    stage = 'resolve-executable';
+    const executablePath = await chromium.executablePath();
+
+    stage = 'launch-chromium';
     browser = await puppeteer.launch({
-      args: chromium.args,
-      defaultViewport: { width: 1200, height: 1600, deviceScaleFactor: 2 },
-      executablePath: await chromium.executablePath(),
+      args: [
+        ...chromium.args,
+        '--hide-scrollbars',
+        '--disable-dev-shm-usage',
+        '--disable-web-security',
+      ],
+      defaultViewport: chromium.defaultViewport,
+      executablePath,
       headless: chromium.headless,
     });
 
+    stage = 'new-page';
     const page = await browser.newPage();
 
-    // Inject sessionStorage before the page runs its gate/welcome logic.
-    // This makes Puppeteer land directly in the shell, bypassing the password gate.
+    // Bypass the client-side gate by pre-seeding sessionStorage before any
+    // script runs on the page.
+    stage = 'inject-session';
     await page.evaluateOnNewDocument(() => {
-      sessionStorage.setItem('dejero_proposal_auth_v1', '1');
-      sessionStorage.setItem('dejero_proposal_welcome_seen_v1', '1');
+      try {
+        sessionStorage.setItem('dejero_proposal_auth_v1', '1');
+        sessionStorage.setItem('dejero_proposal_welcome_seen_v1', '1');
+      } catch (e) {}
     });
 
-    await page.goto(url, { waitUntil: 'networkidle0', timeout: 30_000 });
-
-    // Wait for the proposal shell to mount (data-proposal-wrap is the content container)
-    await page.waitForSelector('[data-proposal-wrap] .band', { timeout: 10_000 });
-
-    // Hide the AskG chat widget + FAB before print (redundant with print CSS, but defensive)
-    await page.addStyleTag({
-      content: `
-        [data-chat-widget], [data-chat-fab] { display: none !important; }
-      `,
+    // Hide chat widget + FAB at render time as a second line of defense
+    // on top of the print CSS.
+    stage = 'inject-style';
+    await page.evaluateOnNewDocument(() => {
+      const s = document.createElement('style');
+      s.textContent = '[data-chat-widget],[data-chat-fab]{display:none !important}';
+      document.documentElement.appendChild(s);
     });
 
-    // Allow web fonts to settle
-    await page.evaluateHandle('document.fonts.ready');
-    await new Promise(r => setTimeout(r, 250));
+    stage = 'goto';
+    // Use domcontentloaded (not networkidle0). networkidle0 can hang on
+    // font-foundry connections or analytics beacons.
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25_000 });
 
-    // Generate the PDF using print CSS
+    stage = 'wait-for-content';
+    await page.waitForSelector('[data-proposal-wrap] .band', { timeout: 15_000 });
+
+    // Let webfonts settle (cap wait at 5s so we don't hang forever if fontshare fails).
+    stage = 'wait-for-fonts';
+    try {
+      await Promise.race([
+        page.evaluate(() => document.fonts && document.fonts.ready),
+        new Promise(r => setTimeout(r, 5000)),
+      ]);
+    } catch (e) {
+      // font readiness is best-effort
+    }
+    // Extra settle tick for layout
+    await new Promise(r => setTimeout(r, 400));
+
+    stage = 'render-pdf';
     const pdf = await page.pdf({
       format: 'Letter',
       printBackground: true,
-      preferCSSPageSize: true, // respect @page sizes/margins in our CSS
+      preferCSSPageSize: true,
       displayHeaderFooter: false,
+      timeout: 30_000,
     });
 
+    stage = 'respond';
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename="${FILENAME}"`);
     res.setHeader('Content-Length', String(pdf.length));
     res.setHeader('Cache-Control', 'private, no-store');
     return res.status(200).send(Buffer.from(pdf));
   } catch (err) {
-    console.error('PDF render error:', err);
-    return res.status(500).json({ error: 'PDF generation failed. Try again in a moment.' });
+    // Surface enough detail in the logs to diagnose which stage failed
+    console.error(`PDF render error at stage "${stage}":`, err?.message || err);
+    if (err?.stack) console.error(err.stack);
+    return res.status(500).json({
+      error: 'PDF generation failed. Try again in a moment.',
+      stage,
+      detail: err?.message?.slice(0, 300) || 'unknown',
+    });
   } finally {
     if (browser) {
       try { await browser.close(); } catch {}

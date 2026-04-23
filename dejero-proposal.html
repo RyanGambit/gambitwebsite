@@ -1341,7 +1341,7 @@ input { font-family: var(--font); }
         </div>
         <button class="topbar-btn" data-print>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span class="topbar-btn-label">Download PDF</span>
+          <span class="topbar-btn-label">Download Proposal</span>
         </button>
       </div>
       <div class="scroll-region">
@@ -1653,7 +1653,7 @@ input { font-family: var(--font); }
         <a class="cta-primary" href="mailto:ryan@gambitco.io?subject=Beacon%20-%20Let's%20Go">Email Ryan</a>
         <button class="cta-ghost" data-print type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download proposal
+          Download Proposal
         </button>
       </div>
       <div class="signoff">
@@ -1847,7 +1847,14 @@ input { font-family: var(--font); }
         .then(function (r) {
           if (!r.ok) {
             return r.json().catch(function () { return { error: 'Download failed. Try again.' }; })
-              .then(function (data) { throw new Error(data.error || 'Download failed. Try again.'); });
+              .then(function (data) {
+                var msg = data.error || 'Download failed. Try again.';
+                if (data.stage) msg += ' (stage: ' + data.stage + ')';
+                if (data.detail) console.error('PDF server detail:', data.detail);
+                var e = new Error(msg);
+                e._serverData = data;
+                throw e;
+              });
           }
           return r.blob();
         })
