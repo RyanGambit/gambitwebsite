@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/pdf.js": {
-      "memory": 1536,
+      "memory": 2048,
       "maxDuration": 60
     }
   },

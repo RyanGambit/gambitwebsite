@@ -2,11 +2,18 @@
 // as a file download. Skips the client-side gate by injecting sessionStorage
 // into the Puppeteer context before navigation.
 
-import chromium from '@sparticuz/chromium';
+import chromium from '@sparticuz/chromium-min';
 import puppeteer from 'puppeteer-core';
 
 const PROPOSAL_PASSWORD = process.env.DEJERO_PROPOSAL_PASSWORD || 'beacon2026';
 const FILENAME = 'Gambit-Dejero-Beacon-Proposal.pdf';
+
+// chromium-min fetches the Chromium binary from this URL at runtime instead
+// of bundling it into the function (which keeps the function size small and
+// sidesteps Vercel's cold-start extraction issues for the full package).
+// The URL version MUST match the @sparticuz/chromium-min version in package.json.
+const CHROMIUM_PACK_URL =
+  'https://github.com/Sparticuz/chromium/releases/download/v131.0.1/chromium-v131.0.1-pack.tar';
 
 // Simple in-memory rate limiting (resets on cold start)
 const rateLimit = new Map();
@@ -84,7 +91,8 @@ export default async function handler(req, res) {
   let stage = 'init';
   try {
     stage = 'resolve-executable';
-    const executablePath = await chromium.executablePath();
+    // chromium-min downloads/extracts the Chromium binary on cold start.
+    const executablePath = await chromium.executablePath(CHROMIUM_PACK_URL);
 
     stage = 'launch-chromium';
     browser = await puppeteer.launch({
@@ -92,11 +100,10 @@ export default async function handler(req, res) {
         ...chromium.args,
         '--hide-scrollbars',
         '--disable-dev-shm-usage',
-        '--disable-web-security',
       ],
       defaultViewport: chromium.defaultViewport,
       executablePath,
-      headless: chromium.headless,
+      headless: true,
     });
 
     stage = 'new-page';
