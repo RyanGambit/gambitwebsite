@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gambit | Dejero / Beacon Proposal</title>
+<meta name="description" content="Private proposal prepared for Dejero Labs by Gambit.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Gambit Technology Inc.">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+
+<link rel="preload" href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" as="style">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0a0a0a;
+  --ink: #141414;
+  --secondary: #52525b;
+  --muted: #a1a1aa;
+  --border: #e4e4e7;
+  --border-light: #f0f0f2;
+  --page: #fafafa;
+  --white: #ffffff;
+  --sand: #F3EEE8;
+  --sand-border: #E8E2DA;
+  --working: #16a34a;
+  --danger: #dc2626;
+  --font: 'General Sans', sans-serif;
+  --mark: 'Orbitron', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html, body, #root {
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  background: var(--black);
+  color: var(--ink);
+}
+button { font-family: var(--font); }
+input { font-family: var(--font); }
+
+/* Gambit logo treatment matches the site footer: invert PNG to white on dark surfaces */
+.g-logo-mark {
+  height: 20px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+.g-logo-mark-dark {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+/* ============================================================
+   GATE
+   ============================================================ */
+.gate {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 24px;
+  background: var(--black);
+}
+.gate-logo { margin-bottom: 0; }
+.gate-logo img { height: 22px; }
+.gate-title {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-align: center;
+  line-height: 1.2;
+  color: var(--white);
+  max-width: 420px;
+}
+.gate-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  margin-top: -16px;
+}
+.gate-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+}
+.gate-input {
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.gate-input:focus { border-color: rgba(255,255,255,0.25); }
+.gate-input::placeholder { color: rgba(255,255,255,0.35); }
+.gate-btn {
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  border-radius: 100px;
+  padding: 12px 22px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.gate-btn:hover { opacity: 0.75; }
+.gate-err {
+  font-size: 13px;
+  color: var(--danger);
+  margin-top: -16px;
+}
+
+/* ============================================================
+   WELCOME SEQUENCE
+   ============================================================ */
+.welcome {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  padding: 32px;
+  transition: opacity 0.6s var(--ease);
+}
+.welcome.exiting { opacity: 0; }
+.welcome .w-logo {
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.5s var(--ease);
+}
+.welcome[data-step="0"] .w-logo,
+.welcome[data-step="1"] .w-logo,
+.welcome[data-step="2"] .w-logo,
+.welcome[data-step="3"] .w-logo,
+.welcome[data-step="4"] .w-logo,
+.welcome[data-step="5"] .w-logo {
+  opacity: 1;
+  transform: translateY(0);
+}
+.welcome .w-logo img { height: 18px; }
+.welcome .w-head {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.6s var(--ease);
+}
+.welcome[data-step="1"] .w-head,
+.welcome[data-step="2"] .w-head,
+.welcome[data-step="3"] .w-head,
+.welcome[data-step="4"] .w-head,
+.welcome[data-step="5"] .w-head {
+  opacity: 1;
+  transform: translateY(0);
+}
+.welcome[data-step="2"] .w-head { margin-bottom: 40px; }
+.welcome .w-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.5s var(--ease);
+}
+.welcome[data-step="1"] .w-sub,
+.welcome[data-step="2"] .w-sub {
+  opacity: 1;
+  transform: translateY(0);
+}
+.welcome .w-roster {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.welcome[data-step="2"] .w-roster,
+.welcome[data-step="3"] .w-roster,
+.welcome[data-step="4"] .w-roster {
+  opacity: 1;
+}
+.welcome .w-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 12px 16px;
+  min-width: 130px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.4s var(--ease);
+}
+.welcome[data-step="2"] .w-card,
+.welcome[data-step="3"] .w-card,
+.welcome[data-step="4"] .w-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+.welcome .w-card:nth-child(1) { transition-delay: 0ms; }
+.welcome .w-card:nth-child(2) { transition-delay: 60ms; }
+.welcome .w-card:nth-child(3) { transition-delay: 120ms; }
+.welcome .w-card:nth-child(4) { transition-delay: 180ms; }
+.welcome .w-card:nth-child(5) { transition-delay: 240ms; }
+.welcome .w-card-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.welcome .w-card-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--working);
+  display: inline-block;
+}
+.welcome .w-card-status-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--working);
+}
+.welcome .w-card-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+}
+.welcome .w-card-role {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+}
+.welcome .w-bridge {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s var(--ease);
+}
+.welcome[data-step="3"] .w-bridge,
+.welcome[data-step="4"] .w-bridge {
+  opacity: 1;
+  transform: translateY(0);
+}
+.welcome[data-step="4"] .w-bridge { margin-bottom: 16px; }
+.welcome .w-payoff {
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.05;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.7s var(--ease);
+}
+.welcome[data-step="4"] .w-payoff {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   APP SHELL (Top bar + scrolling proposal)
+   ============================================================ */
+.shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+  animation: fadeIn 0.6s var(--ease);
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+  flex-shrink: 0;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.topbar-left img { height: 20px; width: auto; display: block; }
+.topbar-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border);
+}
+.topbar-label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.topbar-btn {
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.15s;
+}
+.topbar-btn:hover { opacity: 0.75; }
+.topbar-btn svg { width: 14px; height: 14px; }
+
+.scroll-region {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* ============================================================
+   PROPOSAL BANDS
+   ============================================================ */
+.band {
+  padding: 56px 24px;
+}
+.band-white { background: var(--white); }
+.band-sand { background: var(--sand); }
+.band-ink { background: var(--ink); }
+.band-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.band-ink .section-label {
+  color: rgba(255,255,255,0.35);
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.band h1, .band h2 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.band-ink h2 { color: var(--white); }
+.band h1.hero-title {
+  font-size: 48px;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.band p.body {
+  font-size: 16px;
+  color: var(--secondary);
+  line-height: 1.6;
+  max-width: 600px;
+}
+.band p.body + p.body { margin-top: 16px; }
+.band-ink p.body { color: rgba(255,255,255,0.6); }
+.band .label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.band .label-dark {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 8px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* Prepared-for chip */
+.hero-center { text-align: center; padding-top: 16px; padding-bottom: 16px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--page);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--working);
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+.hero-intro {
+  font-size: 16px;
+  color: var(--secondary);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Worker grid */
+.worker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.worker-card {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.worker-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--working);
+  margin-bottom: 10px;
+}
+.worker-name {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  color: var(--ink);
+}
+.worker-role {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.worker-stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.worker-stat {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.worker-unit {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Problem list */
+.problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+.problem-card {
+  padding: 20px 24px;
+  border-left: 3px solid var(--ink);
+  border-radius: 0 12px 12px 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.problem-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+.problem-desc {
+  font-size: 14px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+/* Check/x lists */
+.check-list { margin-top: 24px; }
+.check-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+.check-item .mark { flex-shrink: 0; margin-top: 1px; }
+.check-item.ok .mark { color: var(--working); }
+.check-item.no .mark { color: var(--muted); }
+.check-item.no { color: var(--muted); }
+
+/* Timeline */
+.timeline {
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+.timeline-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 40px;
+}
+.timeline-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0 8px;
+  text-align: center;
+}
+.timeline-seg-1 { flex: 4; background: var(--ink); }
+.timeline-seg-2 { flex: 6; background: var(--secondary); }
+.timeline-seg-3 { flex: 4; background: var(--muted); }
+.timeline-caption {
+  display: flex;
+  margin-top: 6px;
+}
+.timeline-caption span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.timeline-caption span:nth-child(1) { flex: 4; text-align: left; }
+.timeline-caption span:nth-child(2) { flex: 6; text-align: center; }
+.timeline-caption span:nth-child(3) { flex: 4; text-align: right; }
+
+.phase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.phase-card {
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.phase-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.phase-num {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+.phase-name {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.phase-time {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.phase-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.phase-item {
+  font-size: 14px;
+  color: var(--secondary);
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+.phase-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+/* Team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+.team-card {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.team-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.team-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.team-role {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.team-desc {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+/* Cadence grid */
+.cadence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.cadence-card {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.cadence-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.cadence-desc {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+/* Future (dark) */
+.future-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+.future-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px 24px;
+  transition: border-color 0.15s;
+  cursor: default;
+}
+.future-item:hover { border-color: rgba(255,255,255,0.2); }
+.future-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--white);
+}
+.future-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+.future-intro {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 8px;
+}
+
+/* Pricing */
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+.price-hero {
+  grid-column: 1 / -1;
+  background: var(--ink);
+  border-radius: 12px;
+  padding: 24px;
+  color: var(--white);
+}
+.price-hero .label-dark { margin-bottom: 8px; }
+.price-hero-main {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.price-hero-unit {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+}
+.price-hero-detail {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+}
+.price-card {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.price-main {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.price-unit {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.price-detail {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.pilot-card {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--ink);
+  border-radius: 12px;
+  margin-top: 12px;
+}
+.pilot-main {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.pilot-note {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+.pilot-desc {
+  font-size: 13px;
+  color: var(--secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.price-notes {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.price-note {
+  font-size: 14px;
+  color: var(--secondary);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+.price-note::before {
+  content: "\2192";
+  position: absolute;
+  left: 0;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+/* Next steps */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+.step-card {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.step-num {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  flex-shrink: 0;
+  width: 32px;
+}
+.step-text {
+  font-size: 15px;
+  color: var(--secondary);
+  line-height: 1.5;
+  padding-top: 4px;
+}
+
+/* CTA + signoff */
+.cta-center { text-align: center; }
+.cta-title {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.cta-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  margin: 0 auto 32px;
+  max-width: 420px;
+}
+.cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  border-radius: 100px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.cta-primary:hover { opacity: 0.75; }
+.cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  border-radius: 100px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.cta-ghost:hover { opacity: 0.75; }
+.signoff {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.signoff p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 4px;
+}
+.signoff p.site { margin-bottom: 16px; }
+.signoff .legal {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.5;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   CHAT WIDGET
+   ============================================================ */
+.chat-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: var(--ink);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.15s var(--ease), opacity 0.15s;
+  z-index: 101;
+  font-family: var(--mark);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+.chat-fab:hover { transform: scale(1.05); }
+.chat-fab:active { transform: scale(0.97); }
+
+.chat-widget {
+  position: fixed;
+  bottom: 88px;
+  right: 20px;
+  width: 380px;
+  height: 520px;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  animation: popIn 0.25s var(--ease);
+  z-index: 100;
+}
+[hidden] { display: none !important; }
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+.chat-ident {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chat-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mark);
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--white);
+  letter-spacing: 0.08em;
+}
+.chat-ident-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.chat-ident-sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+.chat-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 18px;
+  transition: opacity 0.15s;
+}
+.chat-close:hover { opacity: 0.75; }
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--page);
+}
+.chat-hint {
+  align-self: center;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+  padding: 8px;
+  text-align: center;
+}
+.msg {
+  max-width: 85%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.msg a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.msg-a {
+  align-self: flex-start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+.msg-u {
+  align-self: flex-end;
+  background: var(--ink);
+  color: var(--white);
+}
+.msg-tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--working);
+  margin-bottom: 6px;
+}
+.msg-err {
+  align-self: flex-start;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 85%;
+}
+.typing {
+  display: flex;
+  gap: 5px;
+  padding: 16px;
+  align-self: flex-start;
+}
+.typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  animation: tbounce 1.2s ease-in-out infinite;
+}
+.typing span:nth-child(2) { animation-delay: 0.15s; }
+.typing span:nth-child(3) { animation-delay: 0.3s; }
+
+.chat-input-bar {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  background: var(--white);
+}
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+}
+.chat-input {
+  flex: 1;
+  background: var(--page);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.chat-input:focus { border-color: var(--muted); }
+.chat-send {
+  background: var(--ink);
+  color: var(--white);
+  border: none;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: opacity 0.15s;
+}
+.chat-send:disabled { opacity: 0.3; cursor: default; }
+.chat-send:not(:disabled):hover { opacity: 0.75; }
+
+/* ============================================================
+   SCROLLBAR + ANIMATIONS + PRINT
+   ============================================================ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes tbounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (max-width: 520px) {
+  .band { padding: 44px 20px; }
+  .band h1.hero-title { font-size: 38px; }
+  .band h1, .band h2 { font-size: 24px; }
+  .cadence-grid, .price-grid { grid-template-columns: 1fr; }
+  .chat-widget { width: calc(100vw - 32px); right: 16px; bottom: 84px; height: 70vh; }
+  .chat-fab { bottom: 16px; right: 16px; }
+  .topbar { padding: 12px 16px; }
+  .topbar-label { display: none; }
+  .welcome .w-head { font-size: 28px; }
+  .welcome .w-payoff { font-size: 36px; }
+}
+
+@media print {
+  html, body, #root { height: auto !important; overflow: visible !important; background: var(--page) !important; }
+  [data-topbar], [data-chat-widget], [data-chat-fab] { display: none !important; }
+  [data-proposal-wrap] { height: auto !important; overflow: visible !important; display: block !important; }
+  .scroll-region { overflow: visible !important; height: auto !important; }
+  .shell { height: auto !important; overflow: visible !important; display: block !important; }
+  .band { padding: 32px 24px; page-break-inside: avoid; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  @page { margin: 0.6in 0.7in; size: letter; }
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<template id="tpl-gate">
+  <div class="gate">
+    <div class="gate-logo"><img src="/img/gambit-logo.png" alt="Gambit" class="g-logo-mark"></div>
+    <div class="gate-title">A proposal prepared for Dejero</div>
+    <p class="gate-sub">Enter the access code to continue</p>
+    <div class="gate-row">
+      <input class="gate-input" type="password" placeholder="Access code" autocomplete="off">
+      <button class="gate-btn">Enter</button>
+    </div>
+    <div class="gate-err" hidden>Invalid access code</div>
+  </div>
+</template>
+
+<template id="tpl-welcome">
+  <div class="welcome" data-step="0">
+    <div class="w-logo"><img src="/img/gambit-logo.png" alt="Gambit" class="g-logo-mark"></div>
+    <div class="w-head">We build AI workers.</div>
+    <div class="w-sub">Not chatbots. Not copilots. Workers with a job title, a scope, and accountability.</div>
+    <div class="w-roster">
+      <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">AskEllyn</div><div class="w-card-role">Breast Cancer Support</div></div>
+      <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">Chloe</div><div class="w-card-role">Municipal Concierge</div></div>
+      <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">Harlo</div><div class="w-card-role">Freight Coordinator</div></div>
+      <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">AskTodd</div><div class="w-card-role">Legal Strategist</div></div>
+      <div class="w-card"><div class="w-card-status"><span class="w-card-dot"></span><span class="w-card-status-text">Working</span></div><div class="w-card-name">AskAmber</div><div class="w-card-role">Fan Engagement</div></div>
+    </div>
+    <div class="w-bridge">We'd like to build one for you.</div>
+    <div class="w-payoff">Meet Beacon.</div>
+  </div>
+</template>
+
+<template id="tpl-shell">
+  <div>
+    <div class="shell">
+      <div data-topbar class="topbar">
+        <div class="topbar-left">
+          <img src="/img/gambit-logo.png" alt="Gambit">
+          <span class="topbar-divider"></span>
+          <span class="topbar-label">Dejero / Beacon Proposal</span>
+        </div>
+        <button class="topbar-btn" data-print>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PDF
+        </button>
+      </div>
+      <div class="scroll-region">
+        <div data-proposal-wrap>
+
+<!-- 00 HERO -->
+<section class="band band-white">
+  <div class="band-inner hero-center">
+    <div class="chip"><span class="status-dot"></span>Prepared for Dejero Labs</div>
+    <h1 class="hero-title">Meet Beacon.</h1>
+    <p class="hero-intro">Christine, Sarah, and Alaa: thank you for the conversation. We left energized. Your support reputation is rare. Your products are mission-critical. You clearly care about getting this right. So do we.</p>
+  </div>
+</section>
+
+<!-- 01 WHO WE ARE -->
+<section class="band band-sand">
+  <div class="band-inner">
+    <div class="section-label">01 / Who we are</div>
+    <h2>We build functional AI workers.</h2>
+    <p class="body">Not chatbots. Not copilots. Not off-the-shelf platforms. We build AI that does real work, in real environments, with real people on the other end.</p>
+    <p class="body">We started two and a half years ago with AskEllyn, a support companion for women and families navigating breast cancer. It has been used in over 150 countries and 50+ languages. That became the foundation for Gambit.</p>
+    <p class="body">Since then we have deployed workers across healthcare, government, legal, logistics, entertainment, and enterprise. Every one of them is public-facing. That is the hardest thing to do in AI, and it is the only thing we do.</p>
+  </div>
+</section>
+
+<!-- 02 WORKERS -->
+<section class="band band-white">
+  <div class="band-inner">
+    <div class="section-label">02 / Track record</div>
+    <h2>Workers in the wild.</h2>
+    <div class="worker-grid">
+      <div class="worker-card">
+        <div class="worker-status"><span class="status-dot"></span>Working</div>
+        <div class="worker-name">AskEllyn</div>
+        <div class="worker-role">Breast Cancer Support &middot; Cigna Healthcare</div>
+        <div class="worker-stat-row"><span class="worker-stat">100K+</span><span class="worker-unit">conversations</span></div>
+      </div>
+      <div class="worker-card">
+        <div class="worker-status"><span class="status-dot"></span>Working</div>
+        <div class="worker-name">Chloe</div>
+        <div class="worker-role">Municipal Concierge &middot; Town of Vail</div>
+        <div class="worker-stat-row"><span class="worker-stat">24/7</span><span class="worker-unit">voice and web</span></div>
+      </div>
+      <div class="worker-card">
+        <div class="worker-status"><span class="status-dot"></span>Working</div>
+        <div class="worker-name">Harlo</div>
+        <div class="worker-role">Freight Coordinator &middot; Logistics Alliance</div>
+        <div class="worker-stat-row"><span class="worker-stat">412</span><span class="worker-unit">loads/day</span></div>
+      </div>
+      <div class="worker-card">
+        <div class="worker-status"><span class="status-dot"></span>Working</div>
+        <div class="worker-name">AskTodd</div>
+        <div class="worker-role">Legal Strategist &middot; PulseLaw LLP</div>
+        <div class="worker-stat-row"><span class="worker-stat">24/7</span><span class="worker-unit">legal intake</span></div>
+      </div>
+      <div class="worker-card">
+        <div class="worker-status"><span class="status-dot"></span>Working</div>
+        <div class="worker-name">AskAmber</div>
+        <div class="worker-role">Fan Engagement &middot; Daytona 500 Launch</div>
+        <div class="worker-stat-row"><span class="worker-stat">Battle</span><span class="worker-unit">tested</span></div>
+      </div>
+      <div class="worker-card">
+        <div class="worker-status"><span class="status-dot"></span>Working</div>
+        <div class="worker-name">Spearhead</div>
+        <div class="worker-role">Corporate Development &middot; Spearhead</div>
+        <div class="worker-stat-row"><span class="worker-stat">Live</span></div>
+      </div>
+      <div class="worker-card">
+        <div class="worker-status"><span class="status-dot"></span>Working</div>
+        <div class="worker-name">AskAshleigh</div>
+        <div class="worker-role">Caregiver Support &middot; US Government</div>
+        <div class="worker-stat-row"><span class="worker-stat">Live</span></div>
+      </div>
+      <div class="worker-card">
+        <div class="worker-status"><span class="status-dot"></span>Working</div>
+        <div class="worker-name">GillisOS</div>
+        <div class="worker-role">Operations &middot; Gillis</div>
+        <div class="worker-stat-row"><span class="worker-stat">Live</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PROBLEM -->
+<section class="band band-sand">
+  <div class="band-inner">
+    <div class="section-label">03 / The challenge</div>
+    <h2>Your support team is your edge. Scale is the threat.</h2>
+    <p class="body">Dejero's technical support is the thing customers cite most. It is the reason they stay. That reputation was built by humans who know the products and care about the experience.</p>
+    <p class="body">The challenge is volume. A growing product lineup across broadcast, public safety, defense, enterprise, and transit. 24/7 commitments across multiple continents. Routine questions absorbing the bandwidth that should go to complex, high-stakes work.</p>
+    <div class="problem-list">
+      <div class="problem-card">
+        <div class="problem-title">Repetitive intake consuming analyst time</div>
+        <div class="problem-desc">Setup, configuration, and troubleshooting questions already documented across 800+ articles are eating bandwidth.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-title">Product name confusion creates risk</div>
+        <div class="problem-desc">Similarly named devices across generations (EnGo 260, 263, 265, 3x) lead to misidentification and wrong guidance.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-title">The brand is on the line</div>
+        <div class="problem-desc">An internal prototype recommended a competitor when asked. The bar is high. This has to be an extension of the team.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 BEACON -->
+<section class="band band-white">
+  <div class="band-inner">
+    <div class="section-label">04 / The proposal</div>
+    <h2>Meet Beacon.</h2>
+    <p class="body">A customer-facing technical support worker for Dejero. Purpose-built to understand your products, follow your protocols, and represent your brand in every interaction.</p>
+    <div class="check-list">
+      <div class="label">What Beacon does</div>
+      <div class="check-item ok"><span class="mark">&#10003;</span><span>Ingests and reasons across the full knowledge base (800+ articles, manuals, feature highlights, release notes)</span></div>
+      <div class="check-item ok"><span class="mark">&#10003;</span><span>Handles routine support instantly: setup, configuration, troubleshooting, product specs</span></div>
+      <div class="check-item ok"><span class="mark">&#10003;</span><span>Asks clarifying questions when product identification is ambiguous</span></div>
+      <div class="check-item ok"><span class="mark">&#10003;</span><span>Escalates to human analysts with complete context so they start solving, not interrogating</span></div>
+      <div class="check-item ok"><span class="mark">&#10003;</span><span>Stays on-brand. Never recommends competitors. Redirects gracefully off-topic.</span></div>
+    </div>
+    <div class="check-list" style="margin-top:28px;">
+      <div class="label">What Beacon does not do</div>
+      <div class="check-item no"><span class="mark">&#10005;</span><span>Replace your support team. Triage and deflection only</span></div>
+      <div class="check-item no"><span class="mark">&#10005;</span><span>Store or expose confidential information</span></div>
+      <div class="check-item no"><span class="mark">&#10005;</span><span>Operate without oversight. Every conversation is logged, scored, reviewable</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PHASES -->
+<section class="band band-sand">
+  <div class="band-inner">
+    <div class="section-label">05 / How we build it</div>
+    <h2>Three phases. Fourteen weeks.</h2>
+    <div class="timeline">
+      <div class="timeline-bar">
+        <div class="timeline-seg timeline-seg-1">DISCOVERY + PROTOTYPE</div>
+        <div class="timeline-seg timeline-seg-2">HARDENING + EXPANSION</div>
+        <div class="timeline-seg timeline-seg-3">DEPLOY + OPTIMIZE</div>
+      </div>
+      <div class="timeline-caption">
+        <span>Weeks 1&ndash;4</span>
+        <span>Weeks 5&ndash;10</span>
+        <span>Weeks 11&ndash;14</span>
+      </div>
+    </div>
+    <div class="phase-list">
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">01</span>
+          <div><div class="phase-name">Discovery + Prototype</div><div class="phase-time">Weeks 1&ndash;4</div></div>
+        </div>
+        <div class="phase-items">
+          <div class="phase-item">Discovery sprint with Sarah and the support team</div>
+          <div class="phase-item">Map high-frequency questions, high-stakes scenarios, product ID patterns</div>
+          <div class="phase-item">Define brand voice and personality: how Beacon sounds and feels</div>
+          <div class="phase-item">Ingest focused documentation subset (one product family)</div>
+          <div class="phase-item">Deliver working prototype within 30 days</div>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">02</span>
+          <div><div class="phase-name">Hardening + Expansion</div><div class="phase-time">Weeks 5&ndash;10</div></div>
+        </div>
+        <div class="phase-items">
+          <div class="phase-item">Scenario testing: product confusion, competitor mentions, prompt injection, edge cases</div>
+          <div class="phase-item">Full knowledge base integration with confidence scoring</div>
+          <div class="phase-item">Quality assessment framework (resolution accuracy, sentiment, deflection rate)</div>
+          <div class="phase-item">Multi-LLM orchestration optimized for accuracy, speed, and cost</div>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-head">
+          <span class="phase-num">03</span>
+          <div><div class="phase-name">Deployment + Optimization</div><div class="phase-time">Weeks 11&ndash;14</div></div>
+        </div>
+        <div class="phase-items">
+          <div class="phase-item">Beta deployment to controlled customer group</div>
+          <div class="phase-item">Integration scoping: NetSuite, authenticated access, sales notifications</div>
+          <div class="phase-item">Production launch with monitoring and ongoing optimization</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 TEAM -->
+<section class="band band-white">
+  <div class="band-inner">
+    <div class="section-label">06 / Your Gambit team</div>
+    <h2>The people behind Beacon.</h2>
+    <p class="body">Every Gambit engagement is led by a small, senior team. No handoffs to junior staff. No account managers relaying messages. The people you meet are the people who build.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">RB</div>
+        <div class="team-name">Ryan Burgio</div>
+        <div class="team-role">Managing Partner</div>
+        <div class="team-desc">Primary point of contact. Leads brand, personality, and experience design for Beacon. 20+ years in marketing and design. Your day-to-day.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">PB</div>
+        <div class="team-name">Pat Belliveau</div>
+        <div class="team-role">CEO / Founder</div>
+        <div class="team-desc">Oversees engagement strategy and solution architecture. 15+ years in product development, technology, and business strategy.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">CS</div>
+        <div class="team-name">Chris Silivestru</div>
+        <div class="team-role">CTO</div>
+        <div class="team-desc">Ex-Shopify. Leads technical architecture, multi-LLM orchestration, and infrastructure. The brains behind Gambit Cloud.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 HOW WE WORK -->
+<section class="band band-sand">
+  <div class="band-inner">
+    <div class="section-label">07 / How we work together</div>
+    <h2>Communication and cadence.</h2>
+    <p class="body">We keep it simple. No 40-slide status decks. No meetings that should have been messages.</p>
+    <div class="cadence-grid">
+      <div class="cadence-card"><div class="cadence-title">Weekly sync</div><div class="cadence-desc">30-minute video call. Progress, blockers, decisions. Same time every week.</div></div>
+      <div class="cadence-card"><div class="cadence-title">Shared Slack channel</div><div class="cadence-desc">Direct access to the build team for async questions, feedback, and quick decisions between syncs.</div></div>
+      <div class="cadence-card"><div class="cadence-title">Prototype reviews</div><div class="cadence-desc">Hands-on sessions where your team interacts with Beacon and gives real-time feedback.</div></div>
+      <div class="cadence-card"><div class="cadence-title">Monthly summary</div><div class="cadence-desc">Brief written update: what shipped, what's next, key metrics, open decisions.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 FUTURE -->
+<section class="band band-ink">
+  <div class="band-inner">
+    <div class="section-label">08 / What this becomes</div>
+    <h2>Beacon is the starting point.</h2>
+    <p class="future-intro">In our conversation, Christine, Alaa, and Sarah each pointed to something bigger. Here is where we see this going.</p>
+    <div class="future-list">
+      <div class="future-item"><div class="future-title">Multi-channel Beacon</div><div class="future-desc">Text, call, WhatsApp. Your customers are in the field, on rooftops, in command vehicles. Same worker, available wherever they are.</div></div>
+      <div class="future-item"><div class="future-title">Partner support worker</div><div class="future-desc">Channel partners, rental partners, technology partners. A second worker for the partner ecosystem with distinct knowledge and personality.</div></div>
+      <div class="future-item"><div class="future-title">Sales engineering assist</div><div class="future-desc">Help prospects and your sales team match the right product configuration to use case, environment, and requirements.</div></div>
+      <div class="future-item"><div class="future-title">Internal knowledge worker</div><div class="future-desc">138 employees across 5 continents. Policy questions, benefits, onboarding. A worker for Christine's People and Culture team.</div></div>
+      <div class="future-item"><div class="future-title">Dejero's AI layer</div><div class="future-desc">Gambit becomes your AI team. A network of workers that compound in value as they share context and connect into your systems.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 PRICING -->
+<section class="band band-sand">
+  <div class="band-inner">
+    <div class="section-label">09 / Investment</div>
+    <h2>Pricing.</h2>
+    <div class="price-grid">
+      <div class="price-hero">
+        <div class="label-dark">Build phase</div>
+        <div class="price-hero-main">$15,000<span class="price-hero-unit">/month</span></div>
+        <div class="price-hero-detail">3&ndash;4 months &middot; $45,000&ndash;$60,000 total</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Maintenance</div>
+        <div class="price-main">$3&ndash;5K<span class="price-unit">/month</span></div>
+        <div class="price-detail">Ongoing after launch</div>
+      </div>
+      <div class="price-card">
+        <div class="label">Infrastructure</div>
+        <div class="price-main">$200&ndash;800<span class="price-unit">/month</span></div>
+        <div class="price-detail">Passed through at cost</div>
+      </div>
+    </div>
+    <div class="pilot-card">
+      <div class="label">Pilot option</div>
+      <div class="pilot-main">$15,000 <span class="pilot-note">&middot; 30-day pilot</span></div>
+      <div class="pilot-desc">Focused subset. Full personality and guardrails. Fee applies to the full engagement if you proceed.</div>
+    </div>
+    <div class="price-notes">
+      <div class="price-note">Application layer ownership transfers to Dejero</div>
+      <div class="price-note">Gambit manages runtime infrastructure and ongoing optimization</div>
+      <div class="price-note">Codebase handed over if you bring management in-house</div>
+      <div class="price-note">LLM API and hosting costs passed through at cost, no markup</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + SIGN OFF -->
+<section class="band band-ink">
+  <div class="band-inner">
+    <div class="cta-center">
+      <h2 class="cta-title">Ready to build Beacon?</h2>
+      <p class="cta-sub">Reply to this proposal, or book a call to kick off discovery.</p>
+      <div class="cta-row">
+        <a class="cta-primary" href="mailto:ryan@gambitco.io?subject=Beacon%20-%20Let's%20Go">Email Ryan</a>
+        <a class="cta-ghost" href="https://gambitco.io/get-started" target="_blank" rel="noopener">Book a scope call</a>
+      </div>
+      <div class="signoff">
+        <p>Ryan Burgio &middot; Managing Partner &middot; ryan@gambitco.io</p>
+        <p class="site">gambitco.io</p>
+        <p class="legal">This proposal is confidential and intended solely for Dejero Labs Inc. It may not be shared, reproduced, or distributed without prior written consent from Gambit Technology Inc.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+        </div>
+      </div>
+    </div>
+
+    <div data-chat-widget class="chat-widget" hidden>
+      <div class="chat-header">
+        <div class="chat-ident">
+          <div class="chat-badge">G</div>
+          <div>
+            <div class="chat-ident-name">AskG</div>
+            <div class="chat-ident-sub">Knows this proposal inside out</div>
+          </div>
+        </div>
+        <button class="chat-close" aria-label="Close">&#10005;</button>
+      </div>
+      <div class="chat-body" data-chat-body>
+        <div class="chat-hint">AskG knows everything about this proposal</div>
+      </div>
+      <div class="chat-input-bar">
+        <div class="chat-input-row">
+          <input class="chat-input" type="text" placeholder="Ask about the proposal..." aria-label="Message AskG">
+          <button class="chat-send" aria-label="Send">&#8593;</button>
+        </div>
+      </div>
+    </div>
+
+    <button data-chat-fab class="chat-fab" aria-label="Open AskG">G</button>
+  </div>
+</template>
+
+<script>
+(function () {
+  'use strict';
+
+  var PASS = 'beacon2026';
+  var STORAGE_KEY = 'dejero_proposal_auth_v1';
+  var WELCOME_STORAGE_KEY = 'dejero_proposal_welcome_seen_v1';
+
+  var root = document.getElementById('root');
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function linkify(text) {
+    // Escape first, then linkify
+    var safe = escapeHtml(text);
+    return safe.replace(/(https?:\/\/[^\s<>"']+)/g, function (url) {
+      return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+    });
+  }
+
+  function clearRoot() {
+    while (root.firstChild) root.removeChild(root.firstChild);
+  }
+
+  function mountTemplate(id) {
+    clearRoot();
+    var tpl = document.getElementById(id);
+    var clone = tpl.content.cloneNode(true);
+    root.appendChild(clone);
+  }
+
+  // ---------- GATE ----------
+  function mountGate() {
+    mountTemplate('tpl-gate');
+    var input = root.querySelector('.gate-input');
+    var btn = root.querySelector('.gate-btn');
+    var err = root.querySelector('.gate-err');
+    input.focus();
+
+    function attempt() {
+      if (input.value.trim().toLowerCase() === PASS) {
+        try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+        next();
+      } else {
+        err.hidden = false;
+        setTimeout(function () { err.hidden = true; }, 2000);
+      }
+    }
+
+    btn.addEventListener('click', attempt);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') attempt();
+    });
+  }
+
+  function next() {
+    var seen = false;
+    try { seen = sessionStorage.getItem(WELCOME_STORAGE_KEY) === '1'; } catch (e) {}
+    if (seen) {
+      mountShell();
+    } else {
+      mountWelcome();
+    }
+  }
+
+  // ---------- WELCOME ----------
+  function mountWelcome() {
+    mountTemplate('tpl-welcome');
+    var el = root.querySelector('.welcome');
+    var timings = [800, 2000, 4200, 5400, 7000, 7800];
+    var timers = [];
+    timings.forEach(function (t, i) {
+      timers.push(setTimeout(function () {
+        var step = i + 1;
+        if (step >= 5) el.classList.add('exiting');
+        if (step >= 6) {
+          try { sessionStorage.setItem(WELCOME_STORAGE_KEY, '1'); } catch (e) {}
+          mountShell();
+        } else {
+          el.setAttribute('data-step', String(step));
+        }
+      }, t));
+    });
+  }
+
+  // ---------- SHELL + PROPOSAL + CHAT ----------
+  function mountShell() {
+    mountTemplate('tpl-shell');
+
+    var printBtn = root.querySelector('[data-print]');
+    printBtn.addEventListener('click', function () {
+      window.print();
+    });
+
+    var fab = root.querySelector('[data-chat-fab]');
+    var widget = root.querySelector('[data-chat-widget]');
+    var closeBtn = widget.querySelector('.chat-close');
+
+    function setChatOpen(open) {
+      widget.hidden = !open;
+      fab.innerHTML = open ? '&#10005;' : 'G';
+      fab.setAttribute('aria-label', open ? 'Close AskG' : 'Open AskG');
+      if (open) {
+        var input = widget.querySelector('.chat-input');
+        setTimeout(function () { input.focus(); }, 50);
+      }
+    }
+
+    fab.addEventListener('click', function () {
+      setChatOpen(widget.hidden);
+    });
+    closeBtn.addEventListener('click', function () {
+      setChatOpen(false);
+    });
+
+    initChat(widget);
+  }
+
+  function initChat(widget) {
+    var body = widget.querySelector('[data-chat-body]');
+    var input = widget.querySelector('.chat-input');
+    var sendBtn = widget.querySelector('.chat-send');
+    var sending = false;
+
+    var msgs = [{
+      role: 'assistant',
+      content: "Hey! I'm G. I know this proposal inside and out. Beacon, pricing, timelines, how we'd approach the build, what we've done before. Ask me anything. And if you want to see our work firsthand, I can point you to live workers you can try yourself."
+    }];
+
+    function render() {
+      // Wipe everything below the hint
+      while (body.children.length > 1) body.removeChild(body.lastChild);
+      msgs.forEach(function (m) {
+        var el = document.createElement('div');
+        el.className = 'msg ' + (m.role === 'assistant' ? 'msg-a' : 'msg-u');
+        if (m.role === 'assistant') {
+          el.innerHTML = '<span class="msg-tag">AskG</span>' + linkify(m.content);
+        } else {
+          el.textContent = m.content;
+        }
+        body.appendChild(el);
+      });
+      if (sending) {
+        var t = document.createElement('div');
+        t.className = 'typing';
+        t.innerHTML = '<span></span><span></span><span></span>';
+        body.appendChild(t);
+      }
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function updateSendState() {
+      sendBtn.disabled = sending || !input.value.trim();
+    }
+
+    function showError(message) {
+      var el = document.createElement('div');
+      el.className = 'msg-err';
+      el.textContent = message;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function send() {
+      var text = input.value.trim();
+      if (!text || sending) return;
+      input.value = '';
+      msgs.push({ role: 'user', content: text });
+      sending = true;
+      render();
+      updateSendState();
+
+      fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: msgs })
+      })
+        .then(function (r) {
+          return r.json().then(function (data) {
+            return { ok: r.ok, status: r.status, data: data };
+          });
+        })
+        .then(function (res) {
+          sending = false;
+          if (!res.ok) {
+            render();
+            showError(res.data && res.data.error ? res.data.error : 'Something went wrong. Try again.');
+          } else {
+            msgs.push({ role: 'assistant', content: res.data.text || 'Sorry, something went wrong. Try again?' });
+            render();
+          }
+          updateSendState();
+        })
+        .catch(function () {
+          sending = false;
+          render();
+          showError('Connection issue. Try again in a moment.');
+          updateSendState();
+        });
+    }
+
+    input.addEventListener('input', updateSendState);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        send();
+      }
+    });
+    sendBtn.addEventListener('click', send);
+
+    render();
+    updateSendState();
+  }
+
+  // ---------- INIT ----------
+  var alreadyIn = false;
+  try { alreadyIn = sessionStorage.getItem(STORAGE_KEY) === '1'; } catch (e) {}
+  if (alreadyIn) {
+    next();
+  } else {
+    mountGate();
+  }
+})();
+</script>
+</body>
+</html>
