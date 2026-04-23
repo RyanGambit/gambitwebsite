@@ -1171,46 +1171,9 @@ input { font-family: var(--font); }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 @keyframes tbounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes spin { to { transform: rotate(360deg); } }
 @keyframes popIn {
   from { opacity: 0; transform: scale(0.92) translateY(12px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-/* Inline spinner for download buttons */
-.spinner {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border: 1.75px solid currentColor;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: spin 0.75s linear infinite;
-  vertical-align: -2px;
-}
-.cta-ghost .spinner { width: 16px; height: 16px; }
-.topbar-btn[aria-busy="true"], .cta-ghost[aria-busy="true"] { cursor: wait; }
-
-/* Download error toast */
-.download-toast {
-  position: fixed;
-  right: 20px;
-  bottom: 88px;
-  max-width: 320px;
-  background: var(--ink);
-  color: var(--white);
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 13px;
-  line-height: 1.45;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  z-index: 200;
-  opacity: 1;
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
-}
-.download-toast.hiding { opacity: 0; transform: translateY(6px); }
-@media (max-width: 520px) {
-  .download-toast { right: 16px; left: 16px; max-width: none; }
 }
 
 @media (max-width: 520px) {
@@ -1701,7 +1664,6 @@ input { font-family: var(--font); }
 
   var PASS = 'beacon2026';
   var STORAGE_KEY = 'dejero_proposal_auth_v1';
-  var AUTH_TOKEN_KEY = 'dejero_proposal_auth_token_v1';
   var WELCOME_STORAGE_KEY = 'dejero_proposal_welcome_seen_v1';
 
   var root = document.getElementById('root');
@@ -1743,14 +1705,8 @@ input { font-family: var(--font); }
     input.focus();
 
     function attempt() {
-      var entered = input.value.trim();
-      if (entered.toLowerCase() === PASS) {
-        try {
-          sessionStorage.setItem(STORAGE_KEY, '1');
-          // Save the entered password so the PDF API can authenticate
-          // subsequent download requests without re-prompting.
-          sessionStorage.setItem(AUTH_TOKEN_KEY, entered);
-        } catch (e) {}
+      if (input.value.trim().toLowerCase() === PASS) {
+        try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
         next();
       } else {
         err.hidden = false;
@@ -1799,99 +1755,13 @@ input { font-family: var(--font); }
     mountTemplate('tpl-shell');
 
     var printBtns = root.querySelectorAll('[data-print]');
-    var downloading = false;
     printBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () { downloadPdf(btn); });
+      btn.addEventListener('click', function () {
+        // Opens the browser's native print dialog. Readers pick
+        // "Save as PDF" as the destination to get a branded PDF.
+        window.print();
+      });
     });
-
-    function setBtnState(btn, state) {
-      // Preserve the original label/HTML so we can restore it
-      if (!btn.dataset.originalHtml) btn.dataset.originalHtml = btn.innerHTML;
-      if (state === 'loading') {
-        btn.disabled = true;
-        btn.setAttribute('aria-busy', 'true');
-        var isTopbar = btn.classList.contains('topbar-btn');
-        btn.innerHTML = isTopbar
-          ? '<span class="spinner" aria-hidden="true"></span><span class="topbar-btn-label">Preparing…</span>'
-          : '<span class="spinner" aria-hidden="true"></span>Preparing…';
-      } else if (state === 'error') {
-        btn.disabled = false;
-        btn.removeAttribute('aria-busy');
-        btn.innerHTML = btn.dataset.originalHtml;
-      } else {
-        btn.disabled = false;
-        btn.removeAttribute('aria-busy');
-        btn.innerHTML = btn.dataset.originalHtml;
-      }
-    }
-
-    function downloadPdf(triggerBtn) {
-      if (downloading) return;
-      downloading = true;
-      var allBtns = Array.from(printBtns);
-      allBtns.forEach(function (b) { setBtnState(b, 'loading'); });
-
-      // Prefer the token stored when the user unlocked this session,
-      // but fall back to the hardcoded PASS (same password, same
-      // security posture). This avoids 401s for users who unlocked
-      // the gate before the token-storage code shipped.
-      var auth = '';
-      try { auth = sessionStorage.getItem(AUTH_TOKEN_KEY) || ''; } catch (e) {}
-      if (!auth) auth = PASS;
-
-      fetch('/api/pdf', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/pdf' },
-        body: JSON.stringify({ auth: auth })
-      })
-        .then(function (r) {
-          if (!r.ok) {
-            return r.json().catch(function () { return { error: 'Download failed. Try again.' }; })
-              .then(function (data) {
-                var msg = data.error || 'Download failed. Try again.';
-                if (data.stage) msg += ' (stage: ' + data.stage + ')';
-                if (data.detail) console.error('PDF server detail:', data.detail);
-                var e = new Error(msg);
-                e._serverData = data;
-                throw e;
-              });
-          }
-          return r.blob();
-        })
-        .then(function (blob) {
-          var url = URL.createObjectURL(blob);
-          var a = document.createElement('a');
-          a.href = url;
-          a.download = 'Gambit-Dejero-Beacon-Proposal.pdf';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
-          allBtns.forEach(function (b) { setBtnState(b, 'idle'); });
-          downloading = false;
-        })
-        .catch(function (err) {
-          console.error('PDF download error', err);
-          allBtns.forEach(function (b) { setBtnState(b, 'error'); });
-          downloading = false;
-          showDownloadError(err.message || 'Download failed. Try again.');
-        });
-    }
-
-    function showDownloadError(message) {
-      // Light toast at the bottom-right above the FAB
-      var existing = document.querySelector('[data-download-toast]');
-      if (existing) existing.remove();
-      var toast = document.createElement('div');
-      toast.setAttribute('data-download-toast', '');
-      toast.className = 'download-toast';
-      toast.textContent = message;
-      document.body.appendChild(toast);
-      setTimeout(function () {
-        toast.classList.add('hiding');
-        setTimeout(function () { toast.remove(); }, 300);
-      }, 4000);
-    }
 
     var fab = root.querySelector('[data-chat-fab]');
     var widget = root.querySelector('[data-chat-widget]');
