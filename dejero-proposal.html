@@ -327,21 +327,24 @@ input { font-family: var(--font); }
   font-weight: 500;
 }
 .topbar-btn {
-  padding: 6px 16px;
+  padding: 8px 18px;
   border-radius: 100px;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--secondary);
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--white);
   display: flex;
   align-items: center;
-  gap: 6px;
-  transition: opacity 0.15s;
+  gap: 8px;
+  transition: opacity 0.15s, transform 0.15s var(--ease);
+  font-family: var(--font);
+  letter-spacing: 0.01em;
 }
-.topbar-btn:hover { opacity: 0.75; }
-.topbar-btn svg { width: 14px; height: 14px; }
+.topbar-btn:hover { opacity: 0.82; transform: translateY(-1px); }
+.topbar-btn:active { transform: translateY(0); }
+.topbar-btn svg { width: 15px; height: 15px; }
 
 .scroll-region {
   flex: 1;
@@ -911,6 +914,7 @@ input { font-family: var(--font); }
 .cta-ghost {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   padding: 12px 28px;
   border-radius: 100px;
   background: transparent;
@@ -919,9 +923,12 @@ input { font-family: var(--font); }
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  transition: opacity 0.15s;
+  transition: opacity 0.15s, border-color 0.15s, color 0.15s;
+  font-family: inherit;
+  cursor: pointer;
 }
-.cta-ghost:hover { opacity: 0.75; }
+.cta-ghost:hover { opacity: 1; border-color: rgba(255,255,255,0.35); color: var(--white); }
+.cta-ghost svg { width: 16px; height: 16px; }
 .signoff {
   margin-top: 48px;
   padding-top: 24px;
@@ -1178,19 +1185,73 @@ input { font-family: var(--font); }
   .chat-fab { bottom: 16px; right: 16px; }
   .topbar { padding: 12px 16px; }
   .topbar-label { display: none; }
+  .topbar-btn-label { display: none; }
+  .topbar-btn { padding: 8px 12px; }
   .welcome .w-head { font-size: 28px; }
   .welcome .w-payoff { font-size: 36px; }
 }
 
+/* Cover page styles (hidden on screen via display:none below, visible in print) */
+.print-cover {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 9.5in;
+  padding: 0.8in 0.9in 0.6in;
+  background: var(--ink);
+  color: var(--white);
+}
+.print-cover-top { display: flex; align-items: center; }
+.print-cover-logo { height: 22px; filter: brightness(0) invert(1); }
+.print-cover-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 48px 0; }
+.print-cover-label { font-size: 11pt; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+.print-cover-title { font-size: 64pt; font-weight: 500; letter-spacing: -0.03em; line-height: 1; color: var(--white); margin: 0; }
+.print-cover-subtitle { font-size: 16pt; color: rgba(255,255,255,0.7); line-height: 1.35; max-width: 6in; margin: 0; }
+.print-cover-footer { display: flex; flex-direction: column; gap: 18px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15); }
+.print-cover-meta { display: flex; flex-direction: column; gap: 6px; }
+.print-cover-meta-row { display: flex; gap: 12px; font-size: 10pt; color: rgba(255,255,255,0.8); }
+.print-cover-meta-k { min-width: 110px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; font-size: 8.5pt; padding-top: 2px; }
+.print-cover-meta-v { color: var(--white); font-size: 10pt; }
+.print-cover-confidential { font-size: 8pt; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; margin: 0; }
+
 @media print {
-  html, body, #root { height: auto !important; overflow: visible !important; background: var(--page) !important; }
+  html, body, #root { height: auto !important; overflow: visible !important; background: var(--white) !important; }
   [data-topbar], [data-chat-widget], [data-chat-fab] { display: none !important; }
   [data-proposal-wrap] { height: auto !important; overflow: visible !important; display: block !important; }
   .scroll-region { overflow: visible !important; height: auto !important; }
   .shell { height: auto !important; overflow: visible !important; display: block !important; }
-  .band { padding: 32px 24px; page-break-inside: avoid; }
+  .band { padding: 40px 36px; page-break-inside: avoid; }
+  .band-white, .band-sand { background: var(--white) !important; border-bottom: 1px solid var(--border); }
+  .band-ink { background: var(--ink) !important; }
+  /* Tighter print typography */
+  .band h1.hero-title { font-size: 36px; }
+  .band h1, .band h2 { font-size: 22px; page-break-after: avoid; }
+  .band p.body { font-size: 12.5pt; line-height: 1.55; }
+  .section-label { font-size: 10pt; }
+  /* Clean page breaks between major bands */
+  [data-proposal-wrap] > section.band.band-sand,
+  [data-proposal-wrap] > section.band.band-ink { page-break-before: always; }
+  /* Avoid orphaned headings / card clipping */
+  .worker-card, .team-card, .cadence-card, .phase-card, .step-card, .problem-card, .future-item, .pilot-card, .price-card, .price-hero { page-break-inside: avoid; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-  @page { margin: 0.6in 0.7in; size: letter; }
+
+  /* Show the cover page in print */
+  .print-cover {
+    display: flex !important;
+    page-break-after: always;
+  }
+
+  @page {
+    margin: 0.7in 0.75in 0.9in;
+    size: letter;
+    @bottom-left { content: "Gambit \00B7 Dejero / Beacon Proposal"; font-family: 'General Sans', sans-serif; font-size: 8pt; color: #a1a1aa; }
+    @bottom-right { content: "Page " counter(page) " of " counter(pages); font-family: 'General Sans', sans-serif; font-size: 8pt; color: #a1a1aa; }
+  }
+  @page :first {
+    margin: 0;
+    @bottom-left { content: ""; }
+    @bottom-right { content: ""; }
+  }
 }
 </style>
 </head>
@@ -1242,12 +1303,32 @@ input { font-family: var(--font); }
           <span class="topbar-label">Dejero / Beacon Proposal</span>
         </div>
         <button class="topbar-btn" data-print>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          PDF
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="topbar-btn-label">Download PDF</span>
         </button>
       </div>
       <div class="scroll-region">
         <div data-proposal-wrap>
+
+<!-- PRINT-ONLY COVER PAGE -->
+<section class="print-cover" aria-hidden="true">
+  <div class="print-cover-top">
+    <img src="/img/gambit-logo.png" alt="Gambit" class="print-cover-logo">
+  </div>
+  <div class="print-cover-body">
+    <div class="print-cover-label">Proposal</div>
+    <h1 class="print-cover-title">Meet Beacon.</h1>
+    <p class="print-cover-subtitle">A customer-facing technical support worker for Dejero Labs.</p>
+  </div>
+  <div class="print-cover-footer">
+    <div class="print-cover-meta">
+      <div class="print-cover-meta-row"><span class="print-cover-meta-k">Prepared for</span><span class="print-cover-meta-v">Dejero Labs Inc.</span></div>
+      <div class="print-cover-meta-row"><span class="print-cover-meta-k">Prepared by</span><span class="print-cover-meta-v">Gambit Technology Inc.</span></div>
+      <div class="print-cover-meta-row"><span class="print-cover-meta-k">Contact</span><span class="print-cover-meta-v">Ryan Burgio &middot; ryan@gambitco.io</span></div>
+    </div>
+    <p class="print-cover-confidential">Confidential. Intended solely for Dejero Labs Inc.</p>
+  </div>
+</section>
 
 <!-- 00 HERO -->
 <section class="band band-white">
@@ -1533,6 +1614,10 @@ input { font-family: var(--font); }
       <h2 class="cta-title">Ready to build Beacon?</h2>
       <div class="cta-row">
         <a class="cta-primary" href="mailto:ryan@gambitco.io?subject=Beacon%20-%20Let's%20Go">Email Ryan</a>
+        <button class="cta-ghost" data-print type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download proposal
+        </button>
       </div>
       <div class="signoff">
         <p>Ryan Burgio &middot; Managing Partner &middot; ryan@gambitco.io</p>
@@ -1669,9 +1754,11 @@ input { font-family: var(--font); }
   function mountShell() {
     mountTemplate('tpl-shell');
 
-    var printBtn = root.querySelector('[data-print]');
-    printBtn.addEventListener('click', function () {
-      window.print();
+    var printBtns = root.querySelectorAll('[data-print]');
+    printBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        window.print();
+      });
     });
 
     var fab = root.querySelector('[data-chat-fab]');
