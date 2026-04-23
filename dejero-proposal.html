@@ -1831,8 +1831,13 @@ input { font-family: var(--font); }
       var allBtns = Array.from(printBtns);
       allBtns.forEach(function (b) { setBtnState(b, 'loading'); });
 
+      // Prefer the token stored when the user unlocked this session,
+      // but fall back to the hardcoded PASS (same password, same
+      // security posture). This avoids 401s for users who unlocked
+      // the gate before the token-storage code shipped.
       var auth = '';
       try { auth = sessionStorage.getItem(AUTH_TOKEN_KEY) || ''; } catch (e) {}
+      if (!auth) auth = PASS;
 
       fetch('/api/pdf', {
         method: 'POST',
