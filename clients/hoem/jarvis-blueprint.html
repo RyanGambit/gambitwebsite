@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="preauth" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Jarvis blueprint — HOEM &times; Gambit</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="stylesheet" href="/clients/portal.css">
+<script>window.GAMBIT_CLIENT = { slug: 'hoem', name: 'HOEM', code: 'hoem2026' };</script>
+<script src="/clients/portal.js" defer></script>
+<style>
+  /* Blueprint-specific layout, on the shared Gambit tokens */
+  .arc {
+    display: flex; align-items: stretch;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    overflow: hidden; margin-bottom: 10px;
+  }
+  .arc span {
+    flex: 1; text-align: center; padding: 13px 6px;
+    font-size: 13px; font-weight: 500; color: var(--ink);
+    border-right: 1px solid var(--border); background: var(--white);
+  }
+  .arc span:last-child { border-right: none; }
+  .arc-note { font-size: 13px; color: var(--muted); margin: 0 0 40px; }
+
+  .layer {
+    display: grid; grid-template-columns: 40px 1fr; gap: 20px;
+    padding: 26px 0; border-top: 1px solid var(--border-light);
+  }
+  .layer:first-of-type { border-top: 1px solid var(--border); }
+  .num {
+    font-size: 14px; font-weight: 600; color: var(--white);
+    width: 28px; height: 28px; border-radius: 50%; background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .layer h3 { margin: 0 0 5px; font-size: 18px; font-weight: 500; letter-spacing: -0.01em; }
+  .what { margin: 0 0 12px; font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .align { margin: 0; font-size: 15px; color: var(--secondary); line-height: 1.55; }
+  .align b { color: var(--ink); font-weight: 500; }
+
+  .tags { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    padding: 4px 11px; border-radius: 100px;
+    border: 1px solid var(--ink); color: var(--white); background: var(--ink);
+  }
+  .tag.soft { background: var(--faint); border-color: var(--border); color: var(--secondary); }
+
+  .surfaces {
+    margin-top: 40px; padding: 22px 24px;
+    background: var(--faint); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  }
+  .surfaces h4 { margin: 0 0 8px; font-size: 14px; font-weight: 600; }
+  .surfaces p { margin: 0; font-size: 14.5px; color: var(--secondary); line-height: 1.55; }
+
+  .foot-line {
+    margin-top: 34px; padding-top: 22px; border-top: 2px solid var(--ink);
+    font-size: 15px; color: var(--secondary); line-height: 1.55;
+  }
+  .foot-line b { color: var(--ink); font-weight: 500; }
+
+  @media (max-width: 560px) {
+    .arc { flex-wrap: wrap; }
+    .arc span { flex: 1 0 40%; border-bottom: 1px solid var(--border); }
+    .layer { grid-template-columns: 1fr; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="portal">
+
+  <header class="portal-top">
+    <div class="wrap">
+      <a class="portal-brand" href="/clients/hoem">
+        <img src="/img/gambit-logo.png" alt="Gambit">
+        <span class="divider"></span>
+        <span class="client">HOEM</span>
+      </a>
+      <nav class="portal-nav">
+        <a class="hide-sm" href="/clients/hoem">Workspace</a>
+        <button class="portal-lock" data-portal-lock type="button" aria-label="Lock workspace">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Lock
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <article class="doc">
+    <a class="doc-back" href="/clients/hoem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Back to workspace
+    </a>
+
+    <p class="doc-eyebrow">HOEM &times; Gambit</p>
+    <h1>Jarvis blueprint</h1>
+    <p class="doc-lede">The layers we shape to bring Jarvis to life. Today we align on the shape of each one. The detail gets filled in together at the deeper working session.</p>
+
+    <div class="arc">
+      <span>Attract</span>
+      <span>Convert</span>
+      <span>Onboard</span>
+      <span>Engage</span>
+      <span>Retain</span>
+    </div>
+    <p class="arc-note">Jarvis is one companion across the whole student journey, not five separate tools.</p>
+
+    <div class="layer">
+      <div class="num">1</div>
+      <div>
+        <h3>Personality</h3>
+        <p class="what">Who Jarvis is: how it sounds, its character, and the tone it holds in HOEM's voice.</p>
+        <p class="align"><b>To align:</b> how should Jarvis feel to a student or parent? What is its character, and what is off-limits in how it speaks?</p>
+        <div class="tags"><span class="tag">Start now</span></div>
+      </div>
+    </div>
+
+    <div class="layer">
+      <div class="num">2</div>
+      <div>
+        <h3>Knowledge</h3>
+        <p class="what">What Jarvis knows, where that information lives, and who keeps it current.</p>
+        <p class="align"><b>To align:</b> which sources feed Jarvis (website, FAQs, leasing info, policies, community and wellness content)? Who owns keeping each one up to date?</p>
+        <div class="tags"><span class="tag">Start now</span><span class="tag soft">HOEM points us to sources</span></div>
+      </div>
+    </div>
+
+    <div class="layer">
+      <div class="num">3</div>
+      <div>
+        <h3>Goals</h3>
+        <p class="what">What Jarvis is trying to achieve at each stage of the journey, tied to HOEM's business objectives.</p>
+        <p class="align"><b>To align:</b> the primary early goal is lifting inquiry to tour to booking to registration. What matters most at onboarding, community, and retention?</p>
+        <div class="tags"><span class="tag">Start now</span></div>
+      </div>
+    </div>
+
+    <div class="layer">
+      <div class="num">4</div>
+      <div>
+        <h3>Actions</h3>
+        <p class="what">What Jarvis can actually do, beyond answering: the moments where it takes a step for someone.</p>
+        <p class="align"><b>To align:</b> answer, capture a lead, book a tour, hand off to a human, push data into your systems. Which of these, and in what order?</p>
+        <div class="tags"><span class="tag soft">Depends on backend capacity</span></div>
+      </div>
+    </div>
+
+    <div class="layer">
+      <div class="num">5</div>
+      <div>
+        <h3>Guardrails and escalation</h3>
+        <p class="what">What Jarvis will not do on its own, and when a real person steps in.</p>
+        <p class="align"><b>To align:</b> which topics are sensitive, when does Jarvis hand off to a human, and who is the backup on the HOEM side?</p>
+        <div class="tags"><span class="tag">Start now</span></div>
+      </div>
+    </div>
+
+    <div class="surfaces">
+      <h4>Running alongside: where Jarvis lives</h4>
+      <p>Whether the best experience is Jarvis everywhere or Jarvis plus a resident app is a parallel decision, not a blocker. We run discovery and a quick prototype and come back with a recommendation in about 30 days.</p>
+    </div>
+
+    <div class="foot-line">
+      <b>Personality, knowledge, goals and guardrails start now.</b> Actions get scoped alongside your backend. HOEM owns all of it.
+    </div>
+  </article>
+
+  <footer class="portal-foot">
+    <div class="wrap">
+      <img src="/img/gambit-logo.png" alt="Gambit">
+      <p class="note">Private HOEM workspace. Please do not share this link outside your team.</p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

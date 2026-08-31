@@ -1,50 +1,64 @@
 # gambitco.io — all crawlers welcome, including AI search and assistants.
+# Exception: /clients/ is a private, login-gated client area and is off limits.
 # Machine-readable site summary for LLMs: https://gambitco.io/llms.txt
 
 User-agent: *
 Allow: /
+Disallow: /clients/
 
 # --- OpenAI / ChatGPT ---
 User-agent: GPTBot
 Allow: /
+Disallow: /clients/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /clients/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /clients/
 
 # --- Anthropic / Claude ---
 User-agent: ClaudeBot
 Allow: /
+Disallow: /clients/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /clients/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /clients/
 
 # --- Perplexity ---
 User-agent: PerplexityBot
 Allow: /
+Disallow: /clients/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /clients/
 
 # --- Google Gemini / AI features ---
 User-agent: Google-Extended
 Allow: /
+Disallow: /clients/
 
 # --- Apple Intelligence ---
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /clients/
 
 # --- Meta AI ---
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /clients/
 
 # --- Common Crawl (feeds many AI models) ---
 User-agent: CCBot
 Allow: /
+Disallow: /clients/
 
 Sitemap: https://gambitco.io/sitemap.xml

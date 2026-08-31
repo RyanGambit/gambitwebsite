@@ -1,0 +1,303 @@
+/* ==========================================================================
+   Gambit client portal — shared styles
+   Brand system: General Sans, Gambit neutral palette, pill actions.
+   Used across /clients/* (gate, client hubs, and delivered documents).
+   ========================================================================== */
+
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600&display=swap');
+
+:root {
+  --black: #0a0a0a;
+  --ink: #141414;
+  --surface: #1a1a1e;
+  --secondary: #52525b;
+  --muted: #a1a1aa;
+  --border: #e4e4e7;
+  --border-light: #f0f0f2;
+  --page: #fafafa;
+  --white: #ffffff;
+  --faint: #f6f6f7;
+
+  --status-working: #16a34a;
+  --status-processing: #2563eb;
+  --status-escalated: #d97706;
+  --status-exception: #dc2626;
+
+  --font: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 2px rgba(20,20,20,.04), 0 8px 24px rgba(20,20,20,.05);
+  --shadow-lift: 0 2px 4px rgba(20,20,20,.05), 0 16px 40px rgba(20,20,20,.10);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--page);
+  line-height: 1.55;
+}
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ---------- Pre-auth hiding (fail closed) --------------------------------- */
+html.preauth { overflow: hidden; }
+html.preauth body > .portal { display: none !important; }
+html.preauth body { background: var(--page); }
+
+/* ---------- Gate ---------------------------------------------------------- */
+#gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--page);
+}
+.gate-card {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 44px 36px 38px;
+  animation: gate-in .5s var(--ease) both;
+}
+@keyframes gate-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.gate-logo { height: 26px; width: auto; margin: 0 auto 26px; }
+.gate-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 8px;
+}
+.gate-title { font-size: 21px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 8px; }
+.gate-sub { font-size: 14px; color: var(--secondary); margin: 0 0 24px; line-height: 1.5; }
+.gate-form { display: flex; flex-direction: column; gap: 10px; }
+.gate-input {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--ink);
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--faint);
+  text-align: center;
+  transition: border-color .15s ease, background .15s ease;
+}
+.gate-input::placeholder { color: var(--muted); }
+.gate-input:focus { outline: none; border-color: var(--ink); background: var(--white); }
+.gate-btn {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 15px; font-weight: 500;
+  color: var(--white); background: var(--ink);
+  border: none; border-radius: 100px;
+  padding: 13px 16px; cursor: pointer;
+  transition: opacity .15s ease, transform .15s ease;
+}
+.gate-btn:hover { opacity: 0.82; }
+.gate-btn:active { transform: translateY(1px); }
+.gate-err {
+  font-size: 13px; color: var(--status-exception);
+  margin: 14px 0 0; min-height: 18px;
+}
+.gate-foot {
+  margin: 26px 0 0; padding-top: 18px; border-top: 1px solid var(--border-light);
+  font-size: 12px; color: var(--muted); line-height: 1.5;
+}
+.gate-foot a { color: var(--secondary); text-decoration: none; }
+.gate-foot a:hover { color: var(--ink); }
+
+/* ---------- Portal chrome (top bar + footer) ------------------------------ */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+.portal-top {
+  border-bottom: 1px solid var(--border);
+  background: rgba(250,250,250,.85);
+  backdrop-filter: saturate(1.4) blur(8px);
+  position: sticky; top: 0; z-index: 40;
+}
+.portal-top .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.portal-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.portal-brand img { height: 22px; width: auto; }
+.portal-brand .divider { width: 1px; height: 20px; background: var(--border); }
+.portal-brand .client {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink);
+}
+.portal-nav { display: flex; align-items: center; gap: 20px; }
+.portal-nav a {
+  font-size: 13px; font-weight: 500; color: var(--secondary);
+  text-decoration: none; transition: color .15s ease;
+}
+.portal-nav a:hover { color: var(--ink); }
+.portal-lock {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--muted); background: none; border: none;
+  font-family: var(--font); cursor: pointer; padding: 0;
+  transition: color .15s ease;
+}
+.portal-lock:hover { color: var(--ink); }
+.portal-lock svg { width: 13px; height: 13px; }
+
+.portal-foot {
+  margin-top: 96px; border-top: 1px solid var(--border);
+  background: var(--white);
+}
+.portal-foot .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; padding-top: 26px; padding-bottom: 26px; flex-wrap: wrap;
+}
+.portal-foot img { height: 18px; width: auto; opacity: .9; }
+.portal-foot .note { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ---------- Buttons ------------------------------------------------------- */
+.btn, .btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font); font-size: 14px; font-weight: 500;
+  padding: 11px 22px; border-radius: 100px; cursor: pointer;
+  text-decoration: none; transition: opacity .15s ease, background .15s ease, border-color .15s ease;
+  border: 1px solid transparent;
+}
+.btn { background: var(--ink); color: var(--white); }
+.btn:hover { opacity: 0.82; }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--ink); }
+
+/* ---------- Hub (client welcome page) ------------------------------------- */
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 14px;
+}
+.hub-hero { padding: 72px 0 12px; }
+.hub-hero h1 {
+  font-size: 40px; font-weight: 500; letter-spacing: -0.03em;
+  line-height: 1.08; margin: 0 0 16px;
+}
+.hub-hero .lede {
+  font-size: 17px; color: var(--secondary); line-height: 1.55;
+  max-width: 60ch; margin: 0;
+}
+
+.section-label {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px; margin: 64px 0 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.section-label h2 { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+.section-label .count { font-size: 13px; color: var(--muted); }
+
+.res-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.res-card {
+  display: flex; flex-direction: column;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px 24px 22px;
+  text-decoration: none; color: inherit;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+.res-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); border-color: #d6d6da; }
+.res-card .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.res-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--secondary); background: var(--faint);
+  border: 1px solid var(--border); border-radius: 100px; padding: 4px 11px;
+}
+.res-card .arrow { color: var(--muted); transition: transform .25s var(--ease), color .25s var(--ease); }
+.res-card:hover .arrow { transform: translate(2px, -2px); color: var(--ink); }
+.res-card h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.25; }
+.res-card p { font-size: 14px; color: var(--secondary); margin: 0 0 18px; line-height: 1.5; flex: 1; }
+.res-card .meta { font-size: 12px; color: var(--muted); }
+
+.res-soon {
+  display: flex; flex-direction: column; justify-content: center;
+  border: 1px dashed var(--border); border-radius: var(--radius);
+  padding: 24px; background: transparent;
+}
+.res-soon .res-tag { align-self: flex-start; margin-bottom: 14px; }
+.res-soon h3 { font-size: 16px; font-weight: 500; color: var(--ink); margin: 0 0 6px; letter-spacing: -0.01em; }
+.res-soon p { font-size: 13.5px; color: var(--muted); margin: 0; line-height: 1.5; }
+
+/* ---------- Side blocks (team / contact) ---------------------------------- */
+.info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.info-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px;
+}
+.info-card h3 { font-size: 13px; font-weight: 600; letter-spacing: 0.02em; margin: 0 0 16px; }
+.people { display: flex; flex-direction: column; gap: 14px; }
+.person { display: flex; gap: 13px; align-items: flex-start; }
+.person .av {
+  width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+  background: var(--ink); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.02em;
+}
+.person .who { line-height: 1.35; }
+.person .who b { font-size: 14px; font-weight: 500; display: block; }
+.person .who span { font-size: 12.5px; color: var(--muted); }
+.info-card .contact-line { font-size: 14px; color: var(--secondary); line-height: 1.6; margin: 0 0 10px; }
+.info-card .contact-line b { color: var(--ink); font-weight: 500; }
+.info-card a.mail { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--border); }
+.info-card a.mail:hover { border-color: var(--ink); }
+
+/* ---------- Delivered documents (shared header + typography) -------------- */
+.doc { max-width: 812px; margin: 0 auto; padding: 8px 32px 0; }
+.doc-back {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 500; color: var(--secondary);
+  text-decoration: none; margin: 32px 0 34px; transition: color .15s ease;
+}
+.doc-back:hover { color: var(--ink); }
+.doc-back svg { width: 13px; height: 13px; }
+.doc-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 12px;
+}
+.doc h1 { font-size: 34px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 12px; }
+.doc-meta { font-size: 14px; color: var(--secondary); margin: 0 0 26px; }
+.doc-meta b { color: var(--ink); font-weight: 500; }
+.doc-meta .sep { color: var(--border); margin: 0 10px; }
+.doc-lede {
+  font-size: 16.5px; line-height: 1.55; color: var(--ink);
+  border-left: 2px solid var(--ink); padding: 2px 0 2px 18px; margin: 0 0 34px;
+  max-width: 64ch;
+}
+.doc-note {
+  margin-top: 34px; padding: 20px 22px; background: var(--faint);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  font-size: 14px; color: var(--secondary); line-height: 1.55;
+}
+.doc-note b { color: var(--ink); font-weight: 500; }
+
+/* ---------- Responsive ---------------------------------------------------- */
+@media (max-width: 720px) {
+  .wrap { padding: 0 20px; }
+  .hub-hero { padding: 48px 0 8px; }
+  .hub-hero h1 { font-size: 32px; }
+  .hub-hero .lede { font-size: 15.5px; }
+  .res-grid, .info-grid { grid-template-columns: 1fr; }
+  .doc { padding: 8px 22px 0; }
+  .doc h1 { font-size: 28px; }
+  .portal-nav a.hide-sm { display: none; }
+}
+
+/* ---------- Print --------------------------------------------------------- */
+@media print {
+  html.preauth { overflow: visible; }
+  html.preauth body > .portal { display: block !important; }
+  #gate, .portal-top, .portal-foot, .doc-back { display: none !important; }
+  body { background: #fff; }
+  .doc { max-width: none; padding: 0; }
+}
