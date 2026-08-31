@@ -67,7 +67,7 @@
         '<p class="gate-err" id="gate-err" role="alert"></p>'
         : '') +
       '<p class="gate-foot">Need access? Email ' +
-        '<a href="mailto:hello@gambitco.io">hello@gambitco.io</a></p>' +
+        '<a href="mailto:alex@gambitco.io">alex@gambitco.io</a></p>' +
     '</div>';
 
   document.body.appendChild(gate);
